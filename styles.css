@@ -584,6 +584,48 @@ figcaption { position: relative; min-height: 58px; }
   font-weight: 700;
 }
 
+/* Back to top (mobile only) */
+.to-top {
+  display: none;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  background: var(--amber);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1;
+  border: 4px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 5px 5px 0 var(--ink);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition: opacity 200ms ease, transform 200ms ease, visibility 200ms ease,
+              background 140ms ease, box-shadow 90ms ease;
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.to-top:hover, .to-top:focus-visible {
+  background: var(--cream);
+  color: var(--ink);
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.to-top-arrow {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* Easter egg overlay */
 .egg-layer {
   position: fixed;
@@ -625,21 +667,24 @@ figcaption { position: relative; min-height: 58px; }
   .header-inner {
     display: grid;
     grid-template-columns: auto 1fr auto;
-    grid-template-areas:
-      "logo lang tickets"
-      "nav nav nav";
+    grid-template-areas: "logo lang tickets";
     align-items: center;
     column-gap: 12px;
-    row-gap: 10px;
     padding: 8px 0;
   }
   .brand { grid-area: logo; }
-  .brand-logo { height: 30px; }
+  .brand-logo { height: 34px; }
   .main-nav { display: contents; }
-  .main-nav ul { grid-area: nav; width: 100%; justify-content: center; gap: 2px; }
+  .main-nav ul { display: none; }
   .lang-switch { grid-area: lang; justify-self: end; }
   .lang-btn { padding: 6px 9px; font-size: 12px; }
   .main-nav > a.btn { grid-area: tickets; padding: 8px 13px; font-size: 13px; }
+
+  .to-top { display: inline-flex; }
+
+  .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .countdown { order: 1; }
+  .hero-actions .btn-large { order: 2; font-size: 17px; padding: 13px 26px; }
 
   main section, .hero { padding-left: 18px; padding-right: 18px; }
 
@@ -653,12 +698,15 @@ figcaption { position: relative; min-height: 58px; }
   .show-info { grid-area: info; }
   .show-item .btn-ghost { grid-area: buy; justify-self: start; width: auto; }
 
-  .pow-button { width: 124px; height: 124px; left: -14px; bottom: -54px; }
-  .pow-button .burst-text { font-size: 25px; -webkit-text-stroke-width: 4px; }
+  /* POW sitter inte på bilden i mobil, utan nere vid vågen */
+  .wave-divider { margin-top: 78px; }
+  .pow-button { width: 118px; height: 118px; left: 8px; bottom: -168px; }
+  .pow-button .burst-text { font-size: 24px; -webkit-text-stroke-width: 4px; }
 
-  .hire-panel { padding: 26px 22px; padding-top: 92px; }
-  .burst { right: 8px; top: -40px; width: 100px; height: 100px; }
-  .burst.burst-button .burst-text { font-size: 22px; -webkit-text-stroke-width: 4px; }
+  #hire { padding-top: 62px; }
+  .hire-panel { padding: 34px 22px 26px; }
+  .burst { right: 8px; top: -42px; width: 92px; height: 92px; }
+  .burst.burst-button .burst-text { font-size: 21px; -webkit-text-stroke-width: 4px; }
 
   .footer-logo { height: 88px; }
   .footer-logo-frame { padding: 14px 18px; }

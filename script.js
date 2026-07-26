@@ -3,7 +3,7 @@
 
   const COPY = {
     sv: {
-      nav: { shows: "Shower", ensemble: "Ensemblen", impro: "Vad är impro?", hire: "Anlita oss", tickets: "Biljetter" },
+      nav: { shows: "Shower", ensemble: "Ensemblen", impro: "Vad är impro?", hire: "Anlita oss", tickets: "Biljetter", toTop: "Till toppen" },
       hero: {
         countdown: "Nästa show om",
         cta: "Köp biljett",
@@ -32,7 +32,7 @@
       footer: { presens: "Slams är en del av Presens Impro." }
     },
     en: {
-      nav: { shows: "Shows", ensemble: "The ensemble", impro: "What is impro?", hire: "Hire us", tickets: "Tickets" },
+      nav: { shows: "Shows", ensemble: "The ensemble", impro: "What is impro?", hire: "Hire us", tickets: "Tickets", toTop: "Back to top" },
       hero: {
         countdown: "Next show in",
         cta: "Get tickets",
@@ -250,6 +250,23 @@
     });
   }
 
+  function setupToTop() {
+    const btn = document.getElementById("to-top");
+    const threshold = 600;
+    let visible = false;
+
+    const sync = () => {
+      const shouldShow = window.scrollY > threshold;
+      if (shouldShow !== visible) {
+        visible = shouldShow;
+        btn.classList.toggle("is-visible", shouldShow);
+      }
+    };
+
+    sync();
+    window.addEventListener("scroll", sync, { passive: true });
+  }
+
   function setupLangSwitch() {
     document.getElementById("lang-sv").addEventListener("click", () => {
       lang = "sv";
@@ -288,6 +305,7 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
     setupLangSwitch();
+    setupToTop();
     setupGenerator();
     setupForm();
     setupEasterEgg();
