@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slams — improviserad komedi från Midsommarkransen</title>
+<meta name="description" content="Slams är sju improvisatörer som bygger scener, karaktärer och hela världar utifrån publikens förslag. Se kommande shower i Midsommarkransen eller anlita oss.">
+<meta property="og:title" content="Slams — improviserad komedi">
+<meta property="og:description" content="Improviserad komedi som skapas i ögonblicket. Sju improvisatörer, Midsommarkransen.">
+<meta property="og:image" content="assets/slams-logo-stacked.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=Bangers&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Hoppa till innehållet</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="brand">
+      <img src="assets/slams-logo-inline.png" alt="Slams — improviserad komedi" class="brand-logo">
+    </a>
+
+    <nav class="main-nav" aria-label="Huvudmeny">
+      <ul>
+        <li><a href="#shows" data-i18n="nav.shows">Shower</a></li>
+        <li><a href="#ensemble" data-i18n="nav.ensemble">Ensemblen</a></li>
+        <li><a href="#impro" data-i18n="nav.impro">Vad är impro?</a></li>
+        <li><a href="#hire" data-i18n="nav.hire">Anlita oss</a></li>
+      </ul>
+
+      <div class="lang-switch" role="group" aria-label="Välj språk / choose language">
+        <button type="button" id="lang-sv" class="lang-btn is-active" aria-pressed="true">SV</button>
+        <button type="button" id="lang-en" class="lang-btn" aria-pressed="false">EN</button>
+      </div>
+
+      <a class="btn btn-primary" href="https://presensimpro.se/" target="_blank" rel="noopener" data-i18n="nav.tickets">Biljetter<span class="visually-hidden"> (öppnas i ny flik)</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <section id="top" class="hero" aria-labelledby="hero-heading">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1 id="hero-heading" data-i18n="hero.title">Improviserad komedi som skapas i ögonblicket.</h1>
+        <p class="lead" data-i18n="hero.lead">Vi är sju improvisatörer som bygger scener, karaktärer och hela världar utifrån publikens förslag. Målet är enkelt: att ni skrattar hela vägen hem.</p>
+      </div>
+      <div class="hero-logo">
+        <img src="assets/slams-logo-stacked.png" alt="Slams Impro" class="hero-logo-img">
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-large" href="https://presensimpro.se/" target="_blank" rel="noopener" data-i18n="hero.cta">Köp biljett</a>
+      <p class="countdown">
+        <span class="countdown-label" data-i18n="hero.countdown">Nästa show om</span>
+        <time id="countdown-value" class="countdown-value">—</time>
+      </p>
+    </div>
+
+    <div class="hero-banner-wrap">
+      <img src="assets/hero-ensemble.jpg" width="1800" height="554" class="hero-banner"
+           alt="Ensemblen i silhuett mot en sjö och granskog"
+           data-i18n-alt="hero.bannerAlt">
+      <button type="button" id="pow-trigger" class="burst-button pow-button" aria-label="Klicka för en rolig överraskning">
+        <span class="burst-dots" aria-hidden="true"></span>
+        <span class="burst-shape burst-shape-dark" aria-hidden="true"></span>
+        <span class="burst-shape burst-shape-fill pow-fill" aria-hidden="true"></span>
+        <span class="burst-text" aria-hidden="true">POW!</span>
+      </button>
+    </div>
+  </section>
+
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+      <path d="M0,66 C240,8 480,10 720,50 C960,92 1200,112 1440,70 L1440,120 L0,120 Z" fill="#E8A22B"></path>
+    </svg>
+    <div class="wave-dots"></div>
+  </div>
+
+  <section id="shows" class="shows" aria-labelledby="shows-heading">
+    <div class="section-head">
+      <h2 id="shows-heading" data-i18n="shows.title">Kommande shower</h2>
+      <p data-i18n="shows.lead">Alla shower kl 20:00 i Midsommarkransen. Biljetter 150 kr, och varje kväll har vi med en gäst som får ställa till det för oss.</p>
+    </div>
+
+    <ul class="show-list">
+      <li class="show-item" data-show-index="0">
+        <time class="show-date" datetime="2026-09-19T20:00">19 sep</time>
+        <div class="show-info">
+          <span class="show-name">Slams + gäst</span>
+          <span class="show-meta">lör 20:00 · Midsommarkransen</span>
+        </div>
+        <span class="show-price">150 kr</span>
+        <a class="btn btn-ghost" href="https://presensimpro.se/" target="_blank" rel="noopener" data-i18n="shows.buy">Biljett</a>
+      </li>
+      <li class="show-item" data-show-index="1">
+        <time class="show-date" datetime="2026-10-17T20:00">17 okt</time>
+        <div class="show-info">
+          <span class="show-name">Slams + gäst</span>
+          <span class="show-meta">lör 20:00 · Midsommarkransen</span>
+        </div>
+        <span class="show-price">150 kr</span>
+        <a class="btn btn-ghost" href="https://presensimpro.se/" target="_blank" rel="noopener" data-i18n="shows.buy">Biljett</a>
+      </li>
+      <li class="show-item" data-show-index="2">
+        <time class="show-date" datetime="2026-11-07T20:00">7 nov</time>
+        <div class="show-info">
+          <span class="show-name">Slams + gäst</span>
+          <span class="show-meta">lör 20:00 · Midsommarkransen</span>
+        </div>
+        <span class="show-price">150 kr</span>
+        <a class="btn btn-ghost" href="https://presensimpro.se/" target="_blank" rel="noopener" data-i18n="shows.buy">Biljett</a>
+      </li>
+      <li class="show-item" data-show-index="3">
+        <time class="show-date" datetime="2026-11-21T20:00">21 nov</time>
+        <div class="show-info">
+          <span class="show-name">Slams + gäst</span>
+          <span class="show-meta">lör 20:00 · Midsommarkransen</span>
+        </div>
+        <span class="show-price">150 kr</span>
+        <a class="btn btn-ghost" href="https://presensimpro.se/" target="_blank" rel="noopener" data-i18n="shows.buy">Biljett</a>
+      </li>
+      <li class="show-item" data-show-index="4">
+        <time class="show-date" datetime="2026-12-12T20:00">12 dec</time>
+        <div class="show-info">
+          <span class="show-name">Slams + gäst</span>
+          <span class="show-meta">lör 20:00 · Midsommarkransen</span>
+        </div>
+        <span class="show-price">150 kr</span>
+        <a class="btn btn-ghost" href="https://presensimpro.se/" target="_blank" rel="noopener" data-i18n="shows.buy">Biljett</a>
+      </li>
+    </ul>
+    <p class="fine-print" data-i18n="shows.note">Biljetter säljs via Presens Impro. Kom i tid — vi börjar när ni sitter ner.</p>
+  </section>
+
+  <section id="ensemble" class="ensemble" aria-labelledby="ensemble-heading">
+    <h2 id="ensemble-heading" data-i18n="ens.title">Sju personer, oändligt många karaktärer</h2>
+    <p class="section-lead" data-i18n="ens.lead">Vi kan inte lova vilka vi är på scenen. Men det här är vad som brukar hända.</p>
+
+    <ul class="ensemble-grid">
+      <li class="member" data-member="Madeleine" style="--member-color:#E8A22B">
+        <figure>
+          <div class="photo-stack">
+            <img src="assets/portrait-a.jpg" alt="Madeleine" class="photo photo-a">
+            <img src="assets/portrait-b.jpg" alt="" class="photo photo-b" aria-hidden="true">
+          </div>
+          <figcaption>
+            <span class="member-name">Madeleine</span>
+            <span class="member-role">Hittar på abstrakta roller — typ en kexchoklad i en varuautomat på tunnelbanan.</span>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="member" data-member="Bastian" style="--member-color:#5BC4B4">
+        <figure>
+          <div class="photo-stack">
+            <img src="assets/portrait-a.jpg" alt="Bastian" class="photo photo-a">
+            <img src="assets/portrait-b.jpg" alt="" class="photo photo-b" aria-hidden="true">
+          </div>
+          <figcaption>
+            <span class="member-name">Bastian</span>
+            <span class="member-role">Stark karaktär som helst tar sig ut på rymdäventyr.</span>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="member" data-member="Sara" style="--member-color:#E66874">
+        <figure>
+          <div class="photo-stack">
+            <img src="assets/portrait-a.jpg" alt="Sara" class="photo photo-a">
+            <img src="assets/portrait-b.jpg" alt="" class="photo photo-b" aria-hidden="true">
+          </div>
+          <figcaption>
+            <span class="member-name">Sara</span>
+            <span class="member-role">Den onda primadonnan. Utan förvarning.</span>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="member" data-member="Kim" style="--member-color:#7FA6E8">
+        <figure>
+          <div class="photo-stack">
+            <img src="assets/portrait-a.jpg" alt="Kim" class="photo photo-a">
+            <img src="assets/portrait-b.jpg" alt="" class="photo photo-b" aria-hidden="true">
+          </div>
+          <figcaption>
+            <span class="member-name">Kim</span>
+            <span class="member-role">Tar alla under sina vingar och drar historien framåt.</span>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="member" data-member="Johanna" style="--member-color:#F2B7A4">
+        <figure>
+          <div class="photo-stack">
+            <img src="assets/portrait-a.jpg" alt="Johanna" class="photo photo-a">
+            <img src="assets/portrait-b.jpg" alt="" class="photo photo-b" aria-hidden="true">
+          </div>
+          <figcaption>
+            <span class="member-name">Johanna</span>
+            <span class="member-role">Hittar en helt ny tvist som ingen annan tänkt på.</span>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="member" data-member="Louise" style="--member-color:#BFA0E0">
+        <figure>
+          <div class="photo-stack">
+            <img src="assets/portrait-a.jpg" alt="Louise" class="photo photo-a">
+            <img src="assets/portrait-b.jpg" alt="" class="photo photo-b" aria-hidden="true">
+          </div>
+          <figcaption>
+            <span class="member-name">Louise</span>
+            <span class="member-role">Den gamla tanten i parken som också råkar råna banker.</span>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="member" data-member="Ville" style="--member-color:#A8C86A">
+        <figure>
+          <div class="photo-stack">
+            <img src="assets/portrait-a.jpg" alt="Ville" class="photo photo-a">
+            <img src="assets/portrait-b.jpg" alt="" class="photo photo-b" aria-hidden="true">
+          </div>
+          <figcaption>
+            <span class="member-name">Ville</span>
+            <span class="member-role">Den ökända banditen som kommer tillbaka till saloonen.</span>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+  </section>
+
+  <section id="impro" class="impro" aria-labelledby="impro-heading">
+    <div class="impro-grid">
+      <div class="impro-text">
+        <h2 id="impro-heading" data-i18n="impro.title">Vad är impro comedy?</h2>
+        <p data-i18n="impro.p1">Ingenting är bestämt i förväg. Vi frågar publiken om inspiration — det kan vara ett ord, en plats, ett minne eller något helt annat — och sen spelar vi upp det direkt, utan skyddsnät.</p>
+        <p data-i18n="impro.p2">Vad vi gör är olika varje föreställning. Det vi vet är att vi hittar det roliga och förstärker det. Och när något går fel på scenen — då blir det oftast som roligast.</p>
+        <p class="eyebrow" data-i18n="impro.formatsLabel">Format vi bland annat har spelat</p>
+        <ul class="format-tags">
+          <li style="--tag-color:#E8A22B">La Ronde</li>
+          <li style="--tag-color:#5BC4B4">Harold</li>
+          <li style="--tag-color:#E66874">Cat's Cradle</li>
+          <li style="--tag-color:#7FA6E8">Invokando</li>
+          <li style="--tag-color:#F2B7A4">The Maker</li>
+          <li style="--tag-color:#BFA0E0">Armando</li>
+          <li style="--tag-color:#A8C86A">Macro scene</li>
+          <li style="--tag-color:#E8A22B">Mono scene</li>
+        </ul>
+      </div>
+
+      <aside class="generator-card" aria-labelledby="generator-heading">
+        <p class="kicker" data-i18n="gen.kicker">Prova själv</p>
+        <h3 id="generator-heading" data-i18n="gen.title">Slumpa fram en scen</h3>
+        <dl class="generator-fields">
+          <div class="generator-field">
+            <dt data-i18n="gen.l1">Plats</dt>
+            <dd id="sugg-a">En tvättstuga kl 03:00</dd>
+          </div>
+          <div class="generator-field">
+            <dt data-i18n="gen.l2">Relation</dt>
+            <dd id="sugg-b">Två syskon som inte pratat på tolv år</dd>
+          </div>
+          <div class="generator-field">
+            <dt data-i18n="gen.l3">Och plötsligt</dt>
+            <dd id="sugg-c">dyker en kexchoklad upp</dd>
+          </div>
+        </dl>
+        <button type="button" id="roll-btn" class="btn btn-primary btn-full" data-i18n="gen.btn">Slumpa fram ett nytt förslag</button>
+        <p class="generator-note" data-i18n="gen.note">Just den här scenen har vi aldrig spelat. Ta med förslaget till showen.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="hire" class="hire" aria-labelledby="hire-heading">
+    <div class="hire-panel">
+      <span class="burst-button burst" aria-hidden="true">
+        <span class="burst-dots" aria-hidden="true"></span>
+        <span class="burst-shape burst-shape-dark" aria-hidden="true"></span>
+        <span class="burst-shape burst-shape-fill bom-fill" aria-hidden="true"></span>
+        <span class="burst-text">BOM!</span>
+      </span>
+      <h2 id="hire-heading" data-i18n="hire.title">Anlita oss</h2>
+      <div class="hire-grid">
+        <div class="hire-text">
+          <p data-i18n="hire.p1">Vi spelar gärna på företagsevent, konferenser, fester, föreningsträffar och allt annat där folk behöver skratta tillsammans.</p>
+          <p data-i18n="hire.p2">Är det för välgörande ändamål spelar vi gratis. Punkt. Ni behöver bara ge oss en scen, en publik och ett ord att börja med.</p>
+          <div class="joke-box">
+            <p class="joke" data-i18n="hire.joke">Annars är vi förvånansvärt prisvärda.</p>
+            <p class="joke-sub" data-i18n="hire.jokeSub">Hör av dig med datum och sammanhang, så improviserar vi fram ett pris som funkar.</p>
+          </div>
+          <p class="mail-line"><span data-i18n="hire.mailLabel">Eller mejla oss direkt:</span> <a href="mailto:slamsimpro@gmail.com">slamsimpro@gmail.com</a></p>
+        </div>
+
+        <form id="hire-form" class="hire-form" aria-label="Bokningsförfrågan">
+          <div class="field">
+            <label for="field-name" data-i18n="form.name">Namn</label>
+            <input id="field-name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="field-email" data-i18n="form.email">Mejl</label>
+            <input id="field-email" name="email" type="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="field-occasion" data-i18n="form.occasion">Vad är det för tillfälle?</label>
+            <input id="field-occasion" name="occasion" type="text">
+          </div>
+          <div class="field">
+            <label for="field-message" data-i18n="form.message">Berätta mer</label>
+            <textarea id="field-message" name="message" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" data-i18n="form.send">Skicka förfrågan</button>
+          <p class="form-note" data-i18n="form.note">Öppnar din mejlklient med allt ifyllt till slamsimpro@gmail.com.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <span class="footer-logo-frame">
+      <img src="assets/slams-logo-inline.png" alt="Slams Impro" class="footer-logo">
+    </span>
+    <ul class="contact-links">
+      <li><a class="btn btn-ghost" href="mailto:slamsimpro@gmail.com">slamsimpro@gmail.com</a></li>
+      <li><a class="btn btn-ghost" href="https://instagram.com/slamsimpro" target="_blank" rel="noopener">@slamsimpro</a></li>
+      <li><a class="btn btn-ghost" href="https://presensimpro.se/" target="_blank" rel="noopener">presensimpro.se</a></li>
+    </ul>
+  </div>
+  <p class="footer-bottom" data-i18n="footer.presens">Slams är en del av Presens Impro.</p>
+</footer>
+
+<div id="egg-layer" class="egg-layer" aria-hidden="true"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sidan finns inte — Slams</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=Bangers&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .notfound {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+    text-align: center;
+    padding: 40px 24px;
+  }
+  .notfound-code {
+    font-family: var(--font-comic);
+    font-size: clamp(80px, 18vw, 190px);
+    line-height: 1;
+    color: var(--amber);
+    -webkit-text-stroke: 7px var(--ink);
+    paint-order: stroke fill;
+    transform: rotate(-4deg);
+    margin: 0;
+  }
+  .notfound h1 { font-size: clamp(26px, 4vw, 42px); max-width: 24ch; }
+  .notfound p { font-size: 18px; max-width: 40ch; line-height: 1.5; }
+  .notfound img { width: min(190px, 50vw); height: auto; }
+</style>
+</head>
+<body>
+<main class="notfound">
+  <img src="assets/slams-logo-stacked.png" alt="Slams Impro">
+  <p class="notfound-code" aria-hidden="true">OOPS!</p>
+  <h1>Den här sidan har improviserat sig bort</h1>
+  <p>Sidan du letade efter finns inte. Men showen fortsätter — hoppa tillbaka till startsidan.</p>
+  <a class="btn btn-primary btn-large" href="./">Till startsidan</a>
+</main>
+</body>
+</html>
