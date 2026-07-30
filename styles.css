@@ -225,6 +225,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   animation: slams-wob 7s ease-in-out infinite;
 }
 
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -505,16 +506,20 @@ figcaption { position: relative; min-height: 58px; }
   align-items: start;
 }
 :where(.hire-text) p { font-size: 18px; line-height: 1.55; margin: 0 0 16px; text-wrap: pretty; }
-.joke-box {
-  border: 3px dashed var(--ink);
-  border-radius: 8px;
-  padding: 16px 20px;
-  background: var(--cream);
-}
-.joke { font-family: var(--font-display); font-weight: 700; font-size: 20px; line-height: 1.3; }
-.joke-sub { margin-top: 8px; font-size: 15px; }
 .mail-line { margin-top: 20px; font-size: 16px; font-weight: 700; }
 .mail-line a { text-decoration: underline; }
+
+.hire-photo {
+  width: 100%;
+  height: auto;
+  margin-top: 24px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 4px solid var(--ink);
+  border-radius: 8px;
+  box-shadow: 8px 8px 0 var(--ink);
+  background: var(--coral);
+}
 
 .hire-form {
   display: flex;

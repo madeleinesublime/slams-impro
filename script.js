@@ -22,11 +22,9 @@
       gen: { kicker: "Prova själv", title: "Slumpa fram en scen", l1: "Plats", l2: "Relation", l3: "Och plötsligt", btn: "Slumpa fram ett nytt förslag", note: "Just den här scenen har vi aldrig spelat. Ta med förslaget till showen." },
       hire: {
         title: "Anlita oss",
-        p1: "Vi spelar gärna på företagsevent, konferenser, fester, föreningsträffar och allt annat där folk behöver skratta tillsammans.",
-        p2: "Är det för välgörande ändamål spelar vi gratis. Punkt. Ni behöver bara ge oss en scen, en publik och ett ord att börja med.",
-        joke: "Annars är vi förvånansvärt prisvärda.",
-        jokeSub: "Hör av dig med datum och sammanhang, så improviserar vi fram ett pris som funkar.",
-        mailLabel: "Eller mejla oss direkt:"
+        p1: "Vill du anlita oss? Hör av dig med datum och sammanhang.",
+        mailLabel: "Eller mejla oss direkt:",
+        photoAlt: "Slams sju improvisatörer samlade runt en björkstam"
       },
       form: { name: "Namn", email: "Mejl", occasion: "Vad är det för tillfälle?", message: "Berätta mer", send: "Skicka förfrågan", note: "Öppnar din mejlklient med allt ifyllt till slamsimpro@gmail.com." },
       footer: { presens: "Slams är en del av Presens Impro." }
@@ -51,11 +49,9 @@
       gen: { kicker: "Try it yourself", title: "Roll a random scene", l1: "Place", l2: "Relationship", l3: "And suddenly", btn: "Give us a suggestion", note: "We have never played this exact scene. Bring the suggestion to the show." },
       hire: {
         title: "Hire us",
-        p1: "We happily play corporate events, conferences, parties, club nights and anything else where people need to laugh together.",
-        p2: "If it's for charity, we play for free. Full stop. Just give us a stage, an audience and one word to start from.",
-        joke: "Otherwise we're surprisingly affordable.",
-        jokeSub: "Send us a date and some context and we'll improvise a price that works.",
-        mailLabel: "Or email us directly:"
+        p1: "Want to hire us? Get in touch with a date and some context.",
+        mailLabel: "Or email us directly:",
+        photoAlt: "The seven Slams improvisers gathered around a birch trunk"
       },
       form: { name: "Name", email: "Email", occasion: "What's the occasion?", message: "Tell us more", send: "Send request", note: "Opens your mail client with everything filled in to slamsimpro@gmail.com." },
       footer: { presens: "Slams is part of Presens Impro." }
