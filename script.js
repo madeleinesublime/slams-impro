@@ -9,7 +9,7 @@
         cta: "Köp biljett",
         title: "Improviserad komedi som skapas i ögonblicket.",
         lead: "Vi är sju improvisatörer som bygger scener, karaktärer och hela världar utifrån publikens förslag. Målet är enkelt: att ni skrattar hela vägen hem.",
-        bannerAlt: "Ensemblen i silhuett mot en sjö och granskog"
+        bannerAlt: "Slams sju improvisatörer står tätt ihop utomhus framför grönska"
       },
       shows: { title: "Kommande shower", lead: "Alla shower kl 20:00 i Midsommarkransen. Biljetter 150 kr, och varje kväll har vi med en gäst som får ställa till det för oss.", buy: "Biljett", note: "Biljetter säljs via Presens Impro. Kom i tid — vi börjar när ni sitter ner." },
       ens: { title: "Sju personer, oändligt många karaktärer", lead: "Vi kan inte lova vilka vi är på scenen. Men det här är vad som brukar hända." },
@@ -38,7 +38,7 @@
         cta: "Get tickets",
         title: "Improv comedy, written while you watch.",
         lead: "We're seven improvisers building scenes, characters and entire worlds out of audience suggestions. The goal is simple: that you laugh all the way home.",
-        bannerAlt: "The ensemble in silhouette against a lake and pine forest"
+        bannerAlt: "The seven Slams improvisers standing close together outdoors in front of greenery"
       },
       shows: { title: "Upcoming shows", lead: "Every show at 20:00 in Midsommarkransen. Tickets 150 SEK, and each night a guest joins us to make things harder.", buy: "Tickets", note: "Tickets are sold through Presens Impro. Come early — we start once you sit down." },
       ens: { title: "Seven people, endless characters", lead: "We can't promise who we'll be on stage. But this is what usually happens." },
