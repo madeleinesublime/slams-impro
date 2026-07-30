@@ -5,3 +5,8 @@
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Högupplösta källbilder till porträtten (~130 MB) — ligger kvar lokalt,
+# men versionshanteras inte. Webbversionerna finns i assets/portraits/.
+assets/*1.png
+assets/*2.png
