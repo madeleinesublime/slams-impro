@@ -3,15 +3,33 @@
 
   const COPY = {
     sv: {
-      nav: { shows: "Shower", ensemble: "Ensemblen", impro: "Vad är impro?", hire: "Anlita oss", tickets: "Biljetter", toTop: "Till toppen" },
+      meta: { description: "Slams är sju improvisatörer som spelar improviserad komedi i Midsommarkransen i Stockholm. Inget är skrivet i förväg. Biljett 150 kr — se kommande shower eller anlita oss." },
+      nav: { shows: "Shower", ensemble: "Ensemblen", impro: "Vad är impro?", faq: "Frågor & svar", hire: "Anlita oss", tickets: "Biljetter<span class='visually-hidden'> (öppnas i ny flik)</span>", toTop: "Till toppen" },
       hero: {
         countdown: "Nästa show om",
         cta: "Köp biljett",
-        title: "Improviserad komedi som skapas i ögonblicket.",
+        title: "Improviserad komedi i Stockholm som skapas i ögonblicket.",
         lead: "Vi är sju improvisatörer som bygger scener, karaktärer och hela världar utifrån publikens förslag. Målet är enkelt: att ni skrattar hela vägen hem.",
         bannerAlt: "Slams sju improvisatörer står tätt ihop utomhus framför grönska"
       },
-      shows: { title: "Kommande shower", lead: "Alla shower kl 20:00 i Midsommarkransen. Biljetter 150 kr, och varje kväll har vi med en gäst som får ställa till det för oss.", buy: "Biljett", note: "Biljetter säljs via Presens Impro. Kom i tid — vi börjar när ni sitter ner." },
+      shows: {
+        title: "Kommande shower",
+        lead: "Höstens speldatum",
+        buy: "Biljett",
+        currency: "kr",
+        soon: "Biljetter släpps senare",
+        guestTag: "Gästspel",
+        buyGuest: "Biljett hos Improvisationsteatern<span class='visually-hidden'> (öppnas i ny flik)</span>"
+      },
+      fiction: {
+        kicker: "Vår återkommande show",
+        title: "Slams Fiction",
+        p1: "Slams Fiction är vår egen show i Presens improkällare i Midsommarkransen. Ingenting är skrivet i förväg — vi bygger hela kvällen på förslag från er i publiken, och spelar den bara en gång.",
+        p2: "Varje kväll har vi med en gäst som får ställa till det för oss — en ny röst på scenen som tvingar oss att tänka om.",
+        lTime: "Tid", lPrice: "Pris", vPrice: "150 kr", lPlace: "Plats",
+        lLength: "Längd", vLength: "Ca 2 timmar", lGuest: "Gäst", vGuest: "Varje kväll",
+        cta: "Köp biljett"
+      },
       ens: { title: "Sju personer, oändligt många karaktärer", lead: "Vi kan inte lova vilka vi är på scenen. Men det här är vad som brukar hända." },
       impro: {
         title: "Vad är impro comedy?",
@@ -20,6 +38,41 @@
         formatsLabel: "Format vi bland annat har spelat"
       },
       gen: { kicker: "Prova själv", title: "Slumpa fram en scen", l1: "Plats", l2: "Relation", l3: "Och plötsligt", btn: "Slumpa fram ett nytt förslag", note: "Just den här scenen har vi aldrig spelat. Ta med förslaget till showen." },
+      faq: {
+        title: "Frågor och svar",
+        lead: "Det ni brukar undra innan ni kommer. Och nej — du behöver inte upp på scenen.",
+        q1: "Vad är Slams?",
+        a1: "Slams är en improgrupp med sju improvisatörer som spelar improviserad komedi i Midsommarkransen i Stockholm. Vi är en del av <a href='https://presensimpro.se/' target='_blank' rel='noopener'>Presens Impro</a>. Ingenting i showen är skrivet i förväg — allt byggs på förslag från publiken.",
+        q2: "Vad är improviserad komedi?",
+        a2: "Improviserad komedi, eller impro, är komedi som skapas i samma stund som den spelas. Det finns inget manus och ingen repetition. Vi ber publiken om ett ord, en plats eller ett minne och spelar upp scenerna direkt utifrån det.",
+        q3: "Är det samma show varje gång?",
+        a3: "Nej, aldrig. Varje föreställning är helt ny och spelas bara en enda gång — vi gör inga repriser. Du kan se Slams hur många gånger som helst och aldrig se samma scen två gånger. Vi använder etablerade improformat som Harold, La Ronde och Armando, men innehållet är nytt varje kväll.",
+        q4: "Måste jag vara med på scenen?",
+        a4: "Nej. Publiken är aldrig med i showen — du sitter tryggt kvar på din plats hela kvällen. Det enda vi ber om är att salen som helgrupp svarar på några frågor från scenen. Det är er improgaranti: vi spelar utifrån era förslag, inte något vi förberett i förväg. Vill du själv stå på scen finns det improkurser hos <a href='https://presensimpro.se/' target='_blank' rel='noopener'>Presens Impro</a>.",
+        q5: "Vilket språk spelas showerna på?",
+        a5: "Slams spelar på svenska. Ibland gör vi gästspel på engelska, och då står det tydligt i informationen om just den showen.",
+        q6: "Finns det någon åldersgräns?",
+        a6: "Det finns ingen åldersgräns, men humorn är vuxen. Eftersom ingenting är bestämt i förväg vet inte ens vi vart en scen tar vägen, så innehållet kan bli oväntat. Våra shower ses alltid på egen risk.",
+        q7: "Var ligger lokalen?",
+        a7: "Vi spelar i Presens improkällare på Tegelbruksvägen 28, 126 34 Hägersten — ett stenkast från Midsommarkransens tunnelbanestation i södra Stockholm. Det finns toalett i lokalen.",
+        q8: "När börjar Slams Fiction?",
+        a8: "Slams Fiction börjar klockan 20:00 och dörrarna öppnar 19:30. Gästspel kan ha andra starttider — det står i informationen om just den showen. Kommande datum hittar du under <a href='#shows'>Kommande shower</a> här på sidan.",
+        q9: "Hur lång är föreställningen?",
+        a9: "Ungefär två timmar inklusive paus. Showen börjar 20:00.",
+        q10: "Vad kostar en biljett och var köper jag den?",
+        a10: "En biljett kostar 150 kronor och säljs i förköp via <a href='https://presensimpro.se/' target='_blank' rel='noopener'>Presens Impro</a>.",
+        q11: "Kan jag köpa biljett i dörren?",
+        a11: "Ja, det går bra att köpa biljett i dörren så länge showen inte är slutsåld. Dörrarna öppnar 19:30. Vill du vara säker på en plats är förköp tryggast.",
+        q12: "Finns det mat och dryck i lokalen?",
+        a12: "Det finns gott att dricka och något litet att snacka på, men kom inte hungrig — impro är bäst på full mage. Ät innan och ta ett glas hos oss.",
+        q13: "Är platserna numrerade — var ska jag sitta?",
+        a13: "Platserna är onumrerade, så det är först till kvarn. Vårt tips: var osvensk och sätt dig långt fram. Det är de bästa platserna, och nej — du hamnar inte på scen. Publiken är aldrig med i showen.",
+        q14: "Kan man anlita Slams till ett event?",
+        a14: "Ja, det går bra. Vi spelar i många olika sammanhang och format, och vad som passar beror helt på tillfället. Mejla <a href='mailto:slamsimpro@gmail.com'>slamsimpro@gmail.com</a> med datum och sammanhang, eller fyll i formuläret under <a href='#hire'>Anlita oss</a> här på sidan — hör av dig, så berättar vi mer.",
+        q15: "Hur kommer jag igång med impro själv?",
+        a15: "Vill du prova impro själv går du en kurs hos <a href='https://presensimpro.se/' target='_blank' rel='noopener'>Presens Impro</a>, som Slams är en del av. Slams shower är till för att upplevas från publikplats — vi tar aldrig upp någon ur publiken på scenen.",
+        note: "Hittar du inte svaret? Mejla <a href='mailto:slamsimpro@gmail.com'>slamsimpro@gmail.com</a> — vi svarar gärna."
+      },
       hire: {
         title: "Anlita oss",
         p1: "Vill du anlita oss? Hör av dig med datum och sammanhang.",
@@ -30,15 +83,33 @@
       footer: { presens: "Slams är en del av Presens Impro." }
     },
     en: {
-      nav: { shows: "Shows", ensemble: "The ensemble", impro: "What is impro?", hire: "Hire us", tickets: "Tickets", toTop: "Back to top" },
+      meta: { description: "Slams are seven improvisers performing improvised comedy in Midsommarkransen, Stockholm. Nothing is written in advance. Tickets 150 SEK — see upcoming shows or hire us." },
+      nav: { shows: "Shows", ensemble: "The ensemble", impro: "What is impro?", faq: "Q&A", hire: "Hire us", tickets: "Tickets<span class='visually-hidden'> (opens in a new tab)</span>", toTop: "Back to top" },
       hero: {
         countdown: "Next show in",
         cta: "Get tickets",
-        title: "Improv comedy, written while you watch.",
+        title: "Improv comedy in Stockholm, written while you watch.",
         lead: "We're seven improvisers building scenes, characters and entire worlds out of audience suggestions. The goal is simple: that you laugh all the way home.",
         bannerAlt: "The seven Slams improvisers standing close together outdoors in front of greenery"
       },
-      shows: { title: "Upcoming shows", lead: "Every show at 20:00 in Midsommarkransen. Tickets 150 SEK, and each night a guest joins us to make things harder.", buy: "Tickets", note: "Tickets are sold through Presens Impro. Come early — we start once you sit down." },
+      shows: {
+        title: "Upcoming shows",
+        lead: "This autumn's dates",
+        buy: "Tickets",
+        currency: "SEK",
+        soon: "Tickets released later",
+        guestTag: "Guest show",
+        buyGuest: "Tickets at Improvisationsteatern<span class='visually-hidden'> (opens in a new tab)</span>"
+      },
+      fiction: {
+        kicker: "Our recurring show",
+        title: "Slams Fiction",
+        p1: "Slams Fiction is our own show in Presens improkällare in Midsommarkransen. Nothing is written in advance — we build the whole night from your suggestions, and we play it only once.",
+        p2: "Every night a guest joins us to make things harder for us — a new voice on stage that forces us to think again.",
+        lTime: "Time", lPrice: "Price", vPrice: "150 SEK", lPlace: "Venue",
+        lLength: "Length", vLength: "About 2 hours", lGuest: "Guest", vGuest: "Every night",
+        cta: "Get tickets"
+      },
       ens: { title: "Seven people, endless characters", lead: "We can't promise who we'll be on stage. But this is what usually happens." },
       impro: {
         title: "What is impro comedy?",
@@ -47,6 +118,41 @@
         formatsLabel: "Formats we've played, among others"
       },
       gen: { kicker: "Try it yourself", title: "Roll a random scene", l1: "Place", l2: "Relationship", l3: "And suddenly", btn: "Give us a suggestion", note: "We have never played this exact scene. Bring the suggestion to the show." },
+      faq: {
+        title: "Questions and answers",
+        lead: "The things people wonder before they come. And no — you don't have to go on stage.",
+        q1: "What is Slams?",
+        a1: "Slams is an improv group of seven improvisers performing improvised comedy in Midsommarkransen, Stockholm. We're part of <a href='https://presensimpro.se/' target='_blank' rel='noopener'>Presens Impro</a>. Nothing in the show is written in advance — it is all built from audience suggestions.",
+        q2: "What is improvised comedy?",
+        a2: "Improvised comedy, or impro, is comedy created in the very moment it is performed. There is no script and no rehearsal. We ask the audience for a word, a place or a memory, and play the scenes straight from that.",
+        q3: "Is it the same show every time?",
+        a3: "Never. Every performance is brand new and played only once — we don't do reruns. You can see Slams as many times as you like and never see the same scene twice. We use established impro formats like Harold, La Ronde and Armando, but the content is new every night.",
+        q4: "Do I have to go on stage?",
+        a4: "No. The audience is never part of the show — you stay safely in your seat all night. All we ask is that the room answers a few questions from the stage as a group. That is your improv guarantee: we play from your suggestions, not something we prepared in advance. If you do want to be on stage, <a href='https://presensimpro.se/' target='_blank' rel='noopener'>Presens Impro</a> runs impro courses.",
+        q5: "What language are the shows in?",
+        a5: "Slams performs in Swedish. We occasionally do guest shows in English, and when we do it is clearly stated in the information for that specific show.",
+        q6: "Is there an age limit?",
+        a6: "There is no age limit, but the humour is adult. Since nothing is decided in advance, not even we know where a scene will go, so the content can get unexpected. Our shows are always watched at your own risk.",
+        q7: "Where is the venue?",
+        a7: "We play in Presens improkällare at Tegelbruksvägen 28, 126 34 Hägersten — a stone's throw from Midsommarkransen metro station in southern Stockholm. There are toilets in the venue.",
+        q8: "When does Slams Fiction start?",
+        a8: "Slams Fiction starts at 20:00 and doors open at 19:30. Guest shows can have different start times — that is stated in the information for that specific show. You will find upcoming dates under <a href='#shows'>Upcoming shows</a> on this page.",
+        q9: "How long is the show?",
+        a9: "About two hours including an intermission. The show starts at 20:00.",
+        q10: "How much is a ticket and where do I buy it?",
+        a10: "A ticket costs 150 SEK and is sold in advance through <a href='https://presensimpro.se/' target='_blank' rel='noopener'>Presens Impro</a>.",
+        q11: "Can I buy a ticket at the door?",
+        a11: "Yes, you can buy a ticket at the door as long as the show is not sold out. Doors open at 19:30. If you want to be certain of a seat, buying in advance is safest.",
+        q12: "Is there food and drink at the venue?",
+        a12: "There is plenty to drink and something small to snack on, but don't come hungry — impro is best on a full stomach. Eat before and have a drink with us.",
+        q13: "Are the seats numbered — where should I sit?",
+        a13: "Seats are unnumbered, so it is first come, first served. Our tip: don't be shy, sit right at the front. Those are the best seats, and no — you will not end up on stage. The audience is never part of the show.",
+        q14: "Can we hire Slams for an event?",
+        a14: "Yes. We play in all sorts of contexts and formats, and what fits depends entirely on the occasion. Email <a href='mailto:slamsimpro@gmail.com'>slamsimpro@gmail.com</a> with a date and some context, or fill in the form under <a href='#hire'>Hire us</a> on this page — get in touch and we will tell you more.",
+        q15: "How do I get started with impro myself?",
+        a15: "If you want to try impro yourself, take a course at <a href='https://presensimpro.se/' target='_blank' rel='noopener'>Presens Impro</a>, which Slams is part of. Slams shows are made to be enjoyed from a seat in the audience — we never bring anyone from the audience on stage.",
+        note: "Can't find your answer? Email <a href='mailto:slamsimpro@gmail.com'>slamsimpro@gmail.com</a> — we are happy to help."
+      },
       hire: {
         title: "Hire us",
         p1: "Want to hire us? Get in touch with a date and some context.",
@@ -68,12 +174,14 @@
     Ville: { sv: "Den ökända banditen som kommer tillbaka till saloonen.", en: "The infamous bandit riding back into the saloon." }
   };
 
+  // price is omitted where we don't set it ourselves (guest shows).
   const SHOWS = [
-    { date: "2026-09-19", sv: "Slams + gäst", en: "Slams + guest" },
-    { date: "2026-10-17", sv: "Slams + gäst", en: "Slams + guest" },
-    { date: "2026-11-07", sv: "Slams + gäst", en: "Slams + guest" },
-    { date: "2026-11-21", sv: "Slams + gäst", en: "Slams + guest" },
-    { date: "2026-12-12", sv: "Slams + gäst", en: "Slams + guest" }
+    { date: "2026-09-19", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
+    { date: "2026-10-17", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
+    { date: "2026-11-07", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
+    { date: "2026-12-04", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
+    { date: "2026-12-12", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
+    { date: "2026-12-19", time: "19:00", place: "Södermalm", guest: true, sv: "Salongen", en: "Salongen" }
   ];
 
   const SUGG = {
@@ -106,6 +214,12 @@
       if (typeof value === "string") el.textContent = value;
     });
 
+    // Copy that contains inline links (FAQ answers, contact lines).
+    document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+      const value = getPath(COPY[lang], el.getAttribute("data-i18n-html"));
+      if (typeof value === "string") el.innerHTML = value;
+    });
+
     document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
       const value = getPath(COPY[lang], el.getAttribute("data-i18n-alt"));
       if (typeof value === "string") el.alt = value;
@@ -120,21 +234,77 @@
       ? "Slams — improviserad komedi från Midsommarkransen"
       : "Slams — improv comedy from Midsommarkransen";
 
+    setMeta("name", "description", COPY[lang].meta.description);
+    setMeta("property", "og:description", COPY[lang].meta.description);
+    setMeta("property", "og:locale", lang === "sv" ? "sv_SE" : "en_GB");
+
     renderShows();
     renderMemberRoles();
     renderSuggestion();
+    buildFaqSchema();
+  }
+
+  function setMeta(attr, key, value) {
+    const el = document.querySelector(`meta[${attr}="${key}"]`);
+    if (el) el.setAttribute("content", value);
+  }
+
+  // Keeps the FAQPage structured data in sync with whatever is on screen.
+  // The Swedish version is hardcoded in index.html so crawlers that don't
+  // run JavaScript still get it.
+  function buildFaqSchema() {
+    const target = document.getElementById("faq-schema");
+    if (!target) return;
+
+    const mainEntity = Array.from(document.querySelectorAll(".faq-item")).map((item) => ({
+      "@type": "Question",
+      name: item.querySelector(".faq-q").textContent.trim(),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.querySelector(".faq-a").textContent.replace(/\s+/g, " ").trim()
+      }
+    }));
+
+    target.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity
+    }, null, 2);
+  }
+
+  // Europe/Stockholm is UTC+2 from the last Sunday of March to the last Sunday
+  // of October, and UTC+1 the rest of the year. Without this the countdown ran
+  // an hour off for every show in the winter half of the season.
+  function stockholmOffset(dateStr) {
+    const [year, month, day] = dateStr.split("-").map(Number);
+    if (month > 3 && month < 10) return "+02:00";
+    if (month < 3 || month > 10) return "+01:00";
+
+    const lastOfMonth = new Date(Date.UTC(year, month, 0));
+    const lastSunday = lastOfMonth.getUTCDate() - lastOfMonth.getUTCDay();
+    if (month === 3) return day >= lastSunday ? "+02:00" : "+01:00";
+    return day < lastSunday ? "+02:00" : "+01:00";
+  }
+
+  function showStart(show) {
+    return new Date(`${show.date}T${show.time}:00${stockholmOffset(show.date)}`);
   }
 
   function renderShows() {
     document.querySelectorAll(".show-item").forEach((item) => {
       const show = SHOWS[Number(item.dataset.showIndex)];
       if (!show) return;
-      const dt = new Date(show.date + "T20:00:00+02:00");
-      const dateEl = item.querySelector(".show-date");
-      dateEl.textContent = `${dt.getDate()} ${MONTHS[lang][dt.getMonth()]}`;
+      // Read the date parts straight off the string so the rendered day never
+      // depends on the visitor's own time zone.
+      const [, month, day] = show.date.split("-").map(Number);
+      const weekday = WEEKDAYS[lang][new Date(show.date + "T12:00:00Z").getUTCDay()];
+
+      const price = show.price ? ` · ${show.price} ${COPY[lang].shows.currency}` : "";
+
+      item.querySelector(".show-date").textContent = `${day} ${MONTHS[lang][month - 1]}`;
       item.querySelector(".show-name").textContent = show[lang];
-      const metaLabel = lang === "sv" ? "Midsommarkransen" : "Midsommarkransen";
-      item.querySelector(".show-meta").textContent = `${WEEKDAYS[lang][dt.getDay()]} 20:00 · ${metaLabel}`;
+      item.querySelector(".show-meta").textContent = `${weekday} ${show.time} · ${show.place}${price}`;
     });
   }
 
@@ -174,7 +344,7 @@
 
   function nextShowTimestamp(now) {
     const upcoming = SHOWS
-      .map((s) => new Date(s.date + "T20:00:00+02:00").getTime())
+      .map((s) => showStart(s).getTime())
       .sort((a, b) => a - b);
     return upcoming.find((ts) => ts > now) ?? upcoming[upcoming.length - 1];
   }

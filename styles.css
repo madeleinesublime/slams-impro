@@ -350,7 +350,7 @@ main section {
   max-width: 1240px;
   margin: 0 auto;
 }
-#ensemble, #impro, #hire { padding-top: 88px; }
+#fiction, #ensemble, #impro, #faq, #hire { padding-top: 88px; }
 
 .section-head {
   display: flex;
@@ -370,7 +370,7 @@ main section {
 .show-list { border-top: 3px solid var(--ink); }
 .show-item {
   display: grid;
-  grid-template-columns: 110px 1fr auto auto;
+  grid-template-columns: 148px 1fr auto;
   align-items: center;
   gap: 20px;
   padding: 20px 8px;
@@ -379,15 +379,148 @@ main section {
 }
 .show-date {
   font-family: var(--font-display);
-  font-size: 30px;
+  font-size: 27px;
   letter-spacing: -0.03em;
   white-space: nowrap;
 }
 .show-info { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.show-name-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .show-name { font-weight: 700; font-size: 19px; }
 .show-meta { font-size: 14px; opacity: 0.7; }
-.show-price { font-weight: 700; font-size: 16px; white-space: nowrap; }
-.fine-print { margin: 16px 0 0; font-size: 14px; opacity: 0.7; }
+
+/* Slams Fiction dates get the poster's amber date plate. This is also what
+   tells them apart from guest shows, now that both use the same button. */
+.show-item:not(.show-item--guest) .show-date {
+  justify-self: start;
+  padding: 7px 14px;
+  background: var(--amber);
+  border: 3px solid var(--ink);
+  border-radius: 5px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transform: rotate(-2deg);
+}
+.show-item:not(.show-item--guest):nth-child(even) .show-date { transform: rotate(1.5deg); }
+
+/* Guest shows sit in the same row style as the rest. What sets them apart is
+   the plain date (no amber plate), the tag, and a text link instead of a
+   button — not a tinted row. */
+.show-link {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.show-link:hover, .show-link:focus-visible { color: var(--crimson); }
+
+.show-tag {
+  padding: 5px 12px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--cream);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.75;
+}
+
+/* Shows whose tickets are not on sale yet: no button to press. */
+.show-soon {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  white-space: nowrap;
+}
+
+
+/* Slams Fiction — the show's own section, styled after the poster */
+.fiction-panel {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 36px;
+  align-items: center;
+  padding: 46px 40px;
+  border: 4px solid var(--ink);
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--cream);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+/* The radiating blast behind the title. */
+.fiction-rays {
+  position: absolute;
+  left: 22%;
+  top: 50%;
+  width: 150%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: repeating-conic-gradient(from 0deg,
+    rgba(232, 162, 43, 0.34) 0deg 4deg,
+    transparent 4deg 11deg);
+  -webkit-mask-image: radial-gradient(circle, #000 8%, transparent 58%);
+  mask-image: radial-gradient(circle, #000 8%, transparent 58%);
+  pointer-events: none;
+}
+
+.fiction-art { position: relative; text-align: center; }
+.fiction-kicker {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+.fiction-title {
+  font-family: var(--font-comic);
+  font-weight: 400;
+  font-size: clamp(52px, 8.5vw, 108px);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--amber);
+  -webkit-text-stroke: 9px var(--ink);
+  paint-order: stroke fill;
+  transform: rotate(-3deg);
+  max-width: 7ch;
+  margin: 0 auto;
+}
+
+.fiction-copy { position: relative; }
+:where(.fiction-copy) p { font-size: 17px; line-height: 1.6; margin: 0 0 16px; text-wrap: pretty; }
+
+/* Read as a spec list, not as a row of buttons: no frames, no fills. */
+.fiction-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+  gap: 18px 26px;
+  margin: 26px 0;
+  padding: 20px 0;
+  border-top: 2px solid rgba(247, 239, 227, 0.22);
+  border-bottom: 2px solid rgba(247, 239, 227, 0.22);
+}
+.fiction-facts > div { display: flex; flex-direction: column; gap: 4px; }
+.fiction-facts dt {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+.fiction-facts dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.015em;
+}
 
 /* Ensemble */
 .ensemble-grid {
@@ -475,6 +608,67 @@ figcaption { position: relative; min-height: 58px; }
   font-size: 21px;
 }
 .generator-note { margin: 14px 0 0; font-size: 14px; opacity: 0.85; }
+
+/* FAQ */
+.faq-list { border-top: 3px solid var(--ink); }
+
+.faq-item {
+  border-bottom: 3px solid var(--ink);
+}
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 8px;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(18px, 1.9vw, 23px);
+  letter-spacing: -0.025em;
+  text-wrap: pretty;
+  transition: background 120ms ease;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { background: rgba(232, 162, 43, 0.32); }
+.faq-item summary:focus-visible { outline: 3px solid var(--blue); outline-offset: -3px; }
+.faq-item[open] summary { background: rgba(232, 162, 43, 0.22); }
+
+.faq-marker {
+  position: relative;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: var(--cream);
+  transition: background 140ms ease, transform 220ms ease;
+}
+.faq-marker::before, .faq-marker::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: var(--ink);
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+}
+.faq-marker::before { width: 15px; height: 3.4px; }
+.faq-marker::after {
+  width: 3.4px;
+  height: 15px;
+  transition: transform 200ms ease, opacity 150ms ease;
+}
+.faq-item[open] .faq-marker { background: var(--amber); transform: rotate(180deg); }
+.faq-item[open] .faq-marker::after { transform: translate(-50%, -50%) scaleY(0); opacity: 0; }
+
+.faq-a { padding: 16px 8px 26px; max-width: 66ch; }
+.faq-a p { font-size: 17px; line-height: 1.55; text-wrap: pretty; }
+.faq-a a { text-decoration: underline; }
+
+.faq-note { margin: 22px 0 0; font-size: 15px; font-weight: 500; }
+.faq-note a { text-decoration: underline; }
 
 /* Hire */
 .hire-panel {
@@ -693,19 +887,30 @@ figcaption { position: relative; min-height: 58px; }
   main section, .hero { padding-left: 18px; padding-right: 18px; }
 
   .show-item {
-    grid-template-columns: 1fr auto;
-    grid-template-areas: "date price" "info info" "buy buy";
-    row-gap: 8px;
+    grid-template-columns: 1fr;
+    grid-template-areas: "date" "info" "buy";
+    row-gap: 10px;
   }
-  .show-date { grid-area: date; }
-  .show-price { grid-area: price; text-align: right; }
+  .show-date { grid-area: date; justify-self: start; }
   .show-info { grid-area: info; }
-  .show-item .btn-ghost { grid-area: buy; justify-self: start; width: auto; }
+  .show-item .btn-ghost,
+  .show-item .show-link,
+  .show-item .show-soon { grid-area: buy; justify-self: start; width: auto; }
+  .show-date { font-size: 24px; }
 
   /* POW sitter inte på bilden i mobil, utan nere vid vågen */
   .wave-divider { margin-top: 78px; }
   .pow-button { width: 118px; height: 118px; left: 8px; bottom: -168px; }
   .pow-button .burst-text { font-size: 24px; -webkit-text-stroke-width: 4px; }
+
+  #fiction { padding-top: 62px; }
+  .fiction-panel { padding: 32px 20px 26px; gap: 26px; }
+  .fiction-title { -webkit-text-stroke-width: 6px; }
+
+  #faq { padding-top: 62px; }
+  .faq-item summary { gap: 14px; padding: 16px 4px; }
+  .faq-marker { width: 30px; height: 30px; }
+  .faq-a { padding: 14px 4px 22px; }
 
   #hire { padding-top: 62px; }
   .hire-panel { padding: 34px 22px 26px; }
