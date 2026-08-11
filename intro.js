@@ -9,7 +9,7 @@
   // GitHub Pages skiljer på stora och små bokstäver. clip: null betyder att
   // ingen film är inspelad än; då visas bara namnet.
   const ENSEMBLE = [
-    { first: "Madeleine", last: "Kalin",               color: "#E8A22B", portrait: "assets/portraits/madeleine-1.jpg", clip: "assets/intro/Madeleine1.MP4" },
+    { first: "Madeleine", last: "Kalin",               color: "#E8A22B", portrait: "assets/portraits/madeleine-1.jpg", clip: "assets/intro/madeleine2.MP4" },
     { first: "Bastian",   last: "Sandin",              color: "#5BC4B4", portrait: "assets/portraits/bastian-1.jpg",   clip: "assets/intro/bastian1.MP4" },
     { first: "Sara",      last: "Johansson-Gullersby", color: "#E66874", portrait: "assets/portraits/sara-1.jpg",      clip: "assets/intro/sara1.MP4" },
     { first: "Kim",       last: "Juliusson Lifwergren", color: "#7FA6E8", portrait: "assets/portraits/kim-1.jpg",      clip: "assets/intro/kim1.MP4" },
