@@ -1,0 +1,342 @@
+/* Showintro — egen sida, delar bara typsnitt och färger med startsidan.
+   Guldtypografin på scenen bor i deco.css. */
+:root {
+  --cream: #F7EFE3;
+  --ink: #1E1A17;
+  --teal: #16746E;
+  --teal-dark: #0F5D58;
+  --amber: #E8A22B;
+  --gold-edge: rgba(233, 223, 170, 0.9);
+
+  --font-display: "Instrument Sans", sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+
+  /* Tempot i sekvensen. Klippens egen längd styr hur länge de ligger kvar —
+     det här värdet gäller toningarna. */
+  --fade: 700ms;
+  --bg-crossfade: 1200ms;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* .setup sätter display: flex, vilket annars vinner över webbläsarens egen
+   [hidden]-regel och lämnar uppsättningsskärmen kvar bakom scenen. */
+[hidden] { display: none !important; }
+
+.intro-body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.035em; margin: 0; }
+
+/* ---------- Uppsättning ---------- */
+.setup {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 24px 64px;
+}
+.setup-inner { width: 100%; max-width: 760px; }
+.setup-logo { width: 108px; height: auto; display: block; margin: 0 0 20px; }
+.setup h1 { font-size: clamp(32px, 5vw, 48px); }
+.setup-lead { margin: 10px 0 32px; font-size: 17px; line-height: 1.5; max-width: 52ch; }
+
+#setup-form { display: flex; flex-direction: column; gap: 28px; }
+
+.pick { border: 0; margin: 0; padding: 0; }
+.pick legend {
+  padding: 0 0 14px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+.pick-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: 14px;
+}
+
+.pick-card { display: block; cursor: pointer; }
+.pick-card input { position: absolute; opacity: 0; pointer-events: none; }
+.pick-card .thumb {
+  position: relative;
+  display: block;
+  border: 3px solid var(--ink);
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--member-color, var(--ink));
+}
+.pick-card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(1) contrast(1.05);
+  opacity: 0.45;
+  transition: filter 160ms ease, opacity 160ms ease;
+}
+.pick-card input:checked + .thumb img { filter: none; opacity: 1; }
+.pick-card input:focus-visible + .thumb { outline: 3px solid var(--teal); outline-offset: 3px; }
+
+.pick-card .tick {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  background: rgba(247, 239, 227, 0.85);
+}
+.pick-card input:checked + .thumb .tick { background: var(--member-color, var(--amber)); }
+.pick-card input:checked + .thumb .tick::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 9px;
+  width: 9px;
+  height: 5px;
+  border-left: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  transform: rotate(-45deg);
+}
+
+.pick-card .who { display: block; margin-top: 8px; }
+.pick-card .who strong {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  display: block;
+  line-height: 1.2;
+}
+.pick-card .who span { display: block; font-size: 12px; opacity: 0.6; }
+.pick-card .who .no-clip { color: #9A5B21; opacity: 1; }
+
+.pick-actions { display: flex; align-items: center; gap: 16px; margin: 16px 0 0; }
+.link-btn {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--teal);
+  cursor: pointer;
+  text-decoration: underline;
+}
+.link-btn:hover { color: var(--ink); }
+.pick-count { margin-left: auto; font-size: 14px; opacity: 0.7; }
+
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: -0.02em; }
+.field input {
+  font: inherit;
+  font-size: 18px;
+  padding: 12px 14px;
+  border: 3px solid var(--ink);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+}
+.field input:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+
+.setup-error { margin: 0; color: #C9384C; font-weight: 700; font-size: 15px; }
+
+/* Förladdningen */
+.preload { display: flex; flex-direction: column; gap: 8px; }
+.preload-bar {
+  height: 10px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(30, 26, 23, 0.08);
+}
+.preload-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--teal);
+  transition: width 200ms linear;
+}
+.preload.is-done .preload-fill { background: var(--amber); }
+.preload-text { margin: 0; font-size: 14px; font-variant-numeric: tabular-nums; opacity: 0.75; }
+.preload.is-done .preload-text { opacity: 1; font-weight: 700; }
+
+.play-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font: inherit;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  padding: 14px 28px;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: var(--teal);
+  color: var(--cream);
+  cursor: pointer;
+}
+.play-btn:hover { background: var(--teal-dark); }
+.play-btn:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+.play-btn[disabled] { opacity: 0.7; cursor: progress; }
+.play-icon {
+  width: 0;
+  height: 0;
+  border-left: 15px solid currentColor;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+}
+.play-btn[disabled] .play-icon { display: none; }
+
+.setup-note { margin: 0; font-size: 14px; opacity: 0.6; }
+
+/* ---------- Scenen ---------- */
+.stage {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #0B0A09;
+  cursor: none;
+}
+
+/* Två lager av samma film. Det lager som ligger framme har .is-front, och
+   övertoningen mellan dem gömmer skarven där filmen börjar om. */
+.bg-stack { position: absolute; inset: 0; }
+.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--bg-crossfade) linear;
+}
+.bg-video.is-front { opacity: 1; }
+
+/* Gör att guldet håller sig läsbart mot en ljus strand. */
+.stage-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 90% at 50% 50%, rgba(0, 0, 0, 0.14) 0%, rgba(0, 0, 0, 0.55) 100%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.14));
+}
+
+.slots { position: absolute; inset: 0; }
+
+.slot {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(24px, 5vw, 72px);
+  padding: clamp(24px, 5vh, 64px) clamp(24px, 6vw, 96px);
+  opacity: 0;
+  transition: opacity var(--fade) ease;
+  pointer-events: none;
+}
+/* Namnet ligger först i DOM:en, så en vanlig rad ger film till höger.
+   Omvänd ordning flyttar filmen till vänster — sekvensen växlar varannan. */
+.slot[data-side="left"] { flex-direction: row-reverse; }
+/* Film och namn sitter i samma lager och tonas alltså in exakt samtidigt. */
+.slot.is-in { opacity: 1; }
+
+.slot-name {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: right;
+}
+.slot[data-side="left"] .slot-name { text-align: left; }
+
+.name-line { display: block; }
+
+/* scaleX i deco.css krymper bokstäverna utan att layoutrutan ändras, så
+   ankaret måste följa textens justering — annars glider namnet inåt. */
+.slot-name .deco { font-size: clamp(48px, 9.6vw, 168px); transform-origin: right center; }
+.slot[data-side="left"] .slot-name .deco { transform-origin: left center; }
+
+.slot-name .rule {
+  display: block;
+  width: clamp(60px, 12vw, 170px);
+  height: 3px;
+  margin: clamp(16px, 2.4vh, 30px) 0 0 auto;
+  background: linear-gradient(to right, rgba(240, 230, 163, 0.15), #d9cc78 55%, #a99643);
+}
+.slot[data-side="left"] .slot-name .rule {
+  margin-left: 0;
+  margin-right: auto;
+  background: linear-gradient(to left, rgba(240, 230, 163, 0.15), #d9cc78 55%, #a99643);
+}
+
+.slot-clip {
+  flex: 0 1 auto;
+  height: min(78vh, 100%);
+  aspect-ratio: 9 / 16;
+  max-width: 46vw;
+  border: 4px solid var(--gold-edge);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+.slot-clip video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Kort utan film: namnet får hela scenen i stället för halva. */
+.slot[data-clip="none"] { justify-content: center; }
+.slot[data-clip="none"] .slot-name,
+.slot[data-clip="none"][data-side="left"] .slot-name { text-align: center; }
+.slot[data-clip="none"] .slot-name .deco,
+.slot[data-clip="none"][data-side="left"] .slot-name .deco { transform-origin: center; }
+.slot[data-clip="none"] .slot-name .rule,
+.slot[data-clip="none"][data-side="left"] .slot-name .rule {
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(to right, rgba(240, 230, 163, 0.15), #d9cc78 50%, rgba(240, 230, 163, 0.15));
+}
+
+.title-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6vw;
+  opacity: 0;
+  transition: opacity 1400ms ease;
+  pointer-events: none;
+}
+.title-card.is-in { opacity: 1; }
+.title-inner { display: block; width: 100%; text-align: center; }
+.title-inner .deco { font-size: clamp(64px, 17vw, 300px); transform-origin: center; }
+.title-inner .name-line + .name-line { margin-top: 0.06em; }
+/* Titeln sätts ord för ord på egna rader, så den behöver krympa när det är
+   fler än ett ord — annars växer den ur skärmen på höjden. */
+.title-inner[data-lines="2"] .deco { font-size: clamp(54px, 13.5vw, 230px); }
+.title-inner[data-lines="3"] .deco { font-size: clamp(40px, 9.5vw, 165px); }
+
+/* Porträtt-/mobilskärmar: stapla film och namn i stället för att ställa dem sida vid sida. */
+@media (orientation: portrait) {
+  .slot { flex-direction: column; gap: clamp(18px, 3vh, 36px); }
+  .slot[data-side="left"] { flex-direction: column-reverse; }
+  .slot-name,
+  .slot[data-side="left"] .slot-name { flex: 0 1 auto; text-align: center; }
+  .slot-name .deco,
+  .slot[data-side="left"] .slot-name .deco { font-size: clamp(38px, 12vw, 96px); transform-origin: center; }
+  .slot-name .rule,
+  .slot[data-side="left"] .slot-name .rule { margin-left: auto; margin-right: auto; }
+  .slot-clip { height: auto; width: min(72vw, 60vh); max-width: none; }
+}

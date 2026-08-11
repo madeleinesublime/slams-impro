@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slams — showintro</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Internt verktyg: sätt upp och kör Slams showintro.">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Poiret+One&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deco.css">
+<link rel="stylesheet" href="intro.css">
+</head>
+<body class="intro-body">
+
+<!-- Uppsättningen: vilka som spelar ikväll och vilken titel showen har. -->
+<main id="setup" class="setup">
+  <div class="setup-inner">
+    <img src="assets/slams-logo-stacked.png" alt="Slams" class="setup-logo">
+    <h1>Showintro</h1>
+    <p class="setup-lead">Välj vilka som spelar ikväll, skriv titeln och kör i gång. Intron går i helskärm, är helt tyst och avslutas med titeln.</p>
+
+    <form id="setup-form">
+      <fieldset class="pick">
+        <legend>Vilka spelar ikväll?</legend>
+        <ul id="pick-list" class="pick-list"></ul>
+        <p class="pick-actions">
+          <button type="button" id="pick-all" class="link-btn">Markera alla</button>
+          <button type="button" id="pick-none" class="link-btn">Avmarkera alla</button>
+          <span id="pick-count" class="pick-count" aria-live="polite"></span>
+        </p>
+      </fieldset>
+
+      <div class="field">
+        <label for="title-input">Titel på slutet</label>
+        <input id="title-input" name="title" type="text" value="Slams Fiction" list="title-suggestions"
+               autocomplete="off" maxlength="60" required>
+        <datalist id="title-suggestions">
+          <option value="Slams Fiction"></option>
+          <option value="Salongen"></option>
+          <option value="Slams"></option>
+        </datalist>
+      </div>
+
+      <p class="setup-error" id="setup-error" role="alert" hidden>Välj minst en improvisatör.</p>
+
+      <!-- Filmerna hämtas hem redan här, så showen inte behöver ladda något. -->
+      <div class="preload" id="preload">
+        <div class="preload-bar"><span class="preload-fill" id="preload-fill"></span></div>
+        <p class="preload-text" id="preload-text" aria-live="polite">Förbereder filmerna…</p>
+      </div>
+
+      <button type="submit" class="play-btn" id="play-btn">
+        <span class="play-icon" aria-hidden="true"></span>
+        <span id="play-label">Spela intro</span>
+      </button>
+      <p class="setup-note">Esc avbryter och tar dig tillbaka hit.</p>
+    </form>
+  </div>
+</main>
+
+<!-- Scenen. Bakgrunden är två lager av samma film: strax innan den ena tar
+     slut startar den andra från noll och tar över i en övertoning, så loopen
+     aldrig hoppar. -->
+<div id="stage" class="stage" hidden>
+  <div class="bg-stack" aria-hidden="true">
+    <video id="bg-a" class="bg-video" src="assets/intro/background.MOV" muted playsinline preload="none"></video>
+    <video id="bg-b" class="bg-video" src="assets/intro/background.MOV" muted playsinline preload="none"></video>
+  </div>
+  <div class="stage-shade" aria-hidden="true"></div>
+  <div id="slots" class="slots"></div>
+  <div id="title-card" class="title-card"><div id="title-text" class="title-inner"></div></div>
+</div>
+
+<script src="intro.js"></script>
+</body>
+</html>

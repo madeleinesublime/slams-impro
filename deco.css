@@ -1,0 +1,105 @@
+/* Art Deco-titeltypografi — 90-talets TV-vinjett med 20/30-talskänsla.
+   Guldet byggs i två lager som ligger exakt ovanpå varandra:
+
+     .deco-extrude  massiv mörkguld text med staplade text-shadow = 3D-djupet
+     .deco-face     samma text med guldgradient klippt i bokstäverna
+
+   Två lager behövs eftersom -webkit-text-fill-color: transparent gör
+   bokstäverna genomskinliga — då hade text-shadow lyst igenom bokstavsytan
+   i stället för att ligga bakom den.
+
+   Varje bokstav är en egen <span class="l l-x"> så att O, R, S och A kan
+   smalnas och sträckas individuellt. Skruva på hela sättningen via
+   variablerna nedan: --deco-scale-x mellan 0.55 och 0.72 enligt smak. */
+
+.deco {
+  --deco-scale-x: 0.65;
+  --deco-scale-y: 1.08;
+  --deco-track: -0.02em;
+
+  --deco-gold-light: #f0e6a3;
+  --deco-gold: #d9cc78;
+  --deco-gold-deep: #a99643;
+  --deco-gold-glow: #e1d584;
+  --deco-gold-flat: #d8cb76;
+
+  position: relative;
+  display: inline-block;
+  font-family: "Poiret One", "Josefin Sans", "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-stretch: condensed;
+  font-synthesis: none;
+  text-transform: uppercase;
+  letter-spacing: var(--deco-track);
+  line-height: 1.02;
+  white-space: nowrap;
+  color: var(--deco-gold-flat);
+  transform: scaleX(var(--deco-scale-x)) scaleY(var(--deco-scale-y));
+  transform-origin: center;
+}
+
+.deco-layer { display: block; white-space: nowrap; }
+
+/* Djupet. De vågräta stegen är ~1,5x de lodräta eftersom hela sättningen
+   pressas ihop av scaleX — annars lutar extruderingen fel väg. */
+.deco-extrude {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #8d7c33;
+  text-shadow:
+    0.012em 0.008em 0 #9b893b,
+    0.024em 0.016em 0 #88762f,
+    0.037em 0.024em 0 #746426,
+    0.049em 0.032em 0.016em rgba(0, 0, 0, 0.45),
+    0.084em 0.055em 0.06em rgba(0, 0, 0, 0.35);
+}
+
+.deco-face { position: relative; }
+
+.deco .l {
+  display: inline-block;
+  transform-origin: center bottom;
+}
+
+/* Mellanslag som eget element, så ordluckan inte kollapsar mellan
+   inline-block-bokstäverna. */
+.deco .sp { display: inline-block; width: 0.5em; }
+
+/* Bokstavsformerna. Negativa marginaler tar tillbaka luften som uppstår när
+   en bokstav skalas smalare än sin egen bredd i layouten. */
+.deco .l-o { transform: scaleX(0.87); margin: 0 -0.045em; }   /* långsmal oval */
+.deco .l-q { transform: scaleX(0.87); margin: 0 -0.045em; }
+.deco .l-c { transform: scaleX(0.92); margin: 0 -0.025em; }
+.deco .l-g { transform: scaleX(0.92); margin: 0 -0.025em; }
+.deco .l-s { transform: scaleX(0.92) scaleY(1.025); margin: 0 -0.025em; }
+.deco .l-a { transform: scaleX(0.89); margin: 0 -0.035em; }   /* smal, hög spets */
+.deco .l-v { transform: scaleX(0.9); margin: 0 -0.03em; }
+.deco .l-w { transform: scaleX(0.86); margin: 0 -0.05em; }
+.deco .l-m { transform: scaleX(0.88); margin: 0 -0.04em; }
+.deco .l-r { transform: scaleX(0.95); margin: 0 -0.015em; }   /* liten skål, långt ben */
+.deco .l-e,
+.deco .l-f,
+.deco .l-l,
+.deco .l-t { transform: scaleY(1.04); }                        /* tunna och utdragna */
+.deco .l-i,
+.deco .l-j { transform: scaleY(1.025); }
+
+/* Guldgradienten läggs per bokstav — bokstäverna har samma radhöjd, så
+   övergångarna hamnar på samma nivå i alla. Utan stöd för background-clip
+   blir det platt blekguld i stället för osynlig text. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .deco-face .l {
+    background-image: linear-gradient(
+      to bottom,
+      var(--deco-gold-light) 0%,
+      var(--deco-gold) 35%,
+      var(--deco-gold-deep) 70%,
+      var(--deco-gold-glow) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.4px rgba(65, 55, 20, 0.65);
+  }
+}
