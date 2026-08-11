@@ -444,6 +444,29 @@
     });
   }
 
+  // Porträtten med tre bilder: första hovern visar bild 3, nästa hover eller
+  // klick visar bild 2, och sen växlar det vidare varannan gång.
+  function setupPortraitToggle() {
+    document.querySelectorAll(".member[data-alt]").forEach((member) => {
+      const flip = () => {
+        member.dataset.alt = member.dataset.alt === "c" ? "b" : "c";
+      };
+
+      // Med mus sker bytet när pekaren lämnat kortet, så bilden hinner alltid
+      // tona ut innan den byts — nästa hover visar den andra bilden.
+      member.addEventListener("mouseleave", flip);
+
+      // På touch finns ingen hover att lämna: första trycket visar bilden,
+      // trycken därefter växlar.
+      let revealed = false;
+      member.addEventListener("pointerdown", (event) => {
+        if (event.pointerType === "mouse") return;
+        if (revealed) flip();
+        revealed = true;
+      });
+    });
+  }
+
   function setupGenerator() {
     document.getElementById("roll-btn").addEventListener("click", rollSuggestion);
   }
@@ -472,6 +495,7 @@
     setInterval(updateCountdown, 1000);
     setupLangSwitch();
     setupToTop();
+    setupPortraitToggle();
     setupGenerator();
     setupForm();
     setupEasterEgg();

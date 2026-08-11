@@ -547,8 +547,15 @@ main section {
   filter: contrast(1.04) saturate(1.02);
   background: var(--member-color);
 }
-.photo-b { opacity: 0; transition: opacity 320ms ease; }
+.photo-b, .photo-c { opacity: 0; transition: opacity 320ms ease; }
 .member:hover .photo-b, .member:focus-within .photo-b { opacity: 1; }
+/* Madeleine, Bastian och Louise har ett tredje porträtt. data-alt styr vilket
+   av dem som visas — script.js växlar mellan "c" och "b" vid varje hover/klick,
+   och utan JS blir det tredje porträttet kvar som hover-bild. */
+.member[data-alt="c"]:hover .photo-b,
+.member[data-alt="c"]:focus-within .photo-b { opacity: 0; }
+.member[data-alt="c"]:hover .photo-c,
+.member[data-alt="c"]:focus-within .photo-c { opacity: 1; }
 
 figcaption { position: relative; min-height: 58px; }
 .member-name, .member-role {
