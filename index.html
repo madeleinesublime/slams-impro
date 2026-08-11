@@ -530,12 +530,15 @@
 
   <section id="hire" class="hire" aria-labelledby="hire-heading">
     <div class="hire-panel">
-      <span class="burst-button burst" aria-hidden="true">
+      <!-- Genväg till showintrot. Märket ska inte skylta med att det går att
+           klicka på, så det behåller sin cursor: default och sin vanliga
+           hover, och ligger utanför tabbordningen. -->
+      <a href="intro.html" class="burst-button burst" aria-hidden="true" tabindex="-1">
         <span class="burst-dots" aria-hidden="true"></span>
         <span class="burst-shape burst-shape-dark" aria-hidden="true"></span>
         <span class="burst-shape burst-shape-fill bom-fill" aria-hidden="true"></span>
         <span class="burst-text">BOM!</span>
-      </span>
+      </a>
       <h2 id="hire-heading" data-i18n="hire.title">Anlita oss</h2>
       <div class="hire-grid">
         <div class="hire-text">

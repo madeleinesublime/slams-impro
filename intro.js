@@ -19,7 +19,6 @@
   ];
 
   const FADE_MS = 700;           // ska matcha --fade i intro.css
-  const GAP_MS = 260;            // lucka mellan två kort
   const NO_CLIP_MS = 3600;       // hur länge ett kort utan film ligger kvar
   const FALLBACK_CLIP_MS = 6000; // om filmens längd inte går att läsa
   const READY_TIMEOUT_MS = 8000; // vi väntar inte längre än så på laddning
@@ -47,7 +46,14 @@
   const preloadFill = document.getElementById("preload-fill");
   const preloadText = document.getElementById("preload-text");
 
+  const music = document.getElementById("music");
+  const musicInput = document.getElementById("music-input");
+  const musicNote = document.getElementById("music-note");
+
   const BACKGROUND_SRC = "assets/intro/background.MOV";
+  const MUSIC_SRC = "assets/intro/sunset-beach.mp3";
+  const MUSIC_FADE_IN_MS = 1800;
+  const MUSIC_FADE_OUT_MS = 900;
 
   // Varje körning får ett eget nummer. Avbryts showen räknas det upp och den
   // pågående sekvensen ser att den inte längre är aktuell och lägger av.
@@ -70,7 +76,7 @@
 
   function mediaUrls() {
     const clips = ENSEMBLE.map((person) => person.clip).filter(Boolean);
-    return [BACKGROUND_SRC, ...clips];
+    return [BACKGROUND_SRC, MUSIC_SRC, ...clips];
   }
 
   function srcFor(url) {
@@ -137,6 +143,7 @@
         loaded.set(url, URL.createObjectURL(blob));
         doneFiles += 1;
         if (url === BACKGROUND_SRC) applyBackgroundSrc();
+        if (url === MUSIC_SRC) applyMusicSrc();
       } catch (error) {
         /* filen får strömmas i stället — showen ska ändå gå att köra */
       }
@@ -156,6 +163,68 @@
       if (video.src !== src) video.src = src;
     });
   }
+
+  /* ---------- Musiken ----------
+     Eget spår vid sidan av filmerna, som alltid är tysta. Tonas in så den inte
+     smäller i gång, och ut när man avbryter. */
+
+  let musicSrcApplied = null;
+  let musicFade = null;
+
+  function applyMusicSrc() {
+    if (running) return;
+    const src = srcFor(MUSIC_SRC);
+    if (musicSrcApplied === src) return;
+    musicSrcApplied = src;
+    music.src = src;
+  }
+
+  function fadeMusic(to, ms, whenDone) {
+    if (musicFade) clearInterval(musicFade);
+    const from = music.volume;
+    const steps = Math.max(1, Math.round(ms / 50));
+    let step = 0;
+    musicFade = setInterval(() => {
+      step += 1;
+      music.volume = Math.min(1, Math.max(0, from + (to - from) * (step / steps)));
+      if (step >= steps) {
+        clearInterval(musicFade);
+        musicFade = null;
+        if (whenDone) whenDone();
+      }
+    }, 50);
+  }
+
+  function startMusic() {
+    if (!musicInput.checked || musicInput.disabled) return;
+    applyMusicSrc();
+    if (music.preload !== "auto") music.preload = "auto";
+    try { music.currentTime = 0; } catch (error) { /* strunt samma */ }
+    music.volume = 0;
+    music.play().then(
+      () => fadeMusic(1, MUSIC_FADE_IN_MS),
+      () => { musicNote.textContent = "(webbläsaren stoppade ljudet — klicka på sidan och kör igen)"; }
+    );
+  }
+
+  function stopMusic() {
+    if (music.paused) {
+      if (musicFade) { clearInterval(musicFade); musicFade = null; }
+      return;
+    }
+    fadeMusic(0, MUSIC_FADE_OUT_MS, () => {
+      music.pause();
+      try { music.currentTime = 0; } catch (error) { /* strunt samma */ }
+    });
+  }
+
+  // Saknas filen går showen ändå — då stängs bara kryssrutan av.
+  music.addEventListener("error", () => {
+    if (!music.getAttribute("src")) return;
+    musicInput.checked = false;
+    musicInput.disabled = true;
+    musicNote.textContent = "(musikfilen kunde inte läsas)";
+  });
 
   /* ---------- Guldtypografin ----------
      Varje bokstav blir ett eget element så att O, R, S och A kan formas
@@ -469,6 +538,10 @@
     await wait(LEAD_IN_MS);
     if (!alive()) return;
 
+    // Korten korsklipper: uttoningen av ett kort körs samtidigt som nästa kort
+    // tonas in, så det aldrig blir en lucka emellan. Varje kort ligger ändå
+    // kvar exakt så länge som sin egen film — uttoningen börjar en toning
+    // innan filmen tar slut.
     for (let index = 0; index < slots.length; index += 1) {
       const record = slots[index];
       prime(index + LOOKAHEAD);
@@ -483,13 +556,15 @@
       await wait(Math.max(0, visibleMs(record.video) - FADE_MS));
       if (!alive()) return;
 
+      // Börja tona ut och gå vidare direkt — nästa varv tonar in ovanpå.
       record.el.classList.remove("is-in");
-      await wait(FADE_MS + GAP_MS);
-      if (!alive()) return;
-
-      if (record.video) record.video.pause();
+      const outgoing = record.video;
+      if (outgoing) {
+        setTimeout(() => { if (alive()) outgoing.pause(); }, FADE_MS);
+      }
     }
 
+    // Titeln tonas upp i samma stund som det sista kortet tonas ut.
     fitDecoLines(titleText, titleText.clientWidth);
     titleCard.classList.add("is-in");
   }
@@ -510,6 +585,7 @@
     }
 
     startBackground();
+    startMusic();
     runSequence();
   }
 
@@ -529,6 +605,7 @@
     titleCard.classList.remove("is-in");
     titleText.textContent = "";
     stopBackground();
+    stopMusic();
 
     stage.hidden = true;
     setup.hidden = false;

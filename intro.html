@@ -46,6 +46,11 @@
         </datalist>
       </div>
 
+      <label class="check-inline">
+        <input type="checkbox" id="music-input" checked>
+        <span>Spela musik under intron <span class="check-note" id="music-note"></span></span>
+      </label>
+
       <p class="setup-error" id="setup-error" role="alert" hidden>Välj minst en improvisatör.</p>
 
       <!-- Filmerna hämtas hem redan här, så showen inte behöver ladda något. -->
@@ -75,6 +80,9 @@
   <div id="slots" class="slots"></div>
   <div id="title-card" class="title-card"><div id="title-text" class="title-inner"></div></div>
 </div>
+
+<!-- Musiken är ett eget spår. Filmerna spelas alltid tysta. -->
+<audio id="music" src="assets/intro/sunset-beach.mp3" preload="none" loop></audio>
 
 <script src="intro.js"></script>
 </body>
