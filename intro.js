@@ -18,13 +18,24 @@
     { first: "Ville",     last: "HE",                  color: "#A8C86A", portrait: "assets/portraits/ville-1.jpg",     clip: "assets/intro/ville1.MP4" }
   ];
 
-  const FADE_MS = 700;           // ska matcha --fade i intro.css
+  // Toningarna hämtas ur intro.css, så tempot bara behöver ställas på ett
+  // ställe. Sekunder och millisekunder hanteras båda.
+  function cssMs(name, fallback) {
+    const raw = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    const value = parseFloat(raw);
+    if (!Number.isFinite(value) || value <= 0) return fallback;
+    return raw.endsWith("ms") ? value : value * 1000;
+  }
+
+  const FADE_MS = cssMs("--fade", 1400);
   const NO_CLIP_MS = 3600;       // hur länge ett kort utan film ligger kvar
   const FALLBACK_CLIP_MS = 6000; // om filmens längd inte går att läsa
   const READY_TIMEOUT_MS = 8000; // vi väntar inte längre än så på laddning
   const LEAD_IN_MS = 900;        // bakgrunden får ligga ensam en stund först
+  const OPENING_MS = 4200;       // hur länge "Slams presenterar" ligger kvar
+  const PAUSE_MS = 900;          // tom bakgrund efter öppningskortet och före titeln
   const LOOKAHEAD = 2;           // så många filmer laddas i förväg
-  const BG_CROSSFADE_MS = 1200;  // ska matcha --bg-crossfade i intro.css
+  const BG_CROSSFADE_MS = cssMs("--bg-crossfade", 1200);
   // timeupdate kommer i kliv om ~250 ms, så överlämningen startar med marginal
   // för att övertoningen ska hinna bli klar innan filmen tar slut.
   const BG_HANDOVER_MARGIN_S = BG_CROSSFADE_MS / 1000 + 0.35;
@@ -33,6 +44,8 @@
   const stage = document.getElementById("stage");
   const bgVideos = [document.getElementById("bg-a"), document.getElementById("bg-b")];
   const slotsEl = document.getElementById("slots");
+  const opening = document.getElementById("opening");
+  const openingText = document.getElementById("opening-text");
   const titleCard = document.getElementById("title-card");
   const titleText = document.getElementById("title-text");
   const form = document.getElementById("setup-form");
@@ -538,6 +551,16 @@
     await wait(LEAD_IN_MS);
     if (!alive()) return;
 
+    // Öppningskortet. Här korsklipper vi inte, utan låter kortet tona helt bort
+    // och bakgrunden ligga tom en stund innan första personen kommer.
+    fitDecoLines(openingText, openingText.clientWidth);
+    opening.classList.add("is-in");
+    await wait(Math.max(0, OPENING_MS - FADE_MS));
+    if (!alive()) return;
+    opening.classList.remove("is-in");
+    await wait(FADE_MS + PAUSE_MS);
+    if (!alive()) return;
+
     // Korten korsklipper: uttoningen av ett kort körs samtidigt som nästa kort
     // tonas in, så det aldrig blir en lucka emellan. Varje kort ligger ändå
     // kvar exakt så länge som sin egen film — uttoningen börjar en toning
@@ -564,7 +587,11 @@
       }
     }
 
-    // Titeln tonas upp i samma stund som det sista kortet tonas ut.
+    // Sista kortet får tona helt bort och bakgrunden ligga tom en stund innan
+    // titeln kommer upp.
+    await wait(FADE_MS + PAUSE_MS);
+    if (!alive()) return;
+
     fitDecoLines(titleText, titleText.clientWidth);
     titleCard.classList.add("is-in");
   }
@@ -574,6 +601,9 @@
     runId += 1;
     buildSlots(people);
     buildTitle(title);
+    openingText.textContent = "";
+    openingText.append(decoLine("Slams"));
+    opening.classList.remove("is-in");
     titleCard.classList.remove("is-in");
 
     stage.hidden = false;
@@ -602,6 +632,8 @@
     });
     slots = [];
     slotsEl.textContent = "";
+    opening.classList.remove("is-in");
+    openingText.textContent = "";
     titleCard.classList.remove("is-in");
     titleText.textContent = "";
     stopBackground();

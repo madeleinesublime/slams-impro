@@ -11,9 +11,14 @@
   --font-display: "Instrument Sans", sans-serif;
   --font-body: "DM Sans", system-ui, sans-serif;
 
-  /* Tempot i sekvensen. Klippens egen längd styr hur länge de ligger kvar —
-     det här värdet gäller toningarna. */
-  --fade: 700ms;
+  /* Tempot i sekvensen. Klippens egen längd styr hur länge korten ligger kvar;
+     de här värdena styr toningarna och läses av intro.js, så det räcker att
+     ändra dem här. --fade är både in- och uttoningen på film och namn, och
+     eftersom korten korsklipper är den också hur långt överlappet blir.
+     Klippen är ~6,5 s, så håll den under ~2,5 s om varje kort ska hinna ligga
+     stilla en stund på full styrka. */
+  --fade: 1400ms;
+  --title-fade: 1400ms;
   --bg-crossfade: 1200ms;
 }
 
@@ -240,6 +245,33 @@ h1 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.035e
     linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.14));
 }
 
+/* Öppningskortet före första personen. */
+.opening {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.6vh, 22px);
+  padding: 6vw;
+  opacity: 0;
+  transition: opacity var(--fade) ease;
+  pointer-events: none;
+}
+.opening.is-in { opacity: 1; }
+.opening-text { display: block; text-align: center; }
+.opening-text .deco { font-size: clamp(56px, 14vw, 250px); transform-origin: center; }
+.opening-sub {
+  font-family: "Poiret One", "Josefin Sans", sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(13px, 1.8vw, 30px);
+  letter-spacing: 0.52em;
+  text-indent: 0.52em;
+  color: #e3d78d;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.7);
+}
+
 .slots { position: absolute; inset: 0; }
 
 .slot {
@@ -321,7 +353,7 @@ h1 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.035e
   justify-content: center;
   padding: 6vw;
   opacity: 0;
-  transition: opacity 1400ms ease;
+  transition: opacity var(--title-fade) ease;
   pointer-events: none;
 }
 .title-card.is-in { opacity: 1; }
