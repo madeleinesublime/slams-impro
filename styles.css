@@ -254,7 +254,12 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .hero-banner-wrap {
   position: relative;
-  margin: 48px 0 0;
+  /* Bilden ar 1800 px bred. Vid 900 px visningsbredd racker pixlarna exakt
+     till en 2x-skarm; i full containerbredd (1240 px) skalades den upp 1,4x
+     och blev mjuk. POW-market ar positionerat mot den har wrappen, sa det
+     foljer med bildens kant. */
+  max-width: 900px;
+  margin: 48px auto 0;
 }
 .hero-banner {
   display: block;
