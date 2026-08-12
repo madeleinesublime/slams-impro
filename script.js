@@ -49,7 +49,7 @@
         q3: "Är det samma show varje gång?",
         a3: "Nej, aldrig. Varje föreställning är helt ny och spelas bara en enda gång — vi gör inga repriser. Du kan se Slams hur många gånger som helst och aldrig se samma scen två gånger. Vi använder etablerade improformat som Harold, La Ronde och Armando, men innehållet är nytt varje kväll.",
         q4: "Måste jag vara med på scenen?",
-        a4: "Nej. Publiken är aldrig med i showen — du sitter tryggt kvar på din plats hela kvällen. Det enda vi ber om är att salen som helgrupp svarar på några frågor från scenen. Det är er improgaranti: vi spelar utifrån era förslag, inte något vi förberett i förväg. Vill du själv stå på scen finns det improkurser hos <a href='https://presensimpro.se/' target='_blank' rel='noopener'>Presens Impro</a>.",
+        a4: "Nej. Publiken är aldrig med i showen — du sitter tryggt kvar på din plats hela kvällen. Vi ber om förslag från publiken, men det är helt frivilligt att ropa ut något. Det är er improgaranti: vi spelar utifrån era förslag, inte något vi förberett i förväg. Vill du själv stå på scen finns det improkurser hos <a href='https://presensimpro.se/' target='_blank' rel='noopener'>Presens Impro</a>.",
         q5: "Vilket språk spelas showerna på?",
         a5: "Slams spelar på svenska. Ibland gör vi gästspel på engelska, och då står det tydligt i informationen om just den showen.",
         q6: "Finns det någon åldersgräns?",
@@ -133,7 +133,7 @@
         q3: "Is it the same show every time?",
         a3: "Never. Every performance is brand new and played only once — we don't do reruns. You can see Slams as many times as you like and never see the same scene twice. We use established impro formats like Harold, La Ronde and Armando, but the content is new every night.",
         q4: "Do I have to go on stage?",
-        a4: "No. The audience is never part of the show — you stay safely in your seat all night. All we ask is that the room answers a few questions from the stage as a group. That is your improv guarantee: we play from your suggestions, not something we prepared in advance. If you do want to be on stage, <a href='https://presensimpro.se/' target='_blank' rel='noopener'>Presens Impro</a> runs impro courses.",
+        a4: "No. The audience is never part of the show — you stay safely in your seat all night. We ask the audience for suggestions, but calling one out is entirely voluntary. That is your improv guarantee: we play from your suggestions, not something we prepared in advance. If you do want to be on stage, <a href='https://presensimpro.se/' target='_blank' rel='noopener'>Presens Impro</a> runs impro courses.",
         q5: "What language are the shows in?",
         a5: "Slams performs in Swedish. We occasionally do guest shows in English, and when we do it is clearly stated in the information for that specific show.",
         q6: "Is there an age limit?",
@@ -190,7 +190,7 @@
     { date: "2026-11-20", time: "20:00", place: "Midsommarkransen", price: 150, guest: true, sv: "Klubb Kransen", en: "Klubb Kransen" },
     { date: "2026-12-04", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction med Knut", en: "Slams Fiction with Knut" },
     { date: "2026-12-12", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
-    { date: "2026-12-19", time: "19:00", place: "Södermalm", guest: true, sv: "Salongen", en: "Salongen" }
+    { date: "2026-12-19", time: "19:00", place: "Södermalm", price: 150, guest: true, sv: "Salongen", en: "Salongen" }
   ];
 
   const SUGG = {
