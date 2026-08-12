@@ -442,7 +442,10 @@ main section {
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  /* min() håller spåret från att kräva mer bredd än panelen har. Utan det blir
+     spåret 290px i en 201px-panel i mobil, och overflow:hidden klipper av
+     brödtexten och skjuter titeln åt höger. */
+  grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
   gap: 36px;
   align-items: center;
   padding: 46px 40px;
@@ -467,8 +470,9 @@ main section {
   background: repeating-conic-gradient(from 0deg,
     rgba(232, 162, 43, 0.34) 0deg 4deg,
     transparent 4deg 11deg);
-  -webkit-mask-image: radial-gradient(circle, #000 8%, transparent 58%);
-  mask-image: radial-gradient(circle, #000 8%, transparent 58%);
+  /* Urholkad mitt: annars möts alla strålar i en tät knut ovanför titeln. */
+  -webkit-mask-image: radial-gradient(circle, transparent 4%, #000 20%, transparent 60%);
+  mask-image: radial-gradient(circle, transparent 4%, #000 20%, transparent 60%);
   pointer-events: none;
 }
 
@@ -593,7 +597,7 @@ figcaption { position: relative; min-height: 58px; }
 /* Impro */
 .impro-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 40px;
   align-items: start;
 }
@@ -724,7 +728,7 @@ figcaption { position: relative; min-height: 58px; }
 .hire-panel h2 { margin: 0 0 18px; max-width: 22ch; }
 .hire-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 30px;
   align-items: start;
 }
