@@ -809,11 +809,55 @@ figcaption { position: relative; min-height: 58px; }
 .footer-bottom {
   max-width: 1240px;
   margin: 40px auto 0;
-  padding-top: 18px;
+  padding-top: 26px;
   border-top: 3px solid var(--ink);
-  font-size: 14px;
-  font-weight: 700;
 }
+.footer-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px;
+}
+/* The logo is a pink circle on transparent, and pink on red is muddy — the
+   cream disc separates it and matches how the Slams logo is framed beside it. */
+.footer-presens-logo {
+  flex: 0 0 auto;
+  display: block;
+  /* Fasta mått, inte vw: Slams-ramen är 188px hög i desktop och 124px i mobil,
+     och Presens är en förälderkreditering som inte ska växa förbi den. */
+  width: 160px;
+  background: var(--cream);
+  border: 4px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 6px 6px 0 var(--ink);
+  transition: transform 140ms ease, box-shadow 90ms ease;
+}
+.footer-presens-logo img { width: 100%; height: auto; border-radius: 999px; }
+.footer-presens-logo:hover, .footer-presens-logo:focus-visible {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+/* Carries real weight in the layout rather than reading as fine print. */
+.footer-presens {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 4.6vw, 58px);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+.footer-credit {
+  margin: 26px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  max-width: 46ch;
+  opacity: 0.85;
+  text-wrap: pretty;
+}
+.footer-credit a { color: var(--cream); text-decoration: underline; }
+.footer-credit a:hover, .footer-credit a:focus-visible { color: var(--ink); }
 
 /* Back to top (mobile only) */
 .to-top {
@@ -955,4 +999,6 @@ figcaption { position: relative; min-height: 58px; }
 
   .footer-logo { height: 88px; }
   .footer-logo-frame { padding: 14px 18px; }
+  .footer-presens-logo { width: 104px; }
+  .footer-logos { gap: 16px; }
 }

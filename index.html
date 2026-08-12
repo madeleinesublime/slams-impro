@@ -134,12 +134,12 @@
           </span>
           <span class="show-meta">fre 20:00 · Midsommarkransen · 150 kr</span>
         </div>
-        <a class="show-link" href="https://presensimpro.culmas.io/show/JRWmR4Ld0JbqAVb38WCA?from=component-api" target="_blank" rel="noopener" data-i18n="shows.buy">Biljett</a>
+        <a class="show-link" href="https://presensimpro.culmas.io/show/JRWmR4Ld0JbqAVb38WCA?from=component-api" target="_blank" rel="noopener" data-i18n-html="shows.buyPresens">Biljett hos Presens Impro<span class="visually-hidden"> (öppnas i ny flik)</span></a>
       </li>
       <li class="show-item" data-show-index="4">
         <time class="show-date" datetime="2026-12-04T20:00">4 dec</time>
         <div class="show-info">
-          <span class="show-name">Slams Fiction (med gäst)</span>
+          <span class="show-name">Slams Fiction med Knut</span>
           <span class="show-meta">fre 20:00 · Midsommarkransen · 150 kr</span>
         </div>
         <span class="show-soon" data-i18n="shows.soon">Biljetter släpps senare</span>
@@ -587,16 +587,25 @@
 
 <footer class="site-footer">
   <div class="footer-top">
-    <span class="footer-logo-frame">
-      <img src="assets/slams-logo-inline.png" alt="Slams Impro" class="footer-logo">
-    </span>
+    <div class="footer-logos">
+      <span class="footer-logo-frame">
+        <img src="assets/slams-logo-inline.png" alt="Slams Impro" class="footer-logo">
+      </span>
+      <a class="footer-presens-logo" href="https://presensimpro.se/" target="_blank" rel="noopener">
+        <img src="assets/Logo-presens-square.png" width="854" height="854" alt="Presens Impro" loading="lazy" decoding="async">
+      </a>
+    </div>
     <ul class="contact-links">
       <li><a class="btn btn-ghost" href="mailto:slamsimpro@gmail.com">slamsimpro@gmail.com</a></li>
       <li><a class="btn btn-ghost" href="https://instagram.com/slamsimpro" target="_blank" rel="noopener">@slamsimpro</a></li>
       <li><a class="btn btn-ghost" href="https://presensimpro.se/" target="_blank" rel="noopener">presensimpro.se</a></li>
+      <li><a class="btn btn-ghost" href="https://instagram.com/presensimpro" target="_blank" rel="noopener">@presensimpro</a></li>
     </ul>
   </div>
-  <p class="footer-bottom" data-i18n="footer.presens">Slams är en del av Presens Impro.</p>
+  <div class="footer-bottom">
+    <p class="footer-presens" data-i18n="footer.presens">Slams är en del av Presens Impro.</p>
+    <p class="footer-credit" data-i18n-html="footer.credit">Gillar du vår hemsida? Hör av dig till <span class="credit-mail">madeleine.kalin [at] gmail.com</span> om du behöver hjälp att bygga din egen.</p>
+  </div>
 </footer>
 
 <a class="to-top" id="to-top" href="#top">
@@ -861,7 +870,7 @@
     },
     {
       "@type": "TheaterEvent",
-      "name": "Slams Fiction (med gäst)",
+      "name": "Slams Fiction med Knut",
       "superEvent": { "@id": "https://madeleinesublime.github.io/slams-impro/#slams-fiction" },
       "startDate": "2026-12-04T20:00:00+01:00",
       "endDate": "2026-12-04T22:00:00+01:00",

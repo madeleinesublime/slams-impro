@@ -19,7 +19,8 @@
         currency: "kr",
         soon: "Biljetter släpps senare",
         guestTag: "Gästspel",
-        buyGuest: "Biljett hos Improvisationsteatern<span class='visually-hidden'> (öppnas i ny flik)</span>"
+        buyGuest: "Biljett hos Improvisationsteatern<span class='visually-hidden'> (öppnas i ny flik)</span>",
+        buyPresens: "Biljett hos Presens Impro<span class='visually-hidden'> (öppnas i ny flik)</span>"
       },
       fiction: {
         kicker: "Vår återkommande show",
@@ -80,7 +81,10 @@
         photoAlt: "Slams sju improvisatörer samlade runt en björkstam"
       },
       form: { name: "Namn", email: "Mejl", occasion: "Vad är det för tillfälle?", message: "Berätta mer", send: "Skicka förfrågan", note: "Öppnar din mejlklient med allt ifyllt till slamsimpro@gmail.com." },
-      footer: { presens: "Slams är en del av Presens Impro." }
+      footer: {
+        presens: "Slams är en del av Presens Impro.",
+        credit: "Gillar du vår hemsida? Hör av dig till <span class='credit-mail'>madeleine.kalin [at] gmail.com</span> om du behöver hjälp att bygga din egen."
+      }
     },
     en: {
       meta: { description: "Slams are seven improvisers performing improvised comedy in Midsommarkransen, Stockholm. Nothing is written in advance. Tickets 150 SEK — see upcoming shows or hire us." },
@@ -99,7 +103,8 @@
         currency: "SEK",
         soon: "Tickets released later",
         guestTag: "Guest show",
-        buyGuest: "Tickets at Improvisationsteatern<span class='visually-hidden'> (opens in a new tab)</span>"
+        buyGuest: "Tickets at Improvisationsteatern<span class='visually-hidden'> (opens in a new tab)</span>",
+        buyPresens: "Tickets at Presens Impro<span class='visually-hidden'> (opens in a new tab)</span>"
       },
       fiction: {
         kicker: "Our recurring show",
@@ -160,7 +165,10 @@
         photoAlt: "The seven Slams improvisers gathered around a birch trunk"
       },
       form: { name: "Name", email: "Email", occasion: "What's the occasion?", message: "Tell us more", send: "Send request", note: "Opens your mail client with everything filled in to slamsimpro@gmail.com." },
-      footer: { presens: "Slams is part of Presens Impro." }
+      footer: {
+        presens: "Slams is part of Presens Impro.",
+        credit: "Like our website? Get in touch at <span class='credit-mail'>madeleine.kalin [at] gmail.com</span> if you need help building your own."
+      }
     }
   };
 
@@ -180,7 +188,7 @@
     { date: "2026-10-17", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
     { date: "2026-11-07", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
     { date: "2026-11-20", time: "20:00", place: "Midsommarkransen", price: 150, guest: true, sv: "Klubb Kransen", en: "Klubb Kransen" },
-    { date: "2026-12-04", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
+    { date: "2026-12-04", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction med Knut", en: "Slams Fiction with Knut" },
     { date: "2026-12-12", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
     { date: "2026-12-19", time: "19:00", place: "Södermalm", guest: true, sv: "Salongen", en: "Salongen" }
   ];
@@ -242,7 +250,25 @@
     renderShows();
     renderMemberRoles();
     renderSuggestion();
+    upgradeContactMail();
     buildFaqSchema();
+  }
+
+  // Madeleine's private address, so it is never written out in full anywhere in
+  // the source — address harvesters mostly just regex for user@domain, and
+  // neither the HTML nor this file contains that shape. Without JavaScript the
+  // "[at]" spelling stays readable; with it, you get a real mailto link.
+  // Must run after the data-i18n-html pass, which rewrites the paragraph.
+  function upgradeContactMail() {
+    const address = ["madeleine.kalin", "gmail", "com"];
+    const joined = `${address[0]}@${address[1]}.${address[2]}`;
+
+    document.querySelectorAll(".credit-mail").forEach((el) => {
+      const link = document.createElement("a");
+      link.href = `mailto:${joined}`;
+      link.textContent = joined;
+      el.replaceChildren(link);
+    });
   }
 
   function setMeta(attr, key, value) {
