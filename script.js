@@ -444,25 +444,29 @@
     });
   }
 
-  // Porträtten med tre bilder: första hovern visar bild 3, nästa hover eller
-  // klick visar bild 2, och sen växlar det vidare varannan gång.
+  // Porträtten. Bild 1 ligger alltid som grund. Ett klick visar bild 2, nästa
+  // klick går alltid tillbaka till bild 1, och klicket efter det visar bild 3
+  // för de tre som har en sådan — så cykeln blir 1 → 2 → 1 → 3 → 1 → 2 för dem
+  // med tre bilder, och 1 → 2 → 1 för de andra.
+  //
+  // data-alt håller vilken bild som är näst i tur, data-show vad som visas nu.
+  // Med mus förhandsvisar hover nästa bild ända till man klickat på kortet;
+  // därefter är klicket det som styr, så bild 1 verkligen kommer tillbaka.
   function setupPortraitToggle() {
-    document.querySelectorAll(".member[data-alt]").forEach((member) => {
-      const flip = () => {
-        member.dataset.alt = member.dataset.alt === "c" ? "b" : "c";
-      };
+    document.querySelectorAll(".member").forEach((member) => {
+      const hasThird = Boolean(member.querySelector(".photo-c"));
 
-      // Med mus sker bytet när pekaren lämnat kortet, så bilden hinner alltid
-      // tona ut innan den byts — nästa hover visar den andra bilden.
-      member.addEventListener("mouseleave", flip);
+      member.addEventListener("click", () => {
+        member.classList.add("is-tapped");
 
-      // På touch finns ingen hover att lämna: första trycket visar bilden,
-      // trycken därefter växlar.
-      let revealed = false;
-      member.addEventListener("pointerdown", (event) => {
-        if (event.pointerType === "mouse") return;
-        if (revealed) flip();
-        revealed = true;
+        if (member.dataset.show) {
+          delete member.dataset.show;
+          // Lägg den andra bilden näst i tur inför nästa klick.
+          if (hasThird) member.dataset.alt = member.dataset.alt === "c" ? "b" : "c";
+          return;
+        }
+
+        member.dataset.show = hasThird && member.dataset.alt === "c" ? "c" : "b";
       });
     });
   }

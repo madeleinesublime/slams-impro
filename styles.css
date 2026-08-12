@@ -453,14 +453,17 @@ main section {
   box-shadow: 10px 10px 0 var(--ink);
 }
 
-/* The radiating blast behind the title. */
+/* Strålkransen bakom titeln. Den sitter i .fiction-art och mäts i vw, inte i
+   procent av panelen — annars glider den iväg och hamnar bakom brödtexten när
+   panelen blir enspaltig i mobil. Nu följer den titeln i båda layouterna. */
 .fiction-rays {
   position: absolute;
-  left: 22%;
+  left: 50%;
   top: 50%;
-  width: 150%;
+  width: min(150vw, 1900px);
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
+  z-index: 0;
   background: repeating-conic-gradient(from 0deg,
     rgba(232, 162, 43, 0.34) 0deg 4deg,
     transparent 4deg 11deg);
@@ -470,6 +473,9 @@ main section {
 }
 
 .fiction-art { position: relative; text-align: center; }
+/* Strålkransen ligger först i .fiction-art, så texten behöver vara positionerad
+   för att hamna ovanpå den. */
+.fiction-kicker, .fiction-title { position: relative; }
 .fiction-kicker {
   margin: 0 0 10px;
   font-size: 13px;
@@ -548,14 +554,23 @@ main section {
   background: var(--member-color);
 }
 .photo-b, .photo-c { opacity: 0; transition: opacity 320ms ease; }
-.member:hover .photo-b, .member:focus-within .photo-b { opacity: 1; }
-/* Madeleine, Bastian och Louise har ett tredje porträtt. data-alt styr vilket
-   av dem som visas — script.js växlar mellan "c" och "b" vid varje hover/klick,
-   och utan JS blir det tredje porträttet kvar som hover-bild. */
-.member[data-alt="c"]:hover .photo-b,
-.member[data-alt="c"]:focus-within .photo-b { opacity: 0; }
-.member[data-alt="c"]:hover .photo-c,
-.member[data-alt="c"]:focus-within .photo-c { opacity: 1; }
+
+/* data-alt pekar ut vilken bild som ligger näst i tur och börjar på "b" för
+   alla; de tre som har ett tredje porträtt växlar sedan till "c" och tillbaka
+   vid varje varv. data-show är vad som faktiskt visas just nu, och sätts av
+   klicket i script.js.
+
+   Hover-förhandsvisningen gäller bara riktiga pekdon. På mobil finns ingen
+   hover — där låtsades webbläsaren om det vid tryck, vilket gjorde att korten
+   betedde sig olika från gång till gång. Nu styr klicket ensamt där. */
+@media (hover: hover) {
+  .member:not(.is-tapped)[data-alt="b"]:hover .photo-b,
+  .member:not(.is-tapped)[data-alt="b"]:focus-within .photo-b,
+  .member:not(.is-tapped)[data-alt="c"]:hover .photo-c,
+  .member:not(.is-tapped)[data-alt="c"]:focus-within .photo-c { opacity: 1; }
+}
+.member[data-show="b"] .photo-b,
+.member[data-show="c"] .photo-c { opacity: 1; }
 
 figcaption { position: relative; min-height: 58px; }
 .member-name, .member-role {
@@ -565,8 +580,15 @@ figcaption { position: relative; min-height: 58px; }
 }
 .member-name { font-family: var(--font-display); font-weight: 700; font-size: 24px; letter-spacing: -0.02em; }
 .member-role { font-size: 14px; line-height: 1.35; font-weight: 500; opacity: 0; }
-.member:hover .member-name, .member:focus-within .member-name { opacity: 0; }
-.member:hover .member-role, .member:focus-within .member-role { opacity: 1; }
+/* Rolltexten byts på samma villkor som bilden, så den fungerar på mobil också. */
+@media (hover: hover) {
+  .member:not(.is-tapped):hover .member-name,
+  .member:not(.is-tapped):focus-within .member-name { opacity: 0; }
+  .member:not(.is-tapped):hover .member-role,
+  .member:not(.is-tapped):focus-within .member-role { opacity: 1; }
+}
+.member[data-show] .member-name { opacity: 0; }
+.member[data-show] .member-role { opacity: 1; }
 
 /* Impro */
 .impro-grid {
@@ -913,6 +935,9 @@ figcaption { position: relative; min-height: 58px; }
   #fiction { padding-top: 62px; }
   .fiction-panel { padding: 32px 20px 26px; gap: 26px; }
   .fiction-title { -webkit-text-stroke-width: 6px; }
+  /* Två spalter blir för smala här: "Midsommarkransen" är bredare än cellen
+     och rann in i värdet bredvid. */
+  .fiction-facts { grid-template-columns: 1fr; gap: 14px; }
 
   #faq { padding-top: 62px; }
   .faq-item summary { gap: 14px; padding: 16px 4px; }
