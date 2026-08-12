@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://madeleinesublime.github.io/slams-impro/sitemap.xml
+Sitemap: https://slamsimpro.se/sitemap.xml
