@@ -190,7 +190,7 @@
   const SHOWS = [
     { date: "2026-08-29", time: "20:00", place: "Midsommarkransen", price: 120, guest: true, sv: "Klubb Kransen", en: "Klubb Kransen" },
     { date: "2026-09-19", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
-    { date: "2026-10-09", time: "20:00", place: "Midsommarkransen", price: 120, guest: true, sv: "Klubb Kransen", en: "Klubb Kransen" },
+    { date: "2026-10-09", time: "20:00", place: "Midsommarkransen", price: 150, guest: true, sv: "Klubb Kransen", en: "Klubb Kransen" },
     { date: "2026-10-17", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
     { date: "2026-11-07", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
     { date: "2026-11-20", time: "20:00", place: "Midsommarkransen", price: 150, guest: true, sv: "Klubb Kransen", en: "Klubb Kransen" },
