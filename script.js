@@ -68,10 +68,12 @@
         a12: "Det finns gott att dricka och något litet att snacka på, men kom inte hungrig — impro är bäst på full mage. Ät innan och ta ett glas hos oss.",
         q13: "Är platserna numrerade — var ska jag sitta?",
         a13: "Platserna är onumrerade, så det är först till kvarn. Vårt tips: var osvensk och sätt dig långt fram. Det är de bästa platserna, och nej — du hamnar inte på scen. Publiken är aldrig med i showen.",
-        q14: "Kan man anlita Slams till ett event?",
-        a14: "Ja, det går bra. Vi spelar i många olika sammanhang och format, och vad som passar beror helt på tillfället. Mejla <a href='mailto:slamsimpro@gmail.com'>slamsimpro@gmail.com</a> med datum och sammanhang, eller fyll i formuläret under <a href='#hire'>Anlita oss</a> här på sidan — hör av dig, så berättar vi mer.",
+        q14: "Spelar ni på andra scener och festivaler?",
+        a14: "Det gör vi gärna! Kommande gästspel dyker upp här under <a href='#shows'>Kommande shower</a>. Har du en scen eller festival där du vill att Slams ska vara med? Mejla oss på <a href='mailto:slamsimpro@gmail.com'>slamsimpro@gmail.com</a> — vi berättar mer.",
         q15: "Hur kommer jag igång med impro själv?",
         a15: "Vill du prova impro själv går du en kurs hos <a href='https://presensimpro.se/' target='_blank' rel='noopener'>Presens Impro</a>, som Slams är en del av. Slams shower är till för att upplevas från publikplats — vi tar aldrig upp någon ur publiken på scenen.",
+        q16: "Jag vill gästspela på er show — hur gör jag?",
+        a16: "Vad kul! Mejla oss på <a href='mailto:slamsimpro@gmail.com'>slamsimpro@gmail.com</a> och berätta om er grupp — vilka ni är, vad ni spelar för slags impro och vad ni helst gör på scen.",
         note: "Hittar du inte svaret? Mejla <a href='mailto:slamsimpro@gmail.com'>slamsimpro@gmail.com</a> — vi svarar gärna."
       },
       hire: {
@@ -152,10 +154,12 @@
         a12: "There is plenty to drink and something small to snack on, but don't come hungry — impro is best on a full stomach. Eat before and have a drink with us.",
         q13: "Are the seats numbered — where should I sit?",
         a13: "Seats are unnumbered, so it is first come, first served. Our tip: don't be shy, sit right at the front. Those are the best seats, and no — you will not end up on stage. The audience is never part of the show.",
-        q14: "Can we hire Slams for an event?",
-        a14: "Yes. We play in all sorts of contexts and formats, and what fits depends entirely on the occasion. Email <a href='mailto:slamsimpro@gmail.com'>slamsimpro@gmail.com</a> with a date and some context, or fill in the form under <a href='#hire'>Hire us</a> on this page — get in touch and we will tell you more.",
+        q14: "Do you perform at other venues and festivals?",
+        a14: "We'd love to! Upcoming guest shows appear here under <a href='#shows'>Upcoming shows</a>. Got a stage or festival where you'd like Slams to be part of it? Email us at <a href='mailto:slamsimpro@gmail.com'>slamsimpro@gmail.com</a> — we'll tell you more.",
         q15: "How do I get started with impro myself?",
         a15: "If you want to try impro yourself, take a course at <a href='https://presensimpro.se/' target='_blank' rel='noopener'>Presens Impro</a>, which Slams is part of. Slams shows are made to be enjoyed from a seat in the audience — we never bring anyone from the audience on stage.",
+        q16: "I want to guest-perform on your show — how do I do that?",
+        a16: "How exciting! Email us at <a href='mailto:slamsimpro@gmail.com'>slamsimpro@gmail.com</a> and tell us about your group — who you are, what kind of impro you play, and what you love doing on stage. The more you share, the easier it is for us to find a date that works.",
         note: "Can't find your answer? Email <a href='mailto:slamsimpro@gmail.com'>slamsimpro@gmail.com</a> — we are happy to help."
       },
       hire: {
@@ -184,6 +188,7 @@
 
   // price is omitted where we don't set it ourselves (guest shows).
   const SHOWS = [
+    { date: "2026-08-29", time: "20:00", place: "Midsommarkransen", price: 120, guest: true, sv: "Klubb Kransen", en: "Klubb Kransen" },
     { date: "2026-09-19", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
     { date: "2026-10-17", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
     { date: "2026-11-07", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
