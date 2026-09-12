@@ -8,8 +8,8 @@
       hero: {
         countdown: "Nästa show om",
         cta: "Köp biljett",
-        title: "Improviserad komedi i Stockholm som skapas i ögonblicket.",
-        lead: "Vi är sju improvisatörer som bygger scener, karaktärer och hela världar utifrån publikens förslag. Målet är enkelt: att ni skrattar hela vägen hem.",
+        title: "Ingen vet vad som kommer hända. Inte vi heller.",
+        lead: "<p>Vi är sju improvisatörer som skapar improviserad komedi i Stockholm – helt i stunden, utan manus och utan plan. Med publikens förslag bygger vi scener, karaktärer och världar som aldrig har funnits förut och aldrig kommer tillbaka.</p><p>Allt kan hända. Målet är bara att ni ska skratta hela vägen hem.</p>",
         bannerAlt: "Slams sju improvisatörer står tätt ihop utomhus framför grönska"
       },
       shows: {
@@ -94,8 +94,8 @@
       hero: {
         countdown: "Next show in",
         cta: "Get tickets",
-        title: "Improv comedy in Stockholm, written while you watch.",
-        lead: "We're seven improvisers building scenes, characters and entire worlds out of audience suggestions. The goal is simple: that you laugh all the way home.",
+        title: "No one knows what's about to happen. Neither do we.",
+        lead: "<p>We're seven improvisers creating improv comedy in Stockholm – entirely in the moment, without a script and without a plan. From the audience's suggestions, we build scenes, characters and worlds that have never existed before and will never come back.</p><p>Anything can happen. Our only goal is for you to laugh all the way home.</p>",
         bannerAlt: "The seven Slams improvisers standing close together outdoors in front of greenery"
       },
       shows: {

@@ -216,6 +216,9 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin-top: 24px;
   text-wrap: pretty;
 }
+.hero-copy .lead p + p {
+  margin-top: 0.6em;
+}
 .hero-logo {
   flex: 0 0 auto;
   width: min(300px, 60vw);
