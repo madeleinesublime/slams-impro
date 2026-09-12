@@ -19,6 +19,7 @@
         currency: "kr",
         soon: "Biljetter släpps senare",
         guestTag: "Gästspel",
+        pastTag: "Har varit",
         buyGuest: "Biljett hos Improvisationsteatern<span class='visually-hidden'> (öppnas i ny flik)</span>",
         buyPresens: "Biljett hos Presens Impro<span class='visually-hidden'> (öppnas i ny flik)</span>"
       },
@@ -105,6 +106,7 @@
         currency: "SEK",
         soon: "Tickets released later",
         guestTag: "Guest show",
+        pastTag: "Past",
         buyGuest: "Tickets at Improvisationsteatern<span class='visually-hidden'> (opens in a new tab)</span>",
         buyPresens: "Tickets at Presens Impro<span class='visually-hidden'> (opens in a new tab)</span>"
       },
@@ -189,9 +191,9 @@
   // price is omitted where we don't set it ourselves (guest shows).
   const SHOWS = [
     { date: "2026-08-29", time: "20:00", place: "Midsommarkransen", price: 120, guest: true, sv: "Klubb Kransen", en: "Klubb Kransen" },
-    { date: "2026-09-19", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
+    { date: "2026-09-19", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction med Sista kvarten", en: "Slams Fiction with Sista kvarten" },
     { date: "2026-10-09", time: "20:00", place: "Midsommarkransen", price: 150, guest: true, sv: "Klubb Kransen", en: "Klubb Kransen" },
-    { date: "2026-10-17", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
+    { date: "2026-10-17", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction med Grannskapet", en: "Slams Fiction with Grannskapet" },
     { date: "2026-11-07", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
     { date: "2026-11-20", time: "20:00", place: "Midsommarkransen", price: 150, guest: true, sv: "Klubb Kransen", en: "Klubb Kransen" },
     { date: "2026-12-04", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction med Knut", en: "Slams Fiction with Knut" },
@@ -325,6 +327,7 @@
   }
 
   function renderShows() {
+    const now = Date.now();
     document.querySelectorAll(".show-item").forEach((item) => {
       const show = SHOWS[Number(item.dataset.showIndex)];
       if (!show) return;
@@ -338,6 +341,27 @@
       item.querySelector(".show-date").textContent = `${day} ${MONTHS[lang][month - 1]}`;
       item.querySelector(".show-name").textContent = show[lang];
       item.querySelector(".show-meta").textContent = `${weekday} ${show.time} · ${show.place}${price}`;
+
+      // Past shows get dimmed and tagged instead of removed, so the list still
+      // reads as a record of the season once dates start slipping by.
+      const isPast = showStart(show).getTime() < now;
+      item.classList.toggle("show-item--past", isPast);
+
+      let pastTag = item.querySelector(".show-tag--past");
+      if (isPast && !pastTag) {
+        let row = item.querySelector(".show-name-row");
+        if (!row) {
+          row = document.createElement("span");
+          row.className = "show-name-row";
+          const nameEl = item.querySelector(".show-name");
+          nameEl.replaceWith(row);
+          row.appendChild(nameEl);
+        }
+        pastTag = document.createElement("span");
+        pastTag.className = "show-tag show-tag--past";
+        row.appendChild(pastTag);
+      }
+      if (pastTag) pastTag.textContent = COPY[lang].shows.pastTag;
     });
   }
 

@@ -444,6 +444,15 @@ main section {
   white-space: nowrap;
 }
 
+/* Shows that have already happened: kept in the list as a record of the
+   season, but dimmed and tagged so they read as done, not upcoming. */
+.show-item--past {
+  opacity: 0.5;
+}
+.show-item--past .show-date {
+  filter: grayscale(1);
+}
+
 
 /* Slams Fiction — the show's own section, styled after the poster */
 .fiction-panel {
