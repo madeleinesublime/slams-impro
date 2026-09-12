@@ -439,6 +439,8 @@ main section {
    so every guest reads as one series no matter how different the source
    photo is. Hovering (or tabbing to the row's link) lets the color in. */
 .guest-photo {
+  position: relative;
+  z-index: 1;
   width: 44px;
   height: 44px;
   object-fit: cover;
@@ -455,7 +457,7 @@ main section {
   .show-item:hover .guest-photo,
   .show-item:focus-within .guest-photo {
     filter: grayscale(0) contrast(1.05);
-    transform: rotate(0deg) scale(1.08);
+    transform: rotate(0deg) scale(1.7);
   }
 }
 
