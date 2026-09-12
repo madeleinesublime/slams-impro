@@ -19,6 +19,7 @@
         currency: "kr",
         soon: "Biljetter släpps senare",
         guestTag: "Gästspel",
+        closePhoto: "Stäng bild",
         buyGuest: "Biljett hos Improvisationsteatern<span class='visually-hidden'> (öppnas i ny flik)</span>",
         buyPresens: "Biljett hos Presens Impro<span class='visually-hidden'> (öppnas i ny flik)</span>"
       },
@@ -105,6 +106,7 @@
         currency: "SEK",
         soon: "Tickets released later",
         guestTag: "Guest show",
+        closePhoto: "Close photo",
         buyGuest: "Tickets at Improvisationsteatern<span class='visually-hidden'> (opens in a new tab)</span>",
         buyPresens: "Tickets at Presens Impro<span class='visually-hidden'> (opens in a new tab)</span>"
       },
@@ -238,6 +240,11 @@
     document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
       const value = getPath(COPY[lang], el.getAttribute("data-i18n-alt"));
       if (typeof value === "string") el.alt = value;
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+      const value = getPath(COPY[lang], el.getAttribute("data-i18n-aria"));
+      if (typeof value === "string") el.setAttribute("aria-label", value);
     });
 
     document.getElementById("lang-sv").classList.toggle("is-active", lang === "sv");
@@ -516,6 +523,44 @@
     });
   }
 
+  // Guest photos have no hover on touch, so tapping one opens the same photo
+  // full-size instead — with an obvious close button, since there's nothing
+  // else on the page (no click-outside-to-dismiss habit) to teach that.
+  function setupGuestLightbox() {
+    const lightbox = document.getElementById("guest-lightbox");
+    const lightboxImg = document.getElementById("guest-lightbox-img");
+    const closeBtn = document.getElementById("guest-lightbox-close");
+    if (!lightbox) return;
+
+    let lastFocused = null;
+
+    function open(photo) {
+      lightboxImg.src = photo.src;
+      lightboxImg.alt = photo.closest(".show-name-row")?.querySelector(".show-name")?.textContent ?? "";
+      lastFocused = document.activeElement;
+      lightbox.hidden = false;
+      document.body.classList.add("lightbox-open");
+      closeBtn.focus();
+    }
+
+    function close() {
+      lightbox.hidden = true;
+      document.body.classList.remove("lightbox-open");
+      if (lastFocused) lastFocused.focus();
+    }
+
+    document.querySelectorAll(".guest-photo").forEach((photo) => {
+      photo.addEventListener("click", () => open(photo));
+    });
+    closeBtn.addEventListener("click", close);
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) close();
+    });
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !lightbox.hidden) close();
+    });
+  }
+
   function setupGenerator() {
     document.getElementById("roll-btn").addEventListener("click", rollSuggestion);
   }
@@ -545,6 +590,7 @@
     setupLangSwitch();
     setupToTop();
     setupPortraitToggle();
+    setupGuestLightbox();
     setupGenerator();
     setupForm();
     setupEasterEgg();

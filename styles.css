@@ -437,7 +437,10 @@ main section {
 /* Guest headshots: the same comic-sticker treatment as the amber date
    plate — thick ink border, a tilt, hard drop shadow — but black & white,
    so every guest reads as one series no matter how different the source
-   photo is. Hovering (or tabbing to the row's link) lets the color in. */
+   photo is. Hovering (or tabbing to the row's link) lets the color in and
+   blows the photo up; the POW cursor from the ensemble cards signals it's
+   clickable, because on touch there's no hover to trigger any of that —
+   tapping opens the same photo full-size in a lightbox instead. */
 .guest-photo {
   position: relative;
   z-index: 1;
@@ -451,15 +454,63 @@ main section {
   transform: rotate(-4deg);
   transition: filter 200ms ease, transform 200ms ease;
   flex-shrink: 0;
+  cursor: url("assets/cursor-pow.png") 32 32, pointer;
 }
 .show-item:nth-child(even) .guest-photo { transform: rotate(3deg); }
 @media (hover: hover) {
   .show-item:hover .guest-photo,
   .show-item:focus-within .guest-photo {
+    z-index: 20;
     filter: grayscale(0) contrast(1.05);
-    transform: rotate(0deg) scale(1.7);
+    transform: rotate(0deg) scale(4.6);
   }
 }
+
+/* Full-size guest photo, opened by tapping (or clicking) the thumbnail. */
+.guest-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: rgba(30, 26, 23, 0.88);
+}
+.guest-lightbox[hidden] { display: none; }
+.guest-lightbox-frame {
+  position: relative;
+  width: min(420px, 84vw);
+}
+.guest-lightbox-frame img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 4px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.guest-lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  background: var(--amber);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 700;
+  box-shadow: 3px 3px 0 var(--ink);
+  cursor: pointer;
+}
+.guest-lightbox-close:hover,
+.guest-lightbox-close:focus-visible { background: var(--crimson); color: var(--cream); }
+body.lightbox-open { overflow: hidden; }
 
 /* Shows whose tickets are not on sale yet: no button to press. */
 .show-soon {
@@ -1033,6 +1084,7 @@ figcaption { position: relative; min-height: 58px; }
   main section, .hero { padding-left: 18px; padding-right: 18px; }
 
   .show-item {
+    position: relative;
     grid-template-columns: 1fr;
     grid-template-areas: "date" "info" "buy";
     row-gap: 10px;
@@ -1043,6 +1095,16 @@ figcaption { position: relative; min-height: 58px; }
   .show-item .show-link,
   .show-item .show-soon { grid-area: buy; justify-self: start; width: auto; }
   .show-date { font-size: 24px; }
+
+  /* No hover on touch, so the guest photo moves out of the name line and
+     sits up by the date instead — still tappable, opened via the lightbox. */
+  .guest-photo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+  }
 
   /* POW sitter inte på bilden i mobil, utan nere vid vågen */
   .wave-divider { margin-top: 78px; }
