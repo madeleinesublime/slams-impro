@@ -434,6 +434,31 @@ main section {
   opacity: 0.75;
 }
 
+/* Guest headshots: the same comic-sticker treatment as the amber date
+   plate — thick ink border, a tilt, hard drop shadow — but black & white,
+   so every guest reads as one series no matter how different the source
+   photo is. Hovering (or tabbing to the row's link) lets the color in. */
+.guest-photo {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border: 3px solid var(--ink);
+  border-radius: 8px;
+  box-shadow: 3px 3px 0 var(--ink);
+  filter: grayscale(1) contrast(1.05);
+  transform: rotate(-4deg);
+  transition: filter 200ms ease, transform 200ms ease;
+  flex-shrink: 0;
+}
+.show-item:nth-child(even) .guest-photo { transform: rotate(3deg); }
+@media (hover: hover) {
+  .show-item:hover .guest-photo,
+  .show-item:focus-within .guest-photo {
+    filter: grayscale(0) contrast(1.05);
+    transform: rotate(0deg) scale(1.08);
+  }
+}
+
 /* Shows whose tickets are not on sale yet: no button to press. */
 .show-soon {
   font-size: 13px;
@@ -444,13 +469,38 @@ main section {
   white-space: nowrap;
 }
 
-/* Shows that have already happened: kept in the list as a record of the
-   season, but dimmed and tagged so they read as done, not upcoming. */
-.show-item--past {
+/* Shows that have already happened: collapse to a single muted line, name
+   struck through, nothing left to act on. */
+.show-item.show-item--past {
+  padding: 10px 8px;
   opacity: 0.5;
 }
-.show-item--past .show-date {
-  filter: grayscale(1);
+/* .show-list ancestor bumps specificity past the amber-plate rules above
+   (including their :nth-child(even) tweak), so a past Slams Fiction date
+   also loses the plate and lands flat, not just past guest shows. */
+.show-list .show-item.show-item--past .show-date {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  transform: none;
+  justify-self: start;
+}
+.show-item--past .show-name {
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: line-through;
+}
+.show-item--past .show-tag,
+.show-item--past .show-meta,
+.show-item--past .show-link,
+.show-item--past .btn,
+.show-item--past .show-soon,
+.show-item--past .guest-photo {
+  display: none;
 }
 
 

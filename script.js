@@ -13,13 +13,12 @@
         bannerAlt: "Slams sju improvisatörer står tätt ihop utomhus framför grönska"
       },
       shows: {
-        title: "Kommande shower",
-        lead: "Höstens speldatum",
+        title: "Höstens shower",
+        lead: "Datum i Midsommarkransen och på gästspel",
         buy: "Biljett",
         currency: "kr",
         soon: "Biljetter släpps senare",
         guestTag: "Gästspel",
-        pastTag: "Har varit",
         buyGuest: "Biljett hos Improvisationsteatern<span class='visually-hidden'> (öppnas i ny flik)</span>",
         buyPresens: "Biljett hos Presens Impro<span class='visually-hidden'> (öppnas i ny flik)</span>"
       },
@@ -100,13 +99,12 @@
         bannerAlt: "The seven Slams improvisers standing close together outdoors in front of greenery"
       },
       shows: {
-        title: "Upcoming shows",
-        lead: "This autumn's dates",
+        title: "This autumn's shows",
+        lead: "Dates in Midsommarkransen and on tour",
         buy: "Tickets",
         currency: "SEK",
         soon: "Tickets released later",
         guestTag: "Guest show",
-        pastTag: "Past",
         buyGuest: "Tickets at Improvisationsteatern<span class='visually-hidden'> (opens in a new tab)</span>",
         buyPresens: "Tickets at Presens Impro<span class='visually-hidden'> (opens in a new tab)</span>"
       },
@@ -326,6 +324,13 @@
     return new Date(`${show.date}T${show.time}:00${stockholmOffset(show.date)}`);
   }
 
+  // Past rows drop their meta/tag/link markup entirely (see index.html), so
+  // every lookup here has to tolerate the element simply not being there.
+  function setText(item, selector, value) {
+    const el = item.querySelector(selector);
+    if (el) el.textContent = value;
+  }
+
   function renderShows() {
     const now = Date.now();
     document.querySelectorAll(".show-item").forEach((item) => {
@@ -338,30 +343,13 @@
 
       const price = show.price ? ` · ${show.price} ${COPY[lang].shows.currency}` : "";
 
-      item.querySelector(".show-date").textContent = `${day} ${MONTHS[lang][month - 1]}`;
-      item.querySelector(".show-name").textContent = show[lang];
-      item.querySelector(".show-meta").textContent = `${weekday} ${show.time} · ${show.place}${price}`;
+      setText(item, ".show-date", `${day} ${MONTHS[lang][month - 1]}`);
+      setText(item, ".show-name", show[lang]);
+      setText(item, ".show-meta", `${weekday} ${show.time} · ${show.place}${price}`);
 
-      // Past shows get dimmed and tagged instead of removed, so the list still
-      // reads as a record of the season once dates start slipping by.
-      const isPast = showStart(show).getTime() < now;
-      item.classList.toggle("show-item--past", isPast);
-
-      let pastTag = item.querySelector(".show-tag--past");
-      if (isPast && !pastTag) {
-        let row = item.querySelector(".show-name-row");
-        if (!row) {
-          row = document.createElement("span");
-          row.className = "show-name-row";
-          const nameEl = item.querySelector(".show-name");
-          nameEl.replaceWith(row);
-          row.appendChild(nameEl);
-        }
-        pastTag = document.createElement("span");
-        pastTag.className = "show-tag show-tag--past";
-        row.appendChild(pastTag);
-      }
-      if (pastTag) pastTag.textContent = COPY[lang].shows.pastTag;
+      // Once a show's start time is behind us it collapses to a struck-through
+      // name and date — see the .show-item--past rules in styles.css.
+      item.classList.toggle("show-item--past", showStart(show).getTime() < now);
     });
   }
 
