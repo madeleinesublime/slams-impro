@@ -9,12 +9,11 @@
         countdown: "Nästa show om",
         cta: "Köp biljett",
         title: "Ingen vet vad som kommer hända. Inte vi heller.",
-        lead: "<p>Vi är sju improvisatörer som skapar improviserad komedi i Stockholm – helt i stunden, utan manus och utan plan. Med publikens förslag bygger vi scener, karaktärer och världar som aldrig har funnits förut och aldrig kommer tillbaka.</p><p>Allt kan hända. Målet är bara att ni ska skratta hela vägen hem.</p>",
+        lead: "<p>Vi bygger improviserad komedi från scratch, varje kväll, i en källare i Midsommarkransen – en av Stockholms mest oförutsägbara scener. Inget manus, ingen plan, bara publikens förslag som bränsle. Scener, karaktärer och världar som aldrig har funnits förut och aldrig kommer tillbaka.</p><p>Allt kan hända. Målet är bara att ni ska skratta hela vägen hem.</p>",
         bannerAlt: "Slams sju improvisatörer står tätt ihop utomhus framför grönska"
       },
       shows: {
         title: "Höstens shower",
-        lead: "Datum i Midsommarkransen och på gästspel",
         buy: "Biljett",
         currency: "kr",
         soon: "Biljetter släpps senare",
@@ -96,12 +95,11 @@
         countdown: "Next show in",
         cta: "Get tickets",
         title: "No one knows what's about to happen. Neither do we.",
-        lead: "<p>We're seven improvisers creating improv comedy in Stockholm – entirely in the moment, without a script and without a plan. From the audience's suggestions, we build scenes, characters and worlds that have never existed before and will never come back.</p><p>Anything can happen. Our only goal is for you to laugh all the way home.</p>",
+        lead: "<p>We build improv comedy from scratch, every night, in a basement in Midsommarkransen – one of Stockholm's most unpredictable stages. No script, no plan, just the audience's suggestions as fuel. Scenes, characters and worlds that have never existed before and will never come back.</p><p>Anything can happen. Our only goal is for you to laugh all the way home.</p>",
         bannerAlt: "The seven Slams improvisers standing close together outdoors in front of greenery"
       },
       shows: {
         title: "This autumn's shows",
-        lead: "Dates in Midsommarkransen and on tour",
         buy: "Tickets",
         currency: "SEK",
         soon: "Tickets released later",
@@ -197,7 +195,7 @@
     { date: "2026-11-07", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
     { date: "2026-11-20", time: "20:00", place: "Midsommarkransen", price: 150, guest: true, sv: "Klubb Kransen", en: "Klubb Kransen" },
     { date: "2026-12-04", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction med Knut", en: "Slams Fiction with Knut" },
-    { date: "2026-12-12", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction (med gäst)", en: "Slams Fiction (with a guest)" },
+    { date: "2026-12-12", time: "20:00", place: "Midsommarkransen", price: 150, sv: "Slams Fiction med Dramatiska", en: "Slams Fiction with Dramatiska" },
     { date: "2026-12-19", time: "19:00", place: "Södermalm", price: 150, guest: true, sv: "Salongen", en: "Salongen" }
   ];
 
