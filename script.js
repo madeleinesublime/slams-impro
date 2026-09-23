@@ -41,6 +41,11 @@
         lLength: "Längd", vLength: "Ca 2 timmar", lGuest: "Gäst", vGuest: "Varje kväll",
         cta: "Köp biljett"
       },
+      quote: {
+        heading: "Vad publiken säger",
+        text: "<p>Slams är det roligaste jag vet, för trots att de som spelar är vuxna tycker även barn att det är kul! Jag älskar hur ni kan ta ett enda ord och göra en hel fantastisk show – och hur ni kan dra ut ett skämt så att det dyker upp igen flera scener senare. Det är så sjukt roligt!</p>",
+        age: "14 år"
+      },
       // Sidan /slams-fiction/.
       fic: {
         crumbHome: "Slams",
@@ -181,6 +186,11 @@
         lTime: "Time", lPrice: "Price", vPrice: "150 SEK", lPlace: "Venue",
         lLength: "Length", vLength: "About 2 hours", lGuest: "Guest", vGuest: "Every night",
         cta: "Get tickets"
+      },
+      quote: {
+        heading: "What the audience says",
+        text: "<p>Slams is the funniest thing I know, because even though the people on stage are adults, kids think it’s fun too! I love how you can take a single word and turn it into a whole brilliant show – and how you can stretch out a joke so it turns up again several scenes later. It’s so ridiculously funny!</p>",
+        age: "age 14"
       },
       fic: {
         crumbHome: "Slams",
