@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="home">
 <a class="skip-link" href="#main-content">Hoppa till innehållet</a>
 
 <header class="site-header">
@@ -101,13 +101,19 @@
     </div>
 
     <ul class="show-list">
-      <li class="show-item show-item--past" data-show-index="0">
+      <!-- shows:start -->
+      <li class="show-item show-item--guest" data-show-date="2026-08-29">
         <time class="show-date" datetime="2026-08-29T20:00">29 aug</time>
         <div class="show-info">
-          <span class="show-name">Klubb Kransen</span>
+          <span class="show-name-row">
+            <span class="show-name">Klubb Kransen</span>
+            <span class="show-tag" data-i18n="shows.guestTag">Gästspel</span>
+          </span>
+          <span class="show-meta">lör 20:00 · Midsommarkransen · 120 kr</span>
         </div>
+        <a class="show-link" href="https://presensimpro.culmas.io/show/W77OlIMh9rlFUS9PAHh3?from=component-api" target="_blank" rel="noopener" data-i18n-html="shows.buyPresens">Biljett hos Presens Impro<span class="visually-hidden"> (öppnas i ny flik)</span></a>
       </li>
-      <li class="show-item" data-show-index="1">
+      <li class="show-item" data-show-date="2026-09-19">
         <time class="show-date" datetime="2026-09-19T20:00">19 sep</time>
         <div class="show-info">
           <span class="show-name-row">
@@ -118,7 +124,7 @@
         </div>
         <a class="btn btn-ghost" href="https://presensimpro.culmas.io/show/uQ2tW2vODfqXUoJtY4xK?from=component-api" target="_blank" rel="noopener" data-i18n="shows.buy">Biljett</a>
       </li>
-      <li class="show-item show-item--guest" data-show-index="2">
+      <li class="show-item show-item--guest" data-show-date="2026-10-09">
         <time class="show-date" datetime="2026-10-09T20:00">9 okt</time>
         <div class="show-info">
           <span class="show-name-row">
@@ -129,7 +135,7 @@
         </div>
         <a class="show-link" href="https://presensimpro.culmas.io/show/lABPUiGDMRERrDl90GRx?from=component-api" target="_blank" rel="noopener" data-i18n-html="shows.buyPresens">Biljett hos Presens Impro<span class="visually-hidden"> (öppnas i ny flik)</span></a>
       </li>
-      <li class="show-item" data-show-index="3">
+      <li class="show-item" data-show-date="2026-10-17">
         <time class="show-date" datetime="2026-10-17T20:00">17 okt</time>
         <div class="show-info">
           <span class="show-name-row">
@@ -140,7 +146,7 @@
         </div>
         <a class="btn btn-ghost" href="https://presensimpro.culmas.io/show/zUeD4YuByn4zZOW4qAVI/?from=component-api" target="_blank" rel="noopener" data-i18n="shows.buy">Biljett</a>
       </li>
-      <li class="show-item" data-show-index="4">
+      <li class="show-item" data-show-date="2026-11-07">
         <time class="show-date" datetime="2026-11-07T20:00">7 nov</time>
         <div class="show-info">
           <span class="show-name">Slams Fiction (med gäst)</span>
@@ -148,7 +154,7 @@
         </div>
         <a class="btn btn-ghost" href="https://presensimpro.culmas.io/show/GNqfvDOK5xXIyrjXRh2C?from=component-api" target="_blank" rel="noopener" data-i18n="shows.buy">Biljett</a>
       </li>
-      <li class="show-item show-item--guest" data-show-index="5">
+      <li class="show-item show-item--guest" data-show-date="2026-11-20">
         <time class="show-date" datetime="2026-11-20T20:00">20 nov</time>
         <div class="show-info">
           <span class="show-name-row">
@@ -159,7 +165,7 @@
         </div>
         <a class="show-link" href="https://presensimpro.culmas.io/show/JRWmR4Ld0JbqAVb38WCA?from=component-api" target="_blank" rel="noopener" data-i18n-html="shows.buyPresens">Biljett hos Presens Impro<span class="visually-hidden"> (öppnas i ny flik)</span></a>
       </li>
-      <li class="show-item" data-show-index="6">
+      <li class="show-item" data-show-date="2026-12-04">
         <time class="show-date" datetime="2026-12-04T20:00">4 dec</time>
         <div class="show-info">
           <span class="show-name-row">
@@ -170,7 +176,7 @@
         </div>
         <span class="show-soon" data-i18n="shows.soon">Biljetter släpps senare</span>
       </li>
-      <li class="show-item" data-show-index="7">
+      <li class="show-item" data-show-date="2026-12-12">
         <time class="show-date" datetime="2026-12-12T20:00">12 dec</time>
         <div class="show-info">
           <span class="show-name">Slams Fiction med Dramatiska</span>
@@ -178,7 +184,7 @@
         </div>
         <span class="show-soon" data-i18n="shows.soon">Biljetter släpps senare</span>
       </li>
-      <li class="show-item show-item--guest" data-show-index="8">
+      <li class="show-item show-item--guest" data-show-date="2026-12-19">
         <time class="show-date" datetime="2026-12-19T19:00">19 dec</time>
         <div class="show-info">
           <span class="show-name-row">
@@ -189,6 +195,7 @@
         </div>
         <a class="show-link" href="https://improvisationsteater.se/utbud/salongen-varen-2026-pa-sondagar-kl-18/" target="_blank" rel="noopener" data-i18n-html="shows.buyGuest">Biljett hos Improvisationsteatern<span class="visually-hidden"> (öppnas i ny flik)</span></a>
       </li>
+<!-- shows:end -->
     </ul>
   </section>
 
@@ -227,7 +234,10 @@
           </div>
         </dl>
 
-        <a class="btn btn-primary" href="https://presensimpro.se/forestallningar/?#kransenshower" target="_blank" rel="noopener" data-i18n="fiction.cta">Köp biljett</a>
+        <div class="fiction-actions">
+          <a class="btn btn-primary" href="https://presensimpro.se/forestallningar/?#kransenshower" target="_blank" rel="noopener" data-i18n="fiction.cta">Köp biljett</a>
+          <a class="btn btn-ghost" href="slams-fiction/" data-i18n="fic.readMore">Läs mer om Slams Fiction</a>
+        </div>
       </div>
     </div>
   </section>
@@ -801,15 +811,16 @@
 }
 </script>
 
-<script type="application/ld+json">
+<!-- events:start -->
+<script type="application/ld+json" id="events-schema">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "EventSeries",
-      "@id": "https://slamsimpro.se/#slams-fiction",
+      "@id": "https://slamsimpro.se/slams-fiction/#series",
       "name": "Slams Fiction",
-      "url": "https://slamsimpro.se/#fiction",
+      "url": "https://slamsimpro.se/slams-fiction/",
       "description": "Slams Fiction är Slams egen återkommande show i Presens improkällare i Midsommarkransen i Stockholm. Ingenting är skrivet i förväg — hela kvällen byggs på publikens förslag och spelas bara en gång. Varje föreställning har en inbjuden gäst. Start 20:00, cirka två timmar inklusive paus, biljett 150 kr.",
       "inLanguage": "sv",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
@@ -817,11 +828,28 @@
         "@type": "Place",
         "name": "Presens improkällare",
         "alternateName": "Presens improkällare i Midsommarkransen",
-        "address": { "@type": "PostalAddress", "streetAddress": "Tegelbruksvägen 28", "postalCode": "126 34", "addressLocality": "Hägersten", "addressCountry": "SE" }
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tegelbruksvägen 28",
+          "postalCode": "126 34",
+          "addressLocality": "Hägersten",
+          "addressCountry": "SE"
+        }
       },
-      "performer": { "@id": "https://slamsimpro.se/#slams" },
-      "organizer": { "@type": "Organization", "name": "Presens Impro", "url": "https://presensimpro.se/" },
-      "offers": { "@type": "Offer", "price": "150", "priceCurrency": "SEK", "url": "https://presensimpro.se/forestallningar/?#kransenshower" }
+      "performer": {
+        "@id": "https://slamsimpro.se/#slams"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Presens Impro",
+        "url": "https://presensimpro.se/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "150",
+        "priceCurrency": "SEK",
+        "url": "https://presensimpro.se/forestallningar/?#kransenshower"
+      }
     },
     {
       "@type": "TheaterEvent",
@@ -839,34 +867,58 @@
         "@type": "Place",
         "name": "Presens improkällare",
         "alternateName": "Presens improkällare i Midsommarkransen",
-        "address": { "@type": "PostalAddress", "streetAddress": "Tegelbruksvägen 28", "postalCode": "126 34", "addressLocality": "Hägersten", "addressCountry": "SE" }
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tegelbruksvägen 28",
+          "postalCode": "126 34",
+          "addressLocality": "Hägersten",
+          "addressCountry": "SE"
+        }
       },
-      "performer": { "@id": "https://slamsimpro.se/#slams" },
-      "organizer": { "@type": "Organization", "name": "Presens Impro", "url": "https://presensimpro.se/" },
-      "offers": { "@type": "Offer", "price": "120", "priceCurrency": "SEK", "url": "https://presensimpro.culmas.io/show/W77OlIMh9rlFUS9PAHh3?from=component-api", "availability": "https://schema.org/InStock", "validFrom": "2026-08-13", "category": "primary" }
+      "performer": {
+        "@id": "https://slamsimpro.se/#slams"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Presens Impro",
+        "url": "https://presensimpro.se/"
+      }
     },
     {
       "@type": "TheaterEvent",
       "name": "Slams Fiction med Sista kvarten",
-      "superEvent": { "@id": "https://slamsimpro.se/#slams-fiction" },
+      "superEvent": {
+        "@id": "https://slamsimpro.se/slams-fiction/#series"
+      },
       "startDate": "2026-09-19T20:00:00+02:00",
       "endDate": "2026-09-19T22:00:00+02:00",
       "doorTime": "2026-09-19T19:30:00+02:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "inLanguage": "sv",
-      "url": "https://slamsimpro.se/#shows",
+      "url": "https://slamsimpro.se/slams-fiction/",
       "image": "https://slamsimpro.se/assets/hero-ensemble.jpg",
       "description": "Slams Fiction — improviserad komedi med Slams och en inbjuden gäst i Presens improkällare i Midsommarkransen. Ingenting är förberett, allt byggs på publikens förslag. Cirka två timmar inklusive paus.",
       "location": {
         "@type": "Place",
         "name": "Presens improkällare",
         "alternateName": "Presens improkällare i Midsommarkransen",
-        "address": { "@type": "PostalAddress", "streetAddress": "Tegelbruksvägen 28", "postalCode": "126 34", "addressLocality": "Hägersten", "addressCountry": "SE" }
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tegelbruksvägen 28",
+          "postalCode": "126 34",
+          "addressLocality": "Hägersten",
+          "addressCountry": "SE"
+        }
       },
-      "performer": { "@id": "https://slamsimpro.se/#slams" },
-      "organizer": { "@type": "Organization", "name": "Presens Impro", "url": "https://presensimpro.se/" },
-      "offers": { "@type": "Offer", "price": "150", "priceCurrency": "SEK", "url": "https://presensimpro.culmas.io/show/uQ2tW2vODfqXUoJtY4xK?from=component-api", "availability": "https://schema.org/InStock", "validFrom": "2026-08-08", "category": "primary" }
+      "performer": {
+        "@id": "https://slamsimpro.se/#slams"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Presens Impro",
+        "url": "https://presensimpro.se/"
+      }
     },
     {
       "@type": "TheaterEvent",
@@ -884,57 +936,121 @@
         "@type": "Place",
         "name": "Presens improkällare",
         "alternateName": "Presens improkällare i Midsommarkransen",
-        "address": { "@type": "PostalAddress", "streetAddress": "Tegelbruksvägen 28", "postalCode": "126 34", "addressLocality": "Hägersten", "addressCountry": "SE" }
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tegelbruksvägen 28",
+          "postalCode": "126 34",
+          "addressLocality": "Hägersten",
+          "addressCountry": "SE"
+        }
       },
-      "performer": { "@id": "https://slamsimpro.se/#slams" },
-      "organizer": { "@type": "Organization", "name": "Presens Impro", "url": "https://presensimpro.se/" },
-      "offers": { "@type": "Offer", "price": "150", "priceCurrency": "SEK", "url": "https://presensimpro.culmas.io/show/lABPUiGDMRERrDl90GRx?from=component-api", "availability": "https://schema.org/InStock", "validFrom": "2026-08-13", "category": "primary" }
+      "performer": {
+        "@id": "https://slamsimpro.se/#slams"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Presens Impro",
+        "url": "https://presensimpro.se/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "150",
+        "priceCurrency": "SEK",
+        "url": "https://presensimpro.culmas.io/show/lABPUiGDMRERrDl90GRx?from=component-api",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-08-13",
+        "category": "primary"
+      }
     },
     {
       "@type": "TheaterEvent",
       "name": "Slams Fiction med Grannskapet",
-      "superEvent": { "@id": "https://slamsimpro.se/#slams-fiction" },
+      "superEvent": {
+        "@id": "https://slamsimpro.se/slams-fiction/#series"
+      },
       "startDate": "2026-10-17T20:00:00+02:00",
       "endDate": "2026-10-17T22:00:00+02:00",
       "doorTime": "2026-10-17T19:30:00+02:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "inLanguage": "sv",
-      "url": "https://slamsimpro.se/#shows",
+      "url": "https://slamsimpro.se/slams-fiction/",
       "image": "https://slamsimpro.se/assets/hero-ensemble.jpg",
       "description": "Slams Fiction — improviserad komedi med Slams och en inbjuden gäst i Presens improkällare i Midsommarkransen. Ingenting är förberett, allt byggs på publikens förslag. Cirka två timmar inklusive paus.",
       "location": {
         "@type": "Place",
         "name": "Presens improkällare",
         "alternateName": "Presens improkällare i Midsommarkransen",
-        "address": { "@type": "PostalAddress", "streetAddress": "Tegelbruksvägen 28", "postalCode": "126 34", "addressLocality": "Hägersten", "addressCountry": "SE" }
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tegelbruksvägen 28",
+          "postalCode": "126 34",
+          "addressLocality": "Hägersten",
+          "addressCountry": "SE"
+        }
       },
-      "performer": { "@id": "https://slamsimpro.se/#slams" },
-      "organizer": { "@type": "Organization", "name": "Presens Impro", "url": "https://presensimpro.se/" },
-      "offers": { "@type": "Offer", "price": "150", "priceCurrency": "SEK", "url": "https://presensimpro.culmas.io/show/zUeD4YuByn4zZOW4qAVI/?from=component-api", "availability": "https://schema.org/InStock", "validFrom": "2026-08-08", "category": "primary" }
+      "performer": {
+        "@id": "https://slamsimpro.se/#slams"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Presens Impro",
+        "url": "https://presensimpro.se/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "150",
+        "priceCurrency": "SEK",
+        "url": "https://presensimpro.culmas.io/show/zUeD4YuByn4zZOW4qAVI/?from=component-api",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-08-08",
+        "category": "primary"
+      }
     },
     {
       "@type": "TheaterEvent",
       "name": "Slams Fiction (med gäst)",
-      "superEvent": { "@id": "https://slamsimpro.se/#slams-fiction" },
+      "superEvent": {
+        "@id": "https://slamsimpro.se/slams-fiction/#series"
+      },
       "startDate": "2026-11-07T20:00:00+01:00",
       "endDate": "2026-11-07T22:00:00+01:00",
       "doorTime": "2026-11-07T19:30:00+01:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "inLanguage": "sv",
-      "url": "https://slamsimpro.se/#shows",
+      "url": "https://slamsimpro.se/slams-fiction/",
       "image": "https://slamsimpro.se/assets/hero-ensemble.jpg",
       "description": "Slams Fiction — improviserad komedi med Slams och en inbjuden gäst i Presens improkällare i Midsommarkransen. Ingenting är förberett, allt byggs på publikens förslag. Cirka två timmar inklusive paus.",
       "location": {
         "@type": "Place",
         "name": "Presens improkällare",
         "alternateName": "Presens improkällare i Midsommarkransen",
-        "address": { "@type": "PostalAddress", "streetAddress": "Tegelbruksvägen 28", "postalCode": "126 34", "addressLocality": "Hägersten", "addressCountry": "SE" }
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tegelbruksvägen 28",
+          "postalCode": "126 34",
+          "addressLocality": "Hägersten",
+          "addressCountry": "SE"
+        }
       },
-      "performer": { "@id": "https://slamsimpro.se/#slams" },
-      "organizer": { "@type": "Organization", "name": "Presens Impro", "url": "https://presensimpro.se/" },
-      "offers": { "@type": "Offer", "price": "150", "priceCurrency": "SEK", "url": "https://presensimpro.culmas.io/show/GNqfvDOK5xXIyrjXRh2C?from=component-api", "availability": "https://schema.org/InStock", "validFrom": "2026-08-08", "category": "primary" }
+      "performer": {
+        "@id": "https://slamsimpro.se/#slams"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Presens Impro",
+        "url": "https://presensimpro.se/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "150",
+        "priceCurrency": "SEK",
+        "url": "https://presensimpro.culmas.io/show/GNqfvDOK5xXIyrjXRh2C?from=component-api",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-08-08",
+        "category": "primary"
+      }
     },
     {
       "@type": "TheaterEvent",
@@ -952,57 +1068,117 @@
         "@type": "Place",
         "name": "Presens improkällare",
         "alternateName": "Presens improkällare i Midsommarkransen",
-        "address": { "@type": "PostalAddress", "streetAddress": "Tegelbruksvägen 28", "postalCode": "126 34", "addressLocality": "Hägersten", "addressCountry": "SE" }
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tegelbruksvägen 28",
+          "postalCode": "126 34",
+          "addressLocality": "Hägersten",
+          "addressCountry": "SE"
+        }
       },
-      "performer": { "@id": "https://slamsimpro.se/#slams" },
-      "organizer": { "@type": "Organization", "name": "Presens Impro", "url": "https://presensimpro.se/" },
-      "offers": { "@type": "Offer", "price": "150", "priceCurrency": "SEK", "url": "https://presensimpro.culmas.io/show/JRWmR4Ld0JbqAVb38WCA?from=component-api", "availability": "https://schema.org/InStock", "validFrom": "2026-08-08", "category": "primary" }
+      "performer": {
+        "@id": "https://slamsimpro.se/#slams"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Presens Impro",
+        "url": "https://presensimpro.se/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "150",
+        "priceCurrency": "SEK",
+        "url": "https://presensimpro.culmas.io/show/JRWmR4Ld0JbqAVb38WCA?from=component-api",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-08-08",
+        "category": "primary"
+      }
     },
     {
       "@type": "TheaterEvent",
       "name": "Slams Fiction med Knut",
-      "superEvent": { "@id": "https://slamsimpro.se/#slams-fiction" },
+      "superEvent": {
+        "@id": "https://slamsimpro.se/slams-fiction/#series"
+      },
       "startDate": "2026-12-04T20:00:00+01:00",
       "endDate": "2026-12-04T22:00:00+01:00",
       "doorTime": "2026-12-04T19:30:00+01:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "inLanguage": "sv",
-      "url": "https://slamsimpro.se/#shows",
+      "url": "https://slamsimpro.se/slams-fiction/",
       "image": "https://slamsimpro.se/assets/hero-ensemble.jpg",
       "description": "Slams Fiction — improviserad komedi med Slams och en inbjuden gäst i Presens improkällare i Midsommarkransen. Ingenting är förberett, allt byggs på publikens förslag. Cirka två timmar inklusive paus.",
       "location": {
         "@type": "Place",
         "name": "Presens improkällare",
         "alternateName": "Presens improkällare i Midsommarkransen",
-        "address": { "@type": "PostalAddress", "streetAddress": "Tegelbruksvägen 28", "postalCode": "126 34", "addressLocality": "Hägersten", "addressCountry": "SE" }
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tegelbruksvägen 28",
+          "postalCode": "126 34",
+          "addressLocality": "Hägersten",
+          "addressCountry": "SE"
+        }
       },
-      "performer": { "@id": "https://slamsimpro.se/#slams" },
-      "organizer": { "@type": "Organization", "name": "Presens Impro", "url": "https://presensimpro.se/" },
-      "offers": { "@type": "Offer", "price": "150", "priceCurrency": "SEK", "url": "https://presensimpro.se/forestallningar/?#kransenshower", "availability": "https://schema.org/PreOrder", "category": "primary" }
+      "performer": {
+        "@id": "https://slamsimpro.se/#slams"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Presens Impro",
+        "url": "https://presensimpro.se/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "150",
+        "priceCurrency": "SEK",
+        "url": "https://presensimpro.se/forestallningar/?#kransenshower",
+        "availability": "https://schema.org/PreOrder"
+      }
     },
     {
       "@type": "TheaterEvent",
       "name": "Slams Fiction med Dramatiska",
-      "superEvent": { "@id": "https://slamsimpro.se/#slams-fiction" },
+      "superEvent": {
+        "@id": "https://slamsimpro.se/slams-fiction/#series"
+      },
       "startDate": "2026-12-12T20:00:00+01:00",
       "endDate": "2026-12-12T22:00:00+01:00",
       "doorTime": "2026-12-12T19:30:00+01:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "inLanguage": "sv",
-      "url": "https://slamsimpro.se/#shows",
+      "url": "https://slamsimpro.se/slams-fiction/",
       "image": "https://slamsimpro.se/assets/hero-ensemble.jpg",
       "description": "Slams Fiction — improviserad komedi med Slams och en inbjuden gäst i Presens improkällare i Midsommarkransen. Ingenting är förberett, allt byggs på publikens förslag. Cirka två timmar inklusive paus.",
       "location": {
         "@type": "Place",
         "name": "Presens improkällare",
         "alternateName": "Presens improkällare i Midsommarkransen",
-        "address": { "@type": "PostalAddress", "streetAddress": "Tegelbruksvägen 28", "postalCode": "126 34", "addressLocality": "Hägersten", "addressCountry": "SE" }
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tegelbruksvägen 28",
+          "postalCode": "126 34",
+          "addressLocality": "Hägersten",
+          "addressCountry": "SE"
+        }
       },
-      "performer": { "@id": "https://slamsimpro.se/#slams" },
-      "organizer": { "@type": "Organization", "name": "Presens Impro", "url": "https://presensimpro.se/" },
-      "offers": { "@type": "Offer", "price": "150", "priceCurrency": "SEK", "url": "https://presensimpro.se/forestallningar/?#kransenshower", "availability": "https://schema.org/PreOrder", "category": "primary" }
+      "performer": {
+        "@id": "https://slamsimpro.se/#slams"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Presens Impro",
+        "url": "https://presensimpro.se/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "150",
+        "priceCurrency": "SEK",
+        "url": "https://presensimpro.se/forestallningar/?#kransenshower",
+        "availability": "https://schema.org/PreOrder"
+      }
     },
     {
       "@type": "TheaterEvent",
@@ -1013,21 +1189,39 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "inLanguage": "sv",
-      "url": "https://improvisationsteater.se/utbud/salongen-varen-2026-pa-sondagar-kl-18/",
+      "url": "https://slamsimpro.se/#shows",
       "image": "https://slamsimpro.se/assets/hero-ensemble.jpg",
       "description": "Slams gästspelar i Salongen på Södermalm i Stockholm. Detta är inte en Slams Fiction-föreställning utan ett gästspel hos Stockholms Improvisationsteater.",
       "location": {
         "@type": "Place",
         "name": "Salongen, Södermalm",
-        "address": { "@type": "PostalAddress", "addressLocality": "Stockholm", "addressCountry": "SE" }
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Stockholm",
+          "addressCountry": "SE"
+        }
       },
-      "performer": { "@id": "https://slamsimpro.se/#slams" },
-      "organizer": { "@type": "Organization", "name": "Stockholms Improvisationsteater", "url": "https://improvisationsteater.se/" },
-      "offers": { "@type": "Offer", "price": "150", "priceCurrency": "SEK", "url": "https://improvisationsteater.se/utbud/salongen-varen-2026-pa-sondagar-kl-18/", "availability": "https://schema.org/InStock" }
+      "performer": {
+        "@id": "https://slamsimpro.se/#slams"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stockholms Improvisationsteater",
+        "url": "https://improvisationsteater.se/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "150",
+        "priceCurrency": "SEK",
+        "url": "https://improvisationsteater.se/utbud/salongen-varen-2026-pa-sondagar-kl-18/",
+        "availability": "https://schema.org/InStock",
+        "category": "primary"
+      }
     }
   ]
 }
 </script>
+<!-- events:end -->
 
 <div class="guest-lightbox" id="guest-lightbox" hidden>
   <div class="guest-lightbox-frame">
@@ -1036,6 +1230,7 @@
   </div>
 </div>
 
+<script src="shows.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

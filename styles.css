@@ -1133,3 +1133,114 @@ figcaption { position: relative; min-height: 58px; }
   .footer-presens-logo { width: 104px; }
   .footer-logos { gap: 16px; }
 }
+
+/* =========================================================================
+   Undersidor (/slams-fiction/)
+   Samma byggklossar som startsidan, men satt för löpande text: smalare
+   mätt, och de delade .fiction-facts får ink-kantlinjer i stället för de
+   cream-färgade som bara syns mot den mörka panelen på startsidan.
+   ========================================================================= */
+
+.breadcrumb {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 18px 28px 0;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.breadcrumb li + li::before {
+  content: "›";
+  margin-right: 8px;
+  opacity: 0.45;
+}
+.breadcrumb [aria-current] { opacity: 0.55; }
+
+.page-hero { padding-top: 26px; }
+.page-hero .kicker {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+.page-hero h1 {
+  font-size: clamp(32px, 5.4vw, 62px);
+  max-width: 18ch;
+  margin: 0 0 18px;
+}
+.page-hero .lead { max-width: 62ch; }
+.page-hero .lead p {
+  font-size: 18px;
+  line-height: 1.55;
+  margin: 0 0 14px;
+  text-wrap: pretty;
+}
+.page-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  margin: 30px 0 0;
+}
+
+.prose {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 10px 28px 0;
+}
+.prose h2 {
+  font-size: clamp(26px, 3.2vw, 40px);
+  max-width: 24ch;
+  margin: 56px 0 16px;
+}
+.prose > p {
+  max-width: 68ch;
+  font-size: 17px;
+  line-height: 1.65;
+  margin: 0 0 16px;
+  text-wrap: pretty;
+}
+/* Showlistan på undersidan ligger i löptexten och behöver luft omkring sig. */
+.prose .show-list { margin: 26px 0 0; }
+
+/* Bredare kolumner än på startsidans panel: här står posterna på en bred yta,
+   och "Midsommarkransen" gick annars in i kolumnen bredvid. */
+.prose .fiction-facts {
+  max-width: 68ch;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  border-top-color: rgba(30, 26, 23, 0.18);
+  border-bottom-color: rgba(30, 26, 23, 0.18);
+}
+.prose .fiction-facts dd { overflow-wrap: break-word; }
+
+.prose-cta { margin: 34px 0 0; }
+.prose-more {
+  max-width: 68ch;
+  margin: 28px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* Startsidans Slams Fiction-panel: köpknapp + länk till undersidan. */
+.fiction-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 760px) {
+  .breadcrumb { padding: 14px 20px 0; }
+  .prose { padding: 8px 20px 0; }
+  .prose h2 { margin-top: 42px; }
+  .page-hero-actions { gap: 14px; }
+}
