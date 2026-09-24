@@ -1336,6 +1336,20 @@ figcaption { position: relative; min-height: 58px; }
 .prose .show-link { color: var(--amber); }
 .prose .show-link:hover, .prose .show-link:focus-visible { color: var(--cream); }
 
+/* Alla knappar på scenen i samma turkos som "Köp biljett" och "Se kommande
+   datum" — annars sticker Biljett-knapparna i showlistan ut som ljusa
+   pluppar (de ärver .btn-ghost, byggd för en ljus sida). */
+.prose .btn-ghost {
+  background: var(--teal);
+  color: var(--cream);
+  border-color: var(--cream);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+}
+.prose .btn-ghost:hover, .prose .btn-ghost:focus-visible {
+  background: var(--teal-dark);
+  color: var(--cream);
+}
+
 /* Bredare kolumner än på startsidans panel: här står posterna på en bred yta,
    och "Midsommarkransen" gick annars in i kolumnen bredvid. Kant-färgen är
    samma krita-på-mörkt som .fiction-facts redan har på startsidans panel. */
