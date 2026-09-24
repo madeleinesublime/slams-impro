@@ -37,8 +37,8 @@
   // Vilken beskrivning en show får i strukturerad data. Väljs med `desc`.
   const DESCRIPTIONS = {
     fiction: {
-      sv: "Slams Fiction — improviserad komedi med Slams och en inbjuden gäst i Presens improkällare i Midsommarkransen. Ingenting är förberett, allt byggs på publikens förslag. Cirka två timmar inklusive paus.",
-      en: "Slams Fiction — improvised comedy with Slams and an invited guest in the Presens improv basement in Midsommarkransen, Stockholm. Nothing is prepared; the whole night is built on the audience's suggestions. About two hours including an interval."
+      sv: "Slams Fiction — en tv-kväll, fast på scen, med Slams och en inbjuden gäst i Presens improkällare i Midsommarkransen. Såpa, bloopers, film och snabbspolning genom hela genrer, allt påhittat på plats och sänt bara den kvällen. Cirka två timmar inklusive paus.",
+      en: "Slams Fiction — a TV night, but on stage, with Slams and an invited guest in the Presens improv basement in Midsommarkransen, Stockholm. Soap opera, bloopers, film and fast-forwarding through entire genres, all made up on the spot and aired only that night. About two hours including an interval."
     },
     klubbkransen: {
       sv: "Slams gästspelar på Klubb Kransen i Presens improkällare i Midsommarkransen. Detta är inte en Slams Fiction-föreställning utan ett gästspel.",

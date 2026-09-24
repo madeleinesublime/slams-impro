@@ -11,7 +11,7 @@
         },
         fiction: {
           title: "Slams Fiction — improviserad komedi i Midsommarkransen",
-          description: "Slams Fiction är Slams egen show i Presens improkällare i Midsommarkransen. Inget manus, en ny gäst varje kväll, och en föreställning som bara spelas en gång. Biljett 150 kr, start 20:00."
+          description: "Slams Fiction är Slams egen show i Presens improkällare i Midsommarkransen — en tv-kväll, fast på scen, med såpa, bloopers, film och snabbspolning genom hela genrer. Inget manus, en ny gäst varje kväll, och en sändning som aldrig går i repris. Biljett 150 kr, start 20:00."
         }
       },
       nav: { shows: "Shower", ensemble: "Ensemblen", impro: "Vad är impro?", faq: "Frågor & svar", hire: "Anlita oss", tickets: "Biljetter<span class='visually-hidden'> (öppnas i ny flik)</span>", toTop: "Till toppen" },
@@ -50,23 +50,26 @@
       fic: {
         crumbHome: "Slams",
         crumbHere: "Slams Fiction",
-        kicker: "Vår återkommande show",
+        kicker: "Slams presenterar",
         title: "Slams Fiction — improviserad komedi i Midsommarkransen",
-        lead: "<p>Slams Fiction är vår egen show. Vi spelar den i Presens improkällare i Midsommarkransen i södra Stockholm, ungefär en gång i månaden, och varje föreställning finns bara den kvällen. Inget är skrivet i förväg, ingenting är repeterat, och när ni går hem har ni sett något som aldrig kommer spelas igen.</p><p>Biljett 150 kronor. Start 20:00, dörrarna öppnar 19:30, och vi håller på i ungefär två timmar med paus.</p>",
+        titleHtml: "<span class='fiction-title-big'>Slams Fiction</span><span class='fiction-title-small'>Improviserad komedi i Midsommarkransen — nu som en tv-kväll, fast på scen</span>",
+        genre1: "Såpa", genre2: "Bloopers", genre3: "Film", genre4: "Snabbspolning",
+        badge: "Inga repriser",
+        lead: "<p>Tänk dig en helt vanlig tv-kväll i soffan — fast ingen har sett avsnittet förut, för det finns inte. Vi zappar mellan såpa, bloopers, film och snabbspolning genom hela genrer, och håller ihop det till en kväll som är roligare än din egen tv-soffa.</p><p>Allt är påhittat på plats, inget är repeterat, och vi kör aldrig samma sändning två gånger. Biljett 150 kronor. Start 20:00, dörrarna öppnar 19:30, och vi håller på i ungefär två timmar med paus.</p>",
         ctaDates: "Se kommande datum",
         countdown: "Nästa Slams Fiction om",
 
         h1: "Vad är Slams Fiction?",
-        b1a: "Slams Fiction är improviserad komedi — impro comedy — vilket betyder att ingenting i showen är bestämt innan vi går upp på scenen. Det finns inget manus, inga repetitioner och ingen dramaturg som har bestämt hur kvällen ska sluta. Det enda vi tar med oss upp är varandra och det ni i publiken ropar ut.",
-        b1b: "Namnet kommer av att allt ni ser är påhittat i samma stund som det spelas. Vi ber om ett förslag — ett ord, en plats, ett minne, en känsla — och bygger sedan hela kvällen på det. Karaktärer dyker upp, relationer uppstår, en handling formar sig, och allt det där hade inte funnits om just ni inte hade suttit där just den kvällen.",
-        b1c: "Vi är sju improvisatörer: Madeleine, Bastian, Sara, Kim, Johanna, Louise och Ville. Vi spelar inte alla varje gång, och vi vet aldrig i förväg vem som hamnar var. Vi spelar etablerade improformat som Harold, La Ronde, Armando och Invokando — men formatet är bara ett skelett. Köttet är nytt varje gång.",
+        b1a: "Slams Fiction är improviserad komedi — impro comedy — men byggd som en tv-kväll. Ingenting är bestämt innan vi går upp på scenen: inget manus, inga repetitioner, ingen regissör som klippt ihop sändningen i förväg. Det enda vi tar med oss upp är varandra och det ni i publiken ropar ut.",
+        b1b: "Namnet kommer av att allt ni ser är påhittat i samma stund som det sänds. Vi ber om ett förslag — ett ord, en plats, ett minne, en känsla — och bygger sedan hela kvällen på det. Karaktärer dyker upp, relationer uppstår, en handling formar sig, och allt det där hade inte funnits om just ni inte hade suttit där just den kvällen.",
+        b1c: "Vi är sju improvisatörer: Madeleine, Bastian, Sara, Kim, Johanna, Louise och Ville. Vi spelar inte alla varje gång, och vi vet aldrig i förväg vem som hamnar var. Kvällen hoppar mellan tv-genrer som om vi bläddrade i tablåerna — en såpa som spårar ur, bloopers från en tagning som aldrig hände, en trailer för en film som inte finns, snabbspolning där vi hoppar över hela relationer på tre sekunder. Genren är bara vilken kanal vi råkar landa på — köttet, det som faktiskt händer i scenen, är nytt varje gång.",
         b1d: "Slams är en del av Presens Impro, och Slams Fiction spelas i deras improkällare i Midsommarkransen. Det är en liten lokal, vilket är hela poängen: ni sitter nära, ni hörs, och avståndet mellan scen och publik är ungefär tre meter.",
 
         h2: "Så går en kväll till",
         b2a: "Dörrarna öppnar 19:30. Kom gärna i tid — det finns gott att dricka och något litet att snacka på, men ät middag innan. Impro är bäst på full mage.",
         b2b: "Platserna är onumrerade, så det är först till kvarn. Vårt tips: var osvensk och sätt dig långt fram. Det är de bästa platserna, och nej, du hamnar inte på scen för det. Publiken är aldrig med i showen.",
-        b2c: "20:00 börjar vi. Någon av oss frågar publiken om ett förslag, någon ropar något, och sen är vi igång. Första halvan är ungefär fyrtiofem minuter. Sen paus, där ni hinner fylla på glaset och bestämma er för vilken karaktär som var bäst. Efter pausen kör vi andra halvan, ofta med ett annat format och nästan alltid med en helt annan energi. Runt 22:00 är det slut.",
-        b2d: "Vad som händer däremellan kan vi inte lova. Vi har spelat hela kvällar i en tvättstuga klockan tre på natten, i en saloon i Norrland och på en rymdfärja med dålig wifi. Ibland går något fel på scenen — någon säger emot sig själv, en rekvisita som inte finns tappas bort, två av oss har byggt varsin version av samma rum. Då blir det oftast som roligast.",
+        b2c: "20:00 zappar vi igång. Någon av oss frågar publiken om ett förslag, någon ropar något, och sen är sändningen igång. Första halvan är ungefär fyrtiofem minuter — kanske en såpa som spårar ur, kanske bloopers från en tagning som aldrig filmades. Sen paus, där ni hinner fylla på glaset och rösta internt om vilken genre som var bäst. Efter pausen kör vi ett nytt program, ofta med en helt annan känsla och minst en snabbspolning genom några genrer vi inte hann med. Runt 22:00 är sändningen slut för i kväll.",
+        b2d: "Vad som händer däremellan kan vi inte lova. Vi har spelat hela kvällar i en tvättstuga klockan tre på natten, i en saloon i Norrland och på en rymdfärja med dålig wifi. Ibland går något fel på scenen — någon säger emot sig själv, en rekvisita som inte finns tappas bort, två av oss har byggt varsin version av samma rum. Då blir det oftast som roligast, och nej: det går aldrig i repris.",
 
         h3: "Gästen som ställer till det",
         b3a: "Varje Slams Fiction har en inbjuden gäst. Det kan vara en annan improgrupp, en enskild improvisatör eller någon som gör något helt annat än vi. Gästen spelar med oss — inte som förband, utan på scen tillsammans med ensemblen.",
@@ -157,7 +160,7 @@
         },
         fiction: {
           title: "Slams Fiction — improv comedy in Midsommarkransen",
-          description: "Slams Fiction is Slams' own show in the Presens improv basement in Midsommarkransen, Stockholm. No script, a new guest every night, and a show performed only once. Tickets 150 SEK, 8 PM."
+          description: "Slams Fiction is Slams' own show in the Presens improv basement in Midsommarkransen — a TV night, but on stage, with soap opera, bloopers, film and fast-forwarding through entire genres. No script, a new guest every night, and a broadcast that never reruns. Tickets 150 SEK, 8 PM."
         }
       },
       nav: { shows: "Shows", ensemble: "The ensemble", impro: "What is impro?", faq: "Q&A", hire: "Hire us", tickets: "Tickets<span class='visually-hidden'> (opens in a new tab)</span>", toTop: "Back to top" },
@@ -195,23 +198,26 @@
       fic: {
         crumbHome: "Slams",
         crumbHere: "Slams Fiction",
-        kicker: "Our recurring show",
+        kicker: "Slams presents",
         title: "Slams Fiction — improv comedy in Midsommarkransen",
-        lead: "<p>Slams Fiction is our own show. We perform it in the Presens improv basement in Midsommarkransen in southern Stockholm, roughly once a month, and every show exists only that one night. Nothing is written in advance, nothing is rehearsed, and by the time you head home you'll have seen something that will never be performed again.</p><p>Tickets 150 SEK. We start at 8 PM, doors open at 7:30, and we run for about two hours with an interval.</p>",
+        titleHtml: "<span class='fiction-title-big'>Slams Fiction</span><span class='fiction-title-small'>Improv comedy in Midsommarkransen — now as a TV night, but on stage</span>",
+        genre1: "Soap opera", genre2: "Bloopers", genre3: "Film", genre4: "Fast-forward",
+        badge: "No reruns",
+        lead: "<p>Picture an ordinary night on the couch in front of the TV — except nobody has seen this episode before, because it doesn't exist. We flip between soap opera, bloopers, film and fast-forwarding through entire genres, and hold it all together into an evening that's funnier than your own couch.</p><p>Everything is made up on the spot, nothing is rehearsed, and we never air the same broadcast twice. Tickets 150 SEK. We start at 8 PM, doors open at 7:30, and we run for about two hours with an interval.</p>",
         ctaDates: "See upcoming dates",
         countdown: "Next Slams Fiction in",
 
         h1: "What is Slams Fiction?",
-        b1a: "Slams Fiction is improvised comedy — improv comedy — which means nothing in the show is decided before we step on stage. There is no script, no rehearsal and no dramaturge who has worked out how the evening should end. All we bring on stage is each other and whatever you in the audience shout out.",
-        b1b: "The name comes from the fact that everything you see is made up in the same moment it is performed. We ask for a suggestion — a word, a place, a memory, a feeling — and then build the whole evening on it. Characters turn up, relationships form, a plot takes shape, and none of it would have existed if you hadn't been sitting there that particular night.",
-        b1c: "There are seven of us: Madeleine, Bastian, Sara, Kim, Johanna, Louise and Ville. We don't all play every time, and we never know in advance who ends up where. We perform established improv formats like Harold, La Ronde, Armando and Invokando — but the format is only a skeleton. The flesh is new every time.",
+        b1a: "Slams Fiction is improvised comedy — improv comedy — but built as a TV night. Nothing is decided before we step on stage: no script, no rehearsal, no director who cut the broadcast together in advance. All we bring on stage is each other and whatever you in the audience shout out.",
+        b1b: "The name comes from the fact that everything you see is made up in the same moment it airs. We ask for a suggestion — a word, a place, a memory, a feeling — and then build the whole evening on it. Characters turn up, relationships form, a plot takes shape, and none of it would have existed if you hadn't been sitting there that particular night.",
+        b1c: "There are seven of us: Madeleine, Bastian, Sara, Kim, Johanna, Louise and Ville. We don't all play every time, and we never know in advance who ends up where. The evening flips between TV genres like we're scrolling the schedule — a soap opera that spins off the rails, bloopers from a take that never happened, a trailer for a film that doesn't exist, fast-forwarding through entire relationships in three seconds. The genre is only whichever channel we happen to land on — the flesh, what actually happens in the scene, is new every time.",
         b1d: "Slams is part of Presens Impro, and Slams Fiction is performed in their improv basement in Midsommarkransen. It's a small room, which is the whole point: you sit close, we can hear you, and the distance between stage and audience is about three metres.",
 
         h2: "How an evening works",
         b2a: "Doors open at 7:30 PM. Come early if you can — there's plenty to drink and something small to nibble on, but eat dinner first. Improv is best on a full stomach.",
         b2b: "Seating is unnumbered, so it's first come, first served. Our tip: be un-Swedish and sit at the front. Those are the best seats, and no, it won't land you on stage. The audience is never part of the show.",
-        b2c: "We start at 8 PM. One of us asks the audience for a suggestion, somebody shouts something, and off we go. The first half runs about forty-five minutes. Then an interval, where you can top up your glass and decide which character was the best. After the break we play the second half, often in a different format and almost always with a completely different energy. We finish around 10 PM.",
-        b2d: "What happens in between, we can't promise. We've played whole evenings in a laundry room at three in the morning, in a saloon up north and on a space shuttle with bad wifi. Sometimes something goes wrong on stage — someone contradicts themselves, an imaginary prop gets lost, two of us have built different versions of the same room. That's usually when it gets funniest.",
+        b2c: "We flip the switch at 8 PM. One of us asks the audience for a suggestion, somebody shouts something, and off we go. The first half runs about forty-five minutes — maybe a soap opera that spins off the rails, maybe bloopers from a take that never happened. Then an interval, where you can top up your glass and vote among yourselves for the best genre. After the break we run a new programme, often with a completely different energy and at least one fast-forward through a couple of genres we didn't get to. We finish around 10 PM.",
+        b2d: "What happens in between, we can't promise. We've played whole evenings in a laundry room at three in the morning, in a saloon up north and on a space shuttle with bad wifi. Sometimes something goes wrong on stage — someone contradicts themselves, an imaginary prop gets lost, two of us have built different versions of the same room. That's usually when it gets funniest — and no, it never airs as a rerun.",
 
         h3: "The guest who throws us off",
         b3a: "Every Slams Fiction has an invited guest. It might be another improv group, a solo improviser, or someone who does something completely different from us. The guest performs with us — not as a support act, but on stage alongside the ensemble.",
