@@ -1273,6 +1273,10 @@ figcaption { position: relative; min-height: 58px; }
   grid-template-columns: 1fr;
   column-gap: 32px;
 }
+/* Utan min-width:0 vägrar gridceller krympa under sitt innehålls egen
+   bredd — bilderna ville hålla sin naturliga bildbredd och texten sitt
+   max-width, och båda sprängde ut ur den smala mobilkolumnen. */
+.fiction-copy-grid > * { min-width: 0; }
 
 .fiction-stage-photo {
   margin: 32px auto;
