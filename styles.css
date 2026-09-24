@@ -1210,8 +1210,13 @@ figcaption { position: relative; min-height: 58px; }
   position: relative;
   background: var(--ink);
   color: var(--cream);
+  padding-bottom: 88px;
   overflow: hidden;
 }
+/* Footerns egna toppmarginal ligger mellan main och footer, utanför bådas
+   bakgrund — där lyste sidans ljusa botten igenom som en vit rand under
+   scenen. page--stage tar hand om samma luft själv, i sin mörka färg. */
+.page--stage + .site-footer { margin-top: 0; }
 .page--stage::before {
   content: "";
   position: absolute;
@@ -1241,19 +1246,19 @@ figcaption { position: relative; min-height: 58px; }
   max-width: none;
   font-family: var(--font-comic);
   font-weight: 400;
-  font-size: clamp(52px, 10vw, 128px);
+  font-size: clamp(54px, 10.5vw, 140px);
   line-height: 0.86;
   letter-spacing: 0.01em;
   text-transform: uppercase;
   color: var(--amber);
-  background: linear-gradient(180deg, #fce29b 0%, #f0a93a 45%, #e06a2b 100%);
+  background: linear-gradient(180deg, #fff3c4 0%, #f7a93a 42%, #df4f1e 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 7px var(--ink);
   paint-order: stroke fill;
-  filter: drop-shadow(5px 6px 0 rgba(0, 0, 0, 0.45));
-  transform: rotate(-2deg);
+  filter: drop-shadow(6px 7px 0 rgba(0, 0, 0, 0.5));
+  transform: rotate(-1deg);
 }
 
 /* De fyra scenbilderna. Grid-kolumnerna gör jobbet på båda skärmstorlekar:
@@ -1271,7 +1276,7 @@ figcaption { position: relative; min-height: 58px; }
 
 .fiction-stage-photo {
   margin: 32px auto;
-  width: min(100%, 380px);
+  width: min(100%, 440px);
 }
 .fiction-stage-photo--left { transform: rotate(-2deg); }
 .fiction-stage-photo--right { transform: rotate(2deg); }
@@ -1286,14 +1291,14 @@ figcaption { position: relative; min-height: 58px; }
 
 @media (min-width: 1300px) {
   .fiction-copy-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 620px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 580px) minmax(0, 1fr);
   }
   .fiction-copy-grid > :not(.fiction-stage-photo) { grid-column: 2; min-width: 0; }
   .fiction-stage-photo {
     grid-row: span 4;
     align-self: start;
     width: 100%;
-    max-width: 230px;
+    max-width: 260px;
     margin: 6px 0;
   }
   .fiction-stage-photo--left { grid-column: 1; justify-self: end; }
