@@ -43,8 +43,18 @@
       },
       quote: {
         heading: "Vad publiken säger",
-        text: "<p>Slams är det roligaste jag vet, för trots att de som spelar är vuxna tycker även barn att det är kul! Jag älskar hur ni kan ta ett enda ord och göra en hel fantastisk show – och hur ni kan dra ut ett skämt så att det dyker upp igen flera scener senare. Det är så sjukt roligt!</p>",
-        age: "14 år"
+        items: [
+          {
+            name: "Aurora",
+            age: "14 år",
+            text: "<p>Slams är det roligaste jag vet, för trots att de som spelar är vuxna tycker även barn att det är kul! Jag älskar hur ni kan ta ett enda ord och göra en hel fantastisk show – och hur ni kan dra ut ett skämt så att det dyker upp igen flera scener senare. Det är så sjukt roligt!</p>"
+          },
+          {
+            name: "Andreas",
+            age: "",
+            text: "<p>Jag hade ont i käken efteråt, efter att ha skrattat så mycket! Otroligt imponerande hur de kan skapa så fantastiska historier och karaktärer direkt på scenen!</p>"
+          }
+        ]
       },
       // Sidan /slams-fiction/.
       fic: {
@@ -189,8 +199,18 @@
       },
       quote: {
         heading: "What the audience says",
-        text: "<p>Slams is the funniest thing I know, because even though the people on stage are adults, kids think it’s fun too! I love how you can take a single word and turn it into a whole brilliant show – and how you can stretch out a joke so it turns up again several scenes later. It’s so ridiculously funny!</p>",
-        age: "age 14"
+        items: [
+          {
+            name: "Aurora",
+            age: "age 14",
+            text: "<p>Slams is the funniest thing I know, because even though the people on stage are adults, kids think it’s fun too! I love how you can take a single word and turn it into a whole brilliant show – and how you can stretch out a joke so it turns up again several scenes later. It’s so ridiculously funny!</p>"
+          },
+          {
+            name: "Andreas",
+            age: "",
+            text: "<p>My jaw hurt afterwards, from laughing so much! Incredibly impressive how they can create such amazing stories and characters right there on stage!</p>"
+          }
+        ]
       },
       fic: {
         crumbHome: "Slams",
@@ -330,6 +350,9 @@
 
   let lang = "sv";
   let lastPick = { a: 0, b: 0, c: 0 };
+  // Slumpas en gång per sidladdning, sen står den kvar (även om språket
+  // växlas) så att citatet inte hoppar när man bara byter SV/EN.
+  let quoteIndex = null;
 
   function getPath(obj, path) {
     return path.split(".").reduce((o, k) => (o == null ? undefined : o[k]), obj);
@@ -374,6 +397,7 @@
 
     renderShows();
     renderMemberRoles();
+    renderQuote();
     renderSuggestion();
     upgradeContactMail();
     buildFaqSchema();
@@ -504,6 +528,25 @@
       index = Math.floor(Math.random() * arr.length);
     } while (index === excludeIndex);
     return index;
+  }
+
+  // Publikcitatet under Slams Fiction-teasern: ett av flera, slumpat en gång
+  // per sidladdning (se quoteIndex ovan).
+  function renderQuote() {
+    const items = COPY[lang].quote.items;
+    if (!items || !items.length) return;
+    if (quoteIndex === null) quoteIndex = Math.floor(Math.random() * items.length);
+    const q = items[quoteIndex];
+
+    const nameEl = document.getElementById("quote-name");
+    const ageEl = document.getElementById("quote-age");
+    const textEl = document.getElementById("quote-text");
+    if (nameEl) nameEl.textContent = q.name;
+    if (ageEl) {
+      ageEl.textContent = q.age;
+      ageEl.hidden = !q.age;
+    }
+    if (textEl) textEl.innerHTML = q.text;
   }
 
   function renderSuggestion() {
