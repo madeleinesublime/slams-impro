@@ -559,74 +559,205 @@ body.lightbox-open { overflow: hidden; }
 }
 
 
-/* Slams Fiction — the show's own section, styled after the poster */
-.fiction-panel {
-  position: relative;
-  overflow: hidden;
+/* =========================================================================
+   Slams Fiction — teaserkortet mellan datumlistan och citatkortet
+   Egen liten tv-komponent (samma teknik som sidans hero, i mindre skala)
+   och en egen färgpalett i hex, oberoende av sidans --ink/--cream/--amber.
+   ========================================================================= */
+
+.fiction-teaser {
+  --tv-bg: #211d1a;
+  --tv-text: #f4ece0;
+  --tv-accent: #f7a63a;
+  --tv-rule: #4a4038;
+  --tv-frame: #3a322b;
+  --tv-line: #171411;
+
   display: grid;
-  /* min() håller spåret från att kräva mer bredd än panelen har. Utan det blir
-     spåret 290px i en 201px-panel i mobil, och overflow:hidden klipper av
-     brödtexten och skjuter titeln åt höger. */
-  grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
-  gap: 36px;
-  align-items: center;
-  padding: 46px 40px;
-  border: 4px solid var(--ink);
-  border-radius: 8px;
-  background: var(--ink);
-  color: var(--cream);
-  box-shadow: 10px 10px 0 var(--ink);
+  grid-template-columns: 1fr;
+  gap: 18px;
+  padding: 18px 18px 24px;
+  border: 2px solid var(--tv-line);
+  border-radius: 6px;
+  background: var(--tv-bg);
+  color: var(--tv-text);
+  box-shadow: 5px 5px 0 var(--tv-line);
 }
 
-/* Strålkransen bakom titeln. Den sitter i .fiction-art och mäts i vw, inte i
-   procent av panelen — annars glider den iväg och hamnar bakom brödtexten när
-   panelen blir enspaltig i mobil. Nu följer den titeln i båda layouterna. */
-.fiction-rays {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: min(150vw, 1900px);
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  background: repeating-conic-gradient(from 0deg,
-    rgba(232, 162, 43, 0.34) 0deg 4deg,
-    transparent 4deg 11deg);
-  /* Urholkad mitt: annars möts alla strålar i en tät knut ovanför titeln. */
-  -webkit-mask-image: radial-gradient(circle, transparent 4%, #000 20%, transparent 60%);
-  mask-image: radial-gradient(circle, transparent 4%, #000 20%, transparent 60%);
-  pointer-events: none;
-}
-
-.fiction-art { position: relative; text-align: center; }
-/* Strålkransen ligger först i .fiction-art, så texten behöver vara positionerad
-   för att hamna ovanpå den. */
-.fiction-kicker, .fiction-title { position: relative; }
-.fiction-kicker {
+.teaser-kicker {
   margin: 0 0 10px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--tv-accent);
 }
-.fiction-title {
-  font-family: var(--font-comic);
-  font-weight: 400;
-  font-size: clamp(52px, 8.5vw, 108px);
-  line-height: 0.88;
-  letter-spacing: 0.02em;
+.fiction-teaser-copy p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 12px;
+  text-wrap: pretty;
+}
+.fiction-teaser-copy p:last-of-type { margin-bottom: 0; }
+
+.teaser-rule { margin: 18px 0; border: none; border-top: 1px solid var(--tv-rule); }
+
+.teaser-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 20px;
+}
+.teaser-fact-place { grid-column: 1 / -1; }
+.teaser-facts dt {
+  margin: 0 0 4px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--amber);
-  -webkit-text-stroke: 9px var(--ink);
-  paint-order: stroke fill;
-  transform: rotate(-3deg);
-  max-width: 7ch;
-  margin: 0 auto;
+  color: var(--tv-accent);
+}
+.teaser-facts dd {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--tv-text);
 }
 
-.fiction-copy { position: relative; }
-:where(.fiction-copy) p { font-size: 17px; line-height: 1.6; margin: 0 0 16px; text-wrap: pretty; }
+.teaser-actions { display: flex; flex-direction: column; gap: 12px; }
+.teaser-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 800;
+  padding: 12px 22px;
+  border: 2px solid var(--tv-line);
+  border-radius: 999px;
+  box-shadow: none;
+}
+.teaser-btn:hover, .teaser-btn:focus-visible { transform: none; box-shadow: none; }
+.teaser-btn-primary { background: #16776f; color: #fff; }
+.teaser-btn-primary:hover, .teaser-btn-primary:focus-visible { background: #0f5e57; color: #fff; }
+.teaser-btn-ghost { background: var(--tv-text); color: var(--tv-bg); }
+.teaser-btn-ghost:hover, .teaser-btn-ghost:focus-visible { background: #fff; color: var(--tv-bg); }
+
+/* Tv:n — samma uppbyggnad som hero:ns, i mindre format. */
+.teaser-tv {
+  background: var(--tv-frame);
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, .45), inset 0 2px 0 rgba(255, 255, 255, .08);
+}
+.teaser-tv-screen {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  padding: 12px;
+  border-radius: 26px / 22px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, #3b2a1d 0%, #120d0a 80%);
+}
+.teaser-tv-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(0deg, rgba(0, 0, 0, .28) 0 2px, transparent 2px 4px);
+}
+.teaser-tv-ch {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: #9be38b;
+  text-shadow: 0 0 8px rgba(155, 227, 139, .7);
+}
+.teaser-tv-live {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--tv-text);
+}
+.teaser-tv-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e8452c;
+  box-shadow: 0 0 8px #e8452c;
+  animation: teaser-live-blink 1.2s ease-in-out infinite;
+}
+@keyframes teaser-live-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .teaser-tv-live-dot { animation: none; }
+}
+
+.teaser-tv-title {
+  margin: 0;
+  text-align: center;
+  line-height: 0.95;
+  font-family: var(--font-bungee);
+  font-weight: 400;
+  font-size: 44px;
+  color: var(--tv-accent);
+  background: linear-gradient(180deg, #ffe08a 10%, #f7a63a 50%, #ea6a1f 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(3px 4px 0 #0c0907);
+  transform: rotate(-4deg);
+}
+
+.teaser-channel-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #a89f94;
+}
+.teaser-channel-current { color: var(--tv-accent); }
+
+@media (min-width: 1024px) {
+  .fiction-teaser {
+    grid-template-columns: 380px minmax(0, 1fr);
+    align-items: center;
+    gap: 44px;
+    padding: 40px;
+    box-shadow: 7px 7px 0 var(--tv-line);
+  }
+  .fiction-teaser-copy p { font-size: 16px; }
+
+  .teaser-facts { grid-template-columns: auto auto minmax(0, 1fr); gap: 16px 32px; }
+  .teaser-fact-place { grid-column: auto; }
+
+  .teaser-actions { flex-direction: row; }
+  .teaser-btn { width: auto; }
+
+  .teaser-tv { border-radius: 26px; padding: 18px; }
+  .teaser-tv-screen { border-radius: 36px / 30px; }
+  .teaser-tv-title { font-size: 72px; }
+  .teaser-tv-ch { top: 16px; left: 18px; font-size: 20px; }
+  .teaser-tv-live { top: 16px; right: 18px; font-size: 13px; }
+  .teaser-tv-live-dot { width: 10px; height: 10px; }
+  .teaser-channel-strip { font-size: 12px; }
+}
 
 /* Read as a spec list, not as a row of buttons: no frames, no fills. */
 .fiction-facts {
@@ -1114,8 +1245,6 @@ figcaption { position: relative; min-height: 58px; }
   .pow-button .burst-text { font-size: 24px; -webkit-text-stroke-width: 4px; }
 
   #fiction { padding-top: 62px; }
-  .fiction-panel { padding: 32px 20px 26px; gap: 26px; }
-  .fiction-title { -webkit-text-stroke-width: 6px; }
   /* Två spalter blir för smala här: "Midsommarkransen" är bredare än cellen
      och rann in i värdet bredvid. */
   .fiction-facts { grid-template-columns: 1fr; gap: 14px; }
@@ -1278,6 +1407,7 @@ figcaption { position: relative; min-height: 58px; }
   letter-spacing: 0.16em;
   color: var(--tv-muted);
   opacity: 1;
+  white-space: nowrap;
 }
 .fiction-hero-countdown .countdown-value {
   font-family: var(--font-body);
@@ -1285,6 +1415,7 @@ figcaption { position: relative; min-height: 58px; }
   font-weight: 800;
   font-variant-numeric: tabular-nums;
   color: var(--tv-text);
+  white-space: nowrap;
 }
 
 /* Tv:n */
@@ -1376,7 +1507,11 @@ figcaption { position: relative; min-height: 58px; }
 }
 .fiction-channel-current { color: var(--tv-accent); }
 
-@media (min-width: 1024px) {
+/* 1024px är iPad-liggande-bredden, men 380px + 600px tv + 64px gap +
+   94px×2 padding lämnar bara ~170px åt brödtexten där — texten radbröts
+   efter 2-3 ord. Höjd till 1200px så textspalten har minst ~350px innan
+   tvåkolumns-layouten kopplas in. */
+@media (min-width: 1200px) {
   .fiction-hero-grid {
     grid-template-columns: minmax(0, 1fr) 600px;
     grid-template-areas: "crumb tv" "copy tv";
@@ -1388,8 +1523,11 @@ figcaption { position: relative; min-height: 58px; }
 
   .fiction-hero-copy .lead p { font-size: 21px; line-height: 1.65; }
 
-  .fiction-hero-actions { flex-direction: row; align-items: center; gap: 28px; }
-  .fiction-hero-btn { width: auto; font-size: 26px; padding: 18px 40px; }
+  /* flex-wrap: wrap i stället för att bara lita på att kolumnen är bred nog
+     — annars klämmer raden ihop nedräkningens etikett till flera rader
+     istället för att lägga sig under knappen. */
+  .fiction-hero-actions { flex-direction: row; flex-wrap: wrap; align-items: center; row-gap: 12px; column-gap: 28px; }
+  .fiction-hero-btn { width: auto; font-size: 26px; padding: 18px 40px; flex-shrink: 0; }
   .fiction-hero-countdown { align-items: flex-start; }
   .fiction-hero-countdown .countdown-label { font-size: 13px; }
   .fiction-hero-countdown .countdown-value { font-size: 30px; }
@@ -1512,13 +1650,6 @@ figcaption { position: relative; min-height: 58px; }
   font-size: 15px;
   line-height: 1.6;
   opacity: 0.8;
-}
-
-/* Startsidans Slams Fiction-panel: köpknapp + länk till undersidan. */
-.fiction-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
 }
 
 @media (max-width: 760px) {

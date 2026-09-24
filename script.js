@@ -33,10 +33,10 @@
         buyPresens: "Biljett hos Presens Impro<span class='visually-hidden'> (öppnas i ny flik)</span>"
       },
       fiction: {
-        kicker: "Vår återkommande show",
+        kicker: "en tv-kväll som aldrig sänts",
         title: "Slams Fiction",
-        p1: "Slams Fiction är vår egen show i Presens improkällare i Midsommarkransen. Ingenting är skrivet i förväg — vi bygger hela kvällen på förslag från er i publiken, och spelar den bara en gång.",
-        p2: "Varje kväll har vi med en gäst som får ställa till det för oss — en ny röst på scenen som tvingar oss att tänka om.",
+        p1: "Tänk dig en helt vanlig tv-kväll i soffan – fast inget är skrivet i förväg. Vi zappar mellan såpa, film, bloopers och andra tv-genrer, där allt improviseras fram på plats utifrån publikens förslag.",
+        p2: "Ingen föreställning blir den andra lik – och det går aldrig i repris.",
         lTime: "Tid", lPrice: "Pris", vPrice: "150 kr", lPlace: "Plats",
         lLength: "Längd", vLength: "Ca 2 timmar", lGuest: "Gäst", vGuest: "Varje kväll",
         cta: "Köp biljett"
@@ -179,10 +179,10 @@
         buyPresens: "Tickets at Presens Impro<span class='visually-hidden'> (opens in a new tab)</span>"
       },
       fiction: {
-        kicker: "Our recurring show",
+        kicker: "a tv night that never aired",
         title: "Slams Fiction",
-        p1: "Slams Fiction is our own show in Presens improkällare in Midsommarkransen. Nothing is written in advance — we build the whole night from your suggestions, and we play it only once.",
-        p2: "Every night a guest joins us to make things harder for us — a new voice on stage that forces us to think again.",
+        p1: "Picture an ordinary night on the couch in front of the TV – except nothing is written in advance. We flip between soap opera, film, bloopers and other TV genres, all improvised on the spot from the audience's suggestions.",
+        p2: "No show is ever like the last – and it never airs as a rerun.",
         lTime: "Time", lPrice: "Price", vPrice: "150 SEK", lPlace: "Venue",
         lLength: "Length", vLength: "About 2 hours", lGuest: "Guest", vGuest: "Every night",
         cta: "Get tickets"
