@@ -53,27 +53,48 @@
 
 <main id="main-content" class="page page--stage">
 
-  <nav class="breadcrumb" aria-label="Brödsmulor">
-    <ol>
-      <li><a href="../" data-i18n="fic.crumbHome">Slams</a></li>
-      <li aria-current="page" data-i18n="fic.crumbHere">Slams Fiction</li>
-    </ol>
-  </nav>
+  <section id="top" class="fiction-hero" aria-labelledby="page-heading">
+    <div class="fiction-hero-grid">
 
-  <section id="top" class="page-hero" aria-labelledby="page-heading">
-    <h1 id="page-heading" class="fiction-stage-title" data-i18n="fic.heading">Slams Fiction</h1>
+      <nav class="fiction-hero-crumb" aria-label="Brödsmulor">
+        <ol>
+          <li><a href="../" data-i18n="fic.crumbHome">Slams</a></li>
+          <li aria-current="page" data-i18n="fic.crumbHere">Slams Fiction</li>
+        </ol>
+      </nav>
 
-    <div class="lead" data-i18n-html="fic.lead">
-      <p>Tänk dig en helt vanlig tv-kväll i soffan — fast ingen har sett avsnittet förut, för det finns inte. Vi zappar mellan såpa, bloopers, film och snabbspolning genom hela genrer, och håller ihop det till en kväll som är roligare än din egen tv-soffa.</p>
-      <p>Allt är påhittat på plats, inget är repeterat, och vi kör aldrig samma sändning två gånger. Biljett 150 kronor. Start 20:00, dörrarna öppnar 19:30, och vi håller på i ungefär två timmar med paus.</p>
-    </div>
+      <div class="fiction-tv-wrap">
+        <div class="fiction-tv">
+          <div class="fiction-tv-screen">
+            <span class="fiction-tv-scanlines" aria-hidden="true"></span>
+            <span class="fiction-tv-ch" aria-hidden="true">CH 04</span>
+            <span class="fiction-tv-live" aria-hidden="true"><span class="fiction-tv-live-dot"></span>LIVE</span>
+            <h1 id="page-heading" class="fiction-tv-title" data-i18n="fic.heading">Slams Fiction</h1>
+          </div>
+        </div>
+        <div class="fiction-channel-strip">
+          <span>01 SÅPA</span>
+          <span>02 BLOOPERS</span>
+          <span>03 FILM</span>
+          <span class="fiction-channel-current">04 ▶▶</span>
+        </div>
+      </div>
 
-    <div class="page-hero-actions">
-      <a class="btn btn-primary btn-large" href="#kommande" data-i18n="fic.ctaDates">Se kommande datum</a>
-      <p class="countdown">
-        <span class="countdown-label" data-i18n="fic.countdown">Nästa Slams Fiction om</span>
-        <time id="countdown-value" class="countdown-value" data-show-filter="fiction">—</time>
-      </p>
+      <div class="fiction-hero-copy">
+        <div class="lead" data-i18n-html="fic.lead">
+          <p>Tänk dig en helt vanlig tv-kväll i soffan — fast ingen har sett avsnittet förut, för det finns inte. Vi zappar mellan såpa, bloopers, film och snabbspolning genom hela genrer, och håller ihop det till en kväll som är roligare än din egen tv-soffa.</p>
+          <p>Allt är påhittat på plats, inget är repeterat, och vi kör aldrig samma sändning två gånger. Biljett 150 kronor. Start 20:00, dörrarna öppnar 19:30, och vi håller på i ungefär två timmar med paus.</p>
+        </div>
+
+        <div class="fiction-hero-actions">
+          <a class="btn fiction-hero-btn" href="#kommande" data-i18n="fic.ctaDates">Se kommande datum</a>
+          <p class="countdown fiction-hero-countdown">
+            <span class="countdown-label" data-i18n="fic.countdown">Nästa Slams Fiction om</span>
+            <time id="countdown-value" class="countdown-value" data-show-filter="fiction">—</time>
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 
