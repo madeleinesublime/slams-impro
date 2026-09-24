@@ -1114,6 +1114,15 @@ figcaption { position: relative; min-height: 58px; }
   #fiction { padding-top: 62px; }
   .fiction-panel { padding: 32px 20px 26px; gap: 26px; }
   .fiction-title { -webkit-text-stroke-width: 6px; }
+  /* Samma kontur blir för tjock i förhållande till bokstäverna vid de här
+     bredderna, så "Slams Fiction" klumpar ihop sig. Tunnare kontur, mindre
+     minimistorlek, ingen rotation. */
+  .page--stage .page-hero .fiction-stage-title {
+    font-size: clamp(38px, 13vw, 60px);
+    -webkit-text-stroke-width: 2.5px;
+    filter: drop-shadow(3px 4px 0 rgba(0, 0, 0, 0.45));
+    transform: rotate(-1deg);
+  }
   /* Två spalter blir för smala här: "Midsommarkransen" är bredare än cellen
      och rann in i värdet bredvid. */
   .fiction-facts { grid-template-columns: 1fr; gap: 14px; }
@@ -1192,125 +1201,103 @@ figcaption { position: relative; min-height: 58px; }
   margin: 30px 0 0;
 }
 
-/* Slams Fiction-sidans egen affisch, ovanpå den vanliga page-hero-texten.
-   Byggd av samma delar som startsidans .fiction-panel (mörk panel,
-   strålkrans i .fiction-rays, .fiction-kicker) plus en filmkornstextur, en
-   genre-rad och en prisskylt-liknande badge, lånade från den tryckta
-   höstaffischen. */
-.fiction-poster {
+/* Slams Fiction-sidan som en mörk scen: hela huvudinnehållet (main.page--stage)
+   får affischens mörka botten och filmkorn istället för att texten satt
+   inbäddad i en egen boxad panel. Rubriken står fri direkt på scenen, i
+   samma Bangers-typsnitt och tjocka bläckkontur som förut, men nu med en
+   gul-till-orange gradient som lutar sig närmare den tryckta höstaffischen. */
+.page--stage {
   position: relative;
-  overflow: hidden;
-  text-align: center;
-  padding: 44px 28px 38px;
-  margin: 0 0 38px;
-  border: 4px solid var(--ink);
-  border-radius: 8px;
   background: var(--ink);
   color: var(--cream);
-  box-shadow: 10px 10px 0 var(--ink);
+  overflow: hidden;
 }
-/* Filmkorn: samma trick som en skannad affisch, ett SVG-brus över hela
-   panelen. Lågt opacitet så texten inte tappar kontrast. */
-.fiction-poster::before {
+.page--stage::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
   mix-blend-mode: overlay;
-  opacity: 0.5;
+  opacity: 0.35;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-.fiction-poster > .fiction-kicker,
-.fiction-poster > .fiction-poster-title,
-.fiction-poster > .fiction-genres {
-  position: relative;
-  z-index: 2;
-}
-.fiction-poster .fiction-kicker { margin: 0 0 6px; }
+.page--stage > * { position: relative; z-index: 1; }
 
-.page-hero .fiction-poster-title { margin: 0; max-width: none; }
-.fiction-title-big {
+.page--stage .breadcrumb { opacity: 0.85; }
+.page--stage .breadcrumb a { color: var(--amber); }
+.page--stage .breadcrumb a:hover { color: var(--cream); }
+.page--stage .breadcrumb [aria-current] { opacity: 0.6; }
+
+.page-hero .lead { color: var(--cream); opacity: 0.94; }
+.page-hero .lead a,
+.prose a { color: var(--amber); }
+.page-hero .lead a:hover,
+.prose a:hover { color: var(--cream); }
+
+.page-hero .fiction-stage-title {
   display: block;
+  margin: 0 0 24px;
+  max-width: none;
   font-family: var(--font-comic);
   font-weight: 400;
-  font-size: clamp(46px, 9vw, 92px);
-  line-height: 0.88;
-  letter-spacing: 0.02em;
+  font-size: clamp(52px, 10vw, 128px);
+  line-height: 0.86;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
   color: var(--amber);
+  background: linear-gradient(180deg, #fce29b 0%, #f0a93a 45%, #e06a2b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 7px var(--ink);
   paint-order: stroke fill;
+  filter: drop-shadow(5px 6px 0 rgba(0, 0, 0, 0.45));
   transform: rotate(-2deg);
 }
-.fiction-title-small {
+
+/* De fyra scenbilderna. Grid-kolumnerna gör jobbet på båda skärmstorlekar:
+   under 1300px finns bara en kolumn så bilderna hamnar i det vanliga
+   textflödet ("insprängt"), och från 1300px och uppåt öppnas två
+   marginalkolumner vid sidan av den 620px breda textspalten där bilderna
+   flyter ut till höger och vänster om texten. Ingen pixelräknad
+   positionering — grid-row: span gör att varje bild landar ungefär i höjd
+   med stycket den syftar på. */
+.fiction-copy-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 32px;
+}
+
+.fiction-stage-photo {
+  margin: 32px auto;
+  width: min(100%, 380px);
+}
+.fiction-stage-photo--left { transform: rotate(-2deg); }
+.fiction-stage-photo--right { transform: rotate(2deg); }
+.fiction-stage-photo img {
   display: block;
-  margin: 14px auto 0;
-  max-width: 46ch;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(15px, 1.7vw, 19px);
-  letter-spacing: -0.01em;
-  line-height: 1.4;
-  color: var(--cream);
-  opacity: 0.92;
+  width: 100%;
+  height: auto;
+  border: 4px solid var(--cream);
+  border-radius: 10px;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
-/* Prisskylten på affischen, återanvänd som "inga repriser" i övre hörnet. */
-.fiction-badge {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 104px;
-  height: 104px;
-  padding: 6px;
-  border-radius: 50%;
-  border: 4px solid var(--ink);
-  background: var(--amber);
-  color: var(--ink);
-  transform: rotate(9deg);
-  font-family: var(--font-comic);
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 1.05;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.fiction-genres {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin: 26px 0 0;
-}
-.fiction-genres li {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 7px 16px;
-  border: 2px solid var(--amber);
-  border-radius: 999px;
-  color: var(--amber);
-}
-
-@media (max-width: 620px) {
-  .fiction-poster { padding: 38px 20px 30px; }
-  .fiction-badge {
-    position: static;
-    width: auto;
-    height: auto;
-    margin: 18px auto 0;
-    padding: 8px 20px;
-    border-radius: 999px;
-    transform: rotate(-3deg);
+@media (min-width: 1300px) {
+  .fiction-copy-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 620px) minmax(0, 1fr);
   }
+  .fiction-copy-grid > :not(.fiction-stage-photo) { grid-column: 2; min-width: 0; }
+  .fiction-stage-photo {
+    grid-row: span 4;
+    align-self: start;
+    width: 100%;
+    max-width: 230px;
+    margin: 6px 0;
+  }
+  .fiction-stage-photo--left { grid-column: 1; justify-self: end; }
+  .fiction-stage-photo--right { grid-column: 3; justify-self: start; }
 }
 
 .prose {
@@ -1323,23 +1310,33 @@ figcaption { position: relative; min-height: 58px; }
   max-width: 24ch;
   margin: 56px 0 16px;
 }
-.prose > p {
+.fiction-copy-grid > p {
   max-width: 68ch;
   font-size: 17px;
   line-height: 1.65;
   margin: 0 0 16px;
   text-wrap: pretty;
 }
-/* Showlistan på undersidan ligger i löptexten och behöver luft omkring sig. */
+/* Showlistan på undersidan ligger i löptexten och behöver luft omkring sig.
+   Kanterna och gästfotona var ritade mot en ljus sida (bläckfärgade), och
+   syns inte mot den mörka scenen — samma "sticker"-look men i krita/svart
+   skugga istället för bläck. */
 .prose .show-list { margin: 26px 0 0; }
+.prose .show-list,
+.prose .show-item { border-color: rgba(247, 239, 227, 0.28); }
+.prose .guest-photo {
+  border-color: var(--cream);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+}
+.prose .show-link { color: var(--amber); }
+.prose .show-link:hover, .prose .show-link:focus-visible { color: var(--cream); }
 
 /* Bredare kolumner än på startsidans panel: här står posterna på en bred yta,
-   och "Midsommarkransen" gick annars in i kolumnen bredvid. */
+   och "Midsommarkransen" gick annars in i kolumnen bredvid. Kant-färgen är
+   samma krita-på-mörkt som .fiction-facts redan har på startsidans panel. */
 .prose .fiction-facts {
   max-width: 68ch;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  border-top-color: rgba(30, 26, 23, 0.18);
-  border-bottom-color: rgba(30, 26, 23, 0.18);
 }
 .prose .fiction-facts dd { overflow-wrap: break-word; }
 
